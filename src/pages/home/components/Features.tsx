@@ -1,5 +1,5 @@
 import { useScrollAnimation } from "../../../hooks/useScrollAnimation";
-import FeatureCard, { FEATURE_CARD_STYLES, type Feature } from "./FeatureCard";
+import FeatureCard, { type Feature } from "./FeatureCard";
 
 export default function Features() {
 	const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation();
@@ -80,7 +80,7 @@ export default function Features() {
 							: "opacity-0 translate-y-10"
 					}`}
 				>
-					<h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-2 sm:mb-4">
+					<h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-secondary mb-2 sm:mb-4">
 						What VerifyAfrica Does
 					</h2>
 					<p className="text-sm sm:text-base lg:text-xl text-gray-600 max-w-3xl mx-auto px-2">

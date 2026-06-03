@@ -36,7 +36,7 @@ export default function FeatureCard({
 						className={`icon-inner ${feature.icon} text-lg sm:text-xl md:text-2xl text-teal-600 relative z-10`}
 					></i>
 				</div>
-				<h3 className="text-sm sm:text-base md:text-lg font-bold text-gray-900 mb-1 sm:mb-2 group-hover:text-teal-700 transition-colors duration-300">
+				<h3 className="text-sm sm:text-base md:text-lg font-bold text-secondary mb-1 sm:mb-2 group-hover:text-teal-700 transition-colors duration-300">
 					{feature.title}
 				</h3>
 				<p className="text-[11px] sm:text-xs md:text-sm text-gray-600 leading-relaxed">
@@ -45,7 +45,7 @@ export default function FeatureCard({
 			</div>
 
 			<div className="absolute -bottom-4 -right-4 w-24 h-24 bg-teal-100/30 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-			<div className="absolute bottom-3 right-3 w-7 h-7 flex items-center justify-center bg-gray-900 rounded-full opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-300 z-20">
+			<div className="absolute bottom-3 right-3 w-7 h-7 flex items-center justify-center bg-secondary rounded-full opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-300 z-20">
 				<i className="ri-arrow-right-up-line text-white text-sm" />
 			</div>
 		</Link>
