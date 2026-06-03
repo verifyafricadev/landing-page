@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- ═══════════════════════════════════════════════════
+       BLOG ARTICLES — sorted newest to oldest
+  ═══════════════════════════════════════════════════ -->
+
+  <!-- iGaming Compliance East Africa (Mar 28, 2025) -->
+  <url>
+    <loc>https://example.com/blog/igaming-compliance-east-africa</loc>
+    <lastmod>2025-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/blog/igaming-compliance-east-africa"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://example.com/blog/igaming-compliance-east-africa"/>
+    <xhtml:link rel="alternate" hreflang="en-KE"     href="https://example.com/blog/igaming-compliance-east-africa"/>
+    <xhtml:link rel="alternate" hreflang="en-TZ"     href="https://example.com/blog/igaming-compliance-east-africa"/>
+    <xhtml:link rel="alternate" hreflang="en-UG"     href="https://example.com/blog/igaming-compliance-east-africa"/>
+  </url>
+
+  <!-- KYC Regulations West Africa 2025 (Jan 15, 2025) -->
+  <url>
+    <loc>https://example.com/blog/understanding-kyc-regulations-west-africa-2025</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/blog/understanding-kyc-regulations-west-africa-2025"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://example.com/blog/understanding-kyc-regulations-west-africa-2025"/>
+    <xhtml:link rel="alternate" hreflang="en-NG"     href="https://example.com/blog/understanding-kyc-regulations-west-africa-2025"/>
+    <xhtml:link rel="alternate" hreflang="en-GH"     href="https://example.com/blog/understanding-kyc-regulations-west-africa-2025"/>
+  </url>
+
+  <!-- AML Screening Best Practices (Jan 10, 2025) -->
+  <url>
+    <loc>https://example.com/blog/aml-screening-best-practices-african-fintechs</loc>
+    <lastmod>2025-01-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/blog/aml-screening-best-practices-african-fintechs"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://example.com/blog/aml-screening-best-practices-african-fintechs"/>
+  </url>
+
+  <!-- Case Study: Paystack Identity Verification (Jan 5, 2025) -->
+  <url>
+    <loc>https://example.com/blog/case-study-paystack-identity-verification</loc>
+    <lastmod>2025-01-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/blog/case-study-paystack-identity-verification"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://example.com/blog/case-study-paystack-identity-verification"/>
+  </url>
+
+  <!-- South Africa FICA Amendments 2025 (Dec 28, 2024) -->
+  <url>
+    <loc>https://example.com/blog/south-africa-fica-amendments-2025</loc>
+    <lastmod>2024-12-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/blog/south-africa-fica-amendments-2025"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://example.com/blog/south-africa-fica-amendments-2025"/>
+    <xhtml:link rel="alternate" hreflang="en-ZA"     href="https://example.com/blog/south-africa-fica-amendments-2025"/>
+  </url>
+
+  <!-- Biometric Verification Guide Africa (Dec 20, 2024) -->
+  <url>
+    <loc>https://example.com/blog/biometric-verification-guide-africa</loc>
+    <lastmod>2024-12-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/blog/biometric-verification-guide-africa"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://example.com/blog/biometric-verification-guide-africa"/>
+  </url>
+
+  <!-- Risk-Based CDD Framework (Dec 10, 2024) -->
+  <url>
+    <loc>https://example.com/blog/building-risk-based-approach-customer-due-diligence</loc>
+    <lastmod>2024-12-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/blog/building-risk-based-approach-customer-due-diligence"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://example.com/blog/building-risk-based-approach-customer-due-diligence"/>
+  </url>
+
+  <!-- Case Study: FX Broker Compliance Automation (Dec 5, 2024) -->
+  <url>
+    <loc>https://example.com/blog/case-study-fx-broker-compliance-automation</loc>
+    <lastmod>2024-12-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/blog/case-study-fx-broker-compliance-automation"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://example.com/blog/case-study-fx-broker-compliance-automation"/>
+  </url>
+
+  <!-- GDPR vs NDPR Comparison Guide (Nov 28, 2024) -->
+  <url>
+    <loc>https://example.com/blog/gdpr-vs-ndpr-comparison-guide</loc>
+    <lastmod>2024-11-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/blog/gdpr-vs-ndpr-comparison-guide"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://example.com/blog/gdpr-vs-ndpr-comparison-guide"/>
+  </url>
+
+</urlset>

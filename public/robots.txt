@@ -1,0 +1,64 @@
+User-agent: *
+
+# ── Private paths (authentication, admin, payment flows, legal-only pages) ──
+Disallow: /admin
+Disallow: /admin/
+Disallow: /dashboard
+Disallow: /dashboard/
+Disallow: /login
+Disallow: /login/
+Disallow: /checkout
+Disallow: /checkout/
+Disallow: /account
+Disallow: /account/
+Disallow: /privacy-policy
+Disallow: /terms
+Disallow: /cookie-policy
+Disallow: /data-disposal-policy
+
+# ── Explicitly allow all public pages ─────────────────────────────────────
+Allow: /
+Allow: /about
+Allow: /features
+Allow: /features/
+Allow: /features/identity-verification
+Allow: /features/business-verification-kyb
+Allow: /features/aml-sanctions-screening
+Allow: /features/fraud-detection
+Allow: /features/biometrics-liveness
+Allow: /features/address-verification-geolocation
+Allow: /features/transaction-risk-scoring
+Allow: /features/ongoing-monitoring
+Allow: /case-studies
+Allow: /blog
+Allow: /blog/
+Allow: /blog/understanding-kyc-regulations-west-africa-2025
+Allow: /blog/aml-screening-best-practices-african-fintechs
+Allow: /blog/case-study-paystack-identity-verification
+Allow: /blog/south-africa-fica-amendments-2025
+Allow: /blog/biometric-verification-guide-africa
+Allow: /blog/igaming-compliance-east-africa
+Allow: /blog/building-risk-based-approach-customer-due-diligence
+Allow: /blog/case-study-fx-broker-compliance-automation
+Allow: /blog/gdpr-vs-ndpr-comparison-guide
+Allow: /resources
+Allow: /resources/
+Allow: /resources/verifyafrica-kyc-ghana-guide-2026
+Allow: /resources/verifyafrica-kyc-kenya-guide-2026
+Allow: /resources/verifyafrica-kyc-southafrica-guide-2026
+Allow: /resources/verifyafrica-kyc-nigeria-guide-2026
+Allow: /resources/verifyafrica-kyc-africa-2025
+Allow: /resources/african-kyc-compliance-checklist-2025
+Allow: /resources/aml-risk-assessment-template
+Allow: /resources/pep-screening-guide-africa
+Allow: /resources/biometric-verification-playbook
+Allow: /resources/cross-border-data-protection-checklist
+Allow: /resources/fintech-onboarding-compliance-playbook
+Allow: /docs
+Allow: /contact
+Allow: /support
+
+# ── Sitemaps ───────────────────────────────────────────────────────────────
+Sitemap: https://example.com/sitemap-index.xml
+Sitemap: https://example.com/sitemap.xml
+Sitemap: https://example.com/sitemap-blog.xml

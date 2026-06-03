@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  VerifyAfrica — Sitemap Index
+  ─────────────────────────────────────────────────────────────────────────────
+  Submit THIS file to Google Search Console so Google discovers all child
+  sitemaps automatically.
+
+  Child sitemaps:
+    1. sitemap.xml       — Core pages (home, about, case-studies, docs, etc.)
+    2. sitemap-blog.xml  — All blog articles (dedicated crawl budget for content)
+  ─────────────────────────────────────────────────────────────────────────────
+-->
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- ── 1. Core pages sitemap ── -->
+  <sitemap>
+    <loc>https://example.com/sitemap.xml</loc>
+    <lastmod>2026-04-28</lastmod>
+  </sitemap>
+
+  <!-- ── 2. Blog articles sitemap ── -->
+  <sitemap>
+    <loc>https://example.com/sitemap-blog.xml</loc>
+    <lastmod>2026-04-28</lastmod>
+  </sitemap>
+
+</sitemapindex>
