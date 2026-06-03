@@ -1,21 +1,25 @@
 import { useScrollAnimation } from "../../../hooks/useScrollAnimation";
 
-// Keyframe injected once at module level — not re-created on every render
-const SLIDE_CODE_STYLE = `
-  @keyframes slideCode {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
-  }
-`;
-if (
-	typeof document !== "undefined" &&
-	!document.getElementById("slide-code-kf")
-) {
-	const s = document.createElement("style");
-	s.id = "slide-code-kf";
-	s.textContent = SLIDE_CODE_STYLE;
-	document.head.appendChild(s);
-}
+const options = [
+	{
+		variant: "light" as const,
+		icon: "ri-dashboard-line",
+		title: "VerifyAfrica Dashboard",
+		description:
+			"Manage onboarding, monitor risk, and review cases through our compliance interface. Perfect for teams who need a visual workflow and case management system.",
+		href: "https://dashboard.verifyafrica.io/login",
+		linkLabel: "Explore Dashboard",
+	},
+	{
+		variant: "dark" as const,
+		icon: "ri-code-s-slash-line",
+		title: "Integrate via API",
+		description:
+			"Embed identity and compliance checks directly into your onboarding flow or CRM. Flexible, modular, and built for scale.",
+		href: "https://docs.verifyafrica.io/",
+		linkLabel: "View API Docs",
+	},
+];
 
 export default function HowItWorks() {
 	const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation();
@@ -44,107 +48,160 @@ export default function HowItWorks() {
 
 				<div
 					ref={cardsRef}
-					className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8"
+					className="flex flex-col md:flex-row gap-4 sm:gap-6 lg:gap-8"
 				>
-					{/* Dashboard Card */}
-					<div
-						className={`group relative bg-gradient-to-br from-teal-50 to-cyan-50 rounded-xl sm:rounded-2xl p-5 sm:p-7 lg:p-10 border border-teal-100 overflow-hidden cursor-default ${
-							cardsVisible
-								? "opacity-100 translate-y-0 rotate-0"
-								: "opacity-0 translate-y-12 -rotate-1"
-						}`}
-						style={{ transition: "all 0.6s cubic-bezier(0.4, 0, 0.2, 1)" }}
-					>
-						{/* Animated background pattern */}
-						<div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-							<div className="absolute top-0 right-0 w-48 sm:w-64 h-48 sm:h-64 bg-teal-200/30 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2 group-hover:scale-150 transition-transform duration-700"></div>
-							<div className="absolute bottom-0 left-0 w-36 sm:w-48 h-36 sm:h-48 bg-cyan-200/30 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2 group-hover:scale-150 transition-transform duration-700"></div>
-						</div>
-
-						<div className="relative z-10">
-							<div className="w-11 h-11 sm:w-14 md:w-16 sm:h-14 md:h-16 flex items-center justify-center bg-teal-500 rounded-lg sm:rounded-xl mb-3 sm:mb-6 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 group-hover:shadow-lg group-hover:shadow-teal-500/30">
-								<i className="ri-dashboard-line text-xl sm:text-2xl md:text-3xl text-white transition-transform duration-300 group-hover:scale-110"></i>
-							</div>
-							<h3 className="text-lg sm:text-xl md:text-2xl font-bold text-secondary mb-2 sm:mb-4 transition-colors duration-300 group-hover:text-teal-700">
-								Option 1 — Use the VerifyAfrica Dashboard
-							</h3>
-							<p className="text-xs sm:text-sm md:text-base text-gray-700 leading-relaxed mb-3 sm:mb-6">
-								Manage onboarding, monitor risk, and review cases through our
-								compliance interface. Perfect for teams who need a visual
-								workflow and case management system.
-							</p>
-							<a
-								href="https://dashboard.verifyafrica.io/login"
-								target="_blank"
-								rel="noopener noreferrer"
-								className="inline-flex items-center space-x-2 text-teal-600 font-semibold hover:text-teal-700 transition-all group/link text-sm sm:text-base"
-							>
-								<span className="relative">
-									Explore Dashboard
-									<span className="absolute bottom-0 left-0 w-0 h-0.5 bg-teal-600 group-hover/link:w-full transition-all duration-300"></span>
-								</span>
-								<i className="ri-arrow-right-line transition-transform group-hover/link:translate-x-2"></i>
-							</a>
-						</div>
-					</div>
-
-					{/* API Card */}
-					<div
-						className={`group relative bg-gradient-to-br from-secondary to-gray-800 rounded-xl sm:rounded-2xl p-5 sm:p-7 lg:p-10 text-white overflow-hidden cursor-default ${
-							cardsVisible
-								? "opacity-100 translate-y-0 rotate-0"
-								: "opacity-0 translate-y-12 rotate-1"
-						}`}
-						style={{
-							transition: "all 0.6s cubic-bezier(0.4, 0, 0.2, 1) 150ms",
-						}}
-					>
-						{/* Animated code lines background - Hidden on mobile */}
-						<div className="absolute inset-0 opacity-10 group-hover:opacity-20 transition-opacity duration-500 hidden sm:block">
-							{[...Array(8)].map((_, i) => (
-								<div
-									key={i}
-									className="absolute h-px bg-gradient-to-r from-transparent via-teal-400 to-transparent"
-									style={{
-										top: `${15 + i * 12}%`,
-										left: "10%",
-										right: "10%",
-										transform: `translateX(${i % 2 === 0 ? "-100%" : "100%"})`,
-										animation: `slideCode ${3 + i * 0.5}s linear infinite`,
-										animationDelay: `${i * 0.3}s`,
-									}}
-								/>
-							))}
-						</div>
-
-						{/* Glowing orb */}
-						<div className="absolute top-1/2 right-0 w-48 sm:w-64 h-48 sm:h-64 bg-teal-500/10 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2 group-hover:bg-teal-500/20 group-hover:scale-125 transition-all duration-700"></div>
-
-						<div className="relative z-10">
-							<div className="w-11 h-11 sm:w-14 md:w-16 sm:h-14 md:h-16 flex items-center justify-center bg-teal-500 rounded-lg sm:rounded-xl mb-3 sm:mb-6 transition-all duration-500 group-hover:scale-110 group-hover:-rotate-6 group-hover:shadow-lg group-hover:shadow-teal-500/30">
-								<i className="ri-code-s-slash-line text-xl sm:text-2xl md:text-3xl text-white transition-transform duration-300 group-hover:scale-110"></i>
-							</div>
-							<h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-4 transition-colors duration-300 group-hover:text-teal-300">
-								Option 2 — Integrate via API
-							</h3>
-							<p className="text-xs sm:text-sm md:text-base text-gray-300 leading-relaxed mb-3 sm:mb-6">
-								Embed identity and compliance checks directly into your
-								onboarding flow or CRM. Flexible, modular, and built for scale.
-							</p>
-							<a
-								href="/docs"
-								className="inline-flex items-center space-x-2 text-teal-400 font-semibold hover:text-teal-300 transition-all group/link text-sm sm:text-base"
-							>
-								<span className="relative">
-									View API Docs
-									<span className="absolute bottom-0 left-0 w-0 h-0.5 bg-teal-400 group-hover/link:w-full transition-all duration-300"></span>
-								</span>
-								<i className="ri-arrow-right-line transition-transform group-hover/link:translate-x-2"></i>
-							</a>
-						</div>
-					</div>
+					{options.map((option, index) => (
+						<HowItWorksCard
+							key={option.title}
+							{...option}
+							isVisible={cardsVisible}
+							index={index}
+						/>
+					))}
 				</div>
 			</div>
 		</section>
+	);
+}
+
+const SLIDE_CODE_STYLE = `
+  @keyframes slideCode {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+`;
+
+if (
+	typeof document !== "undefined" &&
+	!document.getElementById("slide-code-kf")
+) {
+	const style = document.createElement("style");
+	style.id = "slide-code-kf";
+	style.textContent = SLIDE_CODE_STYLE;
+	document.head.appendChild(style);
+}
+
+export type HowItWorksCardVariant = "light" | "dark";
+
+export interface HowItWorksCardProps {
+	variant: HowItWorksCardVariant;
+	icon: string;
+	title: string;
+	description: string;
+	href: string;
+	linkLabel: string;
+	isVisible: boolean;
+	index?: number;
+}
+
+const variantStyles = {
+	light: {
+		card: "bg-linear-to-br from-teal-50 to-cyan-50 border border-teal-100",
+		hiddenRotate: "-rotate-1",
+		iconHoverRotate: "group-hover:rotate-6",
+		title: "text-secondary group-hover:text-teal-700",
+		description: "text-gray-700",
+		link: "text-teal-600 hover:text-teal-700",
+		linkUnderline: "bg-teal-600",
+	},
+	dark: {
+		card: "bg-linear-to-br from-secondary to-gray-800 text-white",
+		hiddenRotate: "rotate-1",
+		iconHoverRotate: "group-hover:-rotate-6",
+		title: "group-hover:text-teal-300",
+		description: "text-gray-300",
+		link: "text-teal-400 hover:text-teal-300",
+		linkUnderline: "bg-teal-400",
+	},
+} as const;
+
+function HowItWorksCard({
+	variant,
+	icon,
+	title,
+	description,
+	href,
+	linkLabel,
+	isVisible,
+	index = 0,
+}: HowItWorksCardProps) {
+	const styles = variantStyles[variant];
+
+	return (
+		<div
+			className={`group relative flex-1 flex flex-col rounded-xl sm:rounded-2xl p-5 sm:p-7 lg:p-10 overflow-hidden cursor-default ${styles.card} ${
+				isVisible
+					? "opacity-100 translate-y-0 rotate-0"
+					: `opacity-0 translate-y-12 ${styles.hiddenRotate}`
+			}`}
+			style={{
+				transition: `all 0.6s cubic-bezier(0.4, 0, 0.2, 1) ${index * 150}ms`,
+			}}
+		>
+			{variant === "light" ? (
+				<div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+					<div className="absolute top-0 right-0 w-48 sm:w-64 h-48 sm:h-64 bg-teal-200/30 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2 group-hover:scale-150 transition-transform duration-700" />
+					<div className="absolute bottom-0 left-0 w-36 sm:w-48 h-36 sm:h-48 bg-cyan-200/30 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2 group-hover:scale-150 transition-transform duration-700" />
+				</div>
+			) : (
+				<>
+					<div className="absolute inset-0 opacity-10 group-hover:opacity-20 transition-opacity duration-500 hidden sm:block">
+						{[...Array(8)].map((_, i) => (
+							<div
+								key={i}
+								className="absolute h-px bg-linear-to-r from-transparent via-teal-400 to-transparent"
+								style={{
+									top: `${15 + i * 12}%`,
+									left: "10%",
+									right: "10%",
+									transform: `translateX(${i % 2 === 0 ? "-100%" : "100%"})`,
+									animation: `slideCode ${3 + i * 0.5}s linear infinite`,
+									animationDelay: `${i * 0.3}s`,
+								}}
+							/>
+						))}
+					</div>
+					<div className="absolute top-1/2 right-0 w-48 sm:w-64 h-48 sm:h-64 bg-teal-500/10 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2 group-hover:bg-teal-500/20 group-hover:scale-125 transition-all duration-700" />
+				</>
+			)}
+
+			<div className="relative flex flex-col flex-1">
+				<div className="flex  flex-col">
+					<div
+						className={`w-11 h-11 sm:w-14 md:w-16 sm:h-14 md:h-16 flex items-center justify-center bg-teal-500 rounded-lg sm:rounded-xl mb-3 sm:mb-6 transition-all duration-500 group-hover:scale-110 ${styles.iconHoverRotate} group-hover:shadow-lg group-hover:shadow-teal-500/30`}
+					>
+						<i
+							className={`${icon} text-xl sm:text-2xl md:text-3xl text-white transition-transform duration-300 group-hover:scale-110`}
+						/>
+					</div>
+					<h3
+						className={`text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-4 transition-colors duration-300 ${styles.title}`}
+					>
+						{title}
+					</h3>
+				</div>
+				<div className="flex-1 flex flex-col justify-between">
+					<p
+						className={`text-xs sm:text-sm md:text-base leading-relaxed mb-3 sm:mb-6 ${styles.description}`}
+					>
+						{description}
+					</p>
+					<a
+						href={href}
+						target="_blank"
+						rel="noopener noreferrer"
+						className={`inline-flex items-center gap-2 font-semibold transition-all group/link text-sm sm:text-base ${styles.link}`}
+					>
+						<span className="relative">
+							{linkLabel}
+							<span
+								className={`absolute bottom-0 left-0 w-0 h-0.5 ${styles.linkUnderline} group-hover/link:w-full transition-all duration-300`}
+							/>
+						</span>
+						<i className="ri-arrow-right-line transition-transform group-hover/link:translate-x-2" />
+					</a>
+				</div>
+			</div>
+		</div>
 	);
 }
