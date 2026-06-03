@@ -1,5 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
+import tailwindcss from "@tailwindcss/vite";
 import { resolve } from "node:path";
 import AutoImport from "unplugin-auto-import/vite";
 import { compression } from "vite-plugin-compression2";
@@ -17,6 +18,7 @@ export default defineConfig({
   },
   plugins: [
     react(),
+    tailwindcss(),
     // Gzip compression — widest server/CDN support
     compression({
       algorithm: 'gzip',

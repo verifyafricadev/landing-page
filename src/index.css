@@ -1,9 +1,7 @@
-@import 'tw-animate-css' layer(base);
-@import 'tw-animate-css';
-@import 'shadcn/tailwind.css' layer(base);
-@import 'shadcn/tailwind.utilities.css';
-@import '@fontsource-variable/geist' layer(base);
-@import 'tailwindcss';
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/geist";
 
 @theme {
   --font-sans: Inter, system-ui, -apple-system, sans-serif;
