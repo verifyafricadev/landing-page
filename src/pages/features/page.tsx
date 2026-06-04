@@ -10,7 +10,7 @@ import FeatureHowItWorks from './components/FeatureHowItWorks';
 import FeatureCapabilities from './components/FeatureCapabilities';
 import FeatureUseCases from './components/FeatureUseCases';
 import FAQ from '@/components/feature/FAQ';
-import FeatureCTA from './components/FeatureCTA';
+import FinalCTA from '@/pages/home/components/FinalCTA';
 import FeatureOtherFeatures from './components/FeatureOtherFeatures';
 
 const Footer = lazy(() => import('@/components/feature/Footer'));
@@ -79,7 +79,7 @@ export default function FeaturePage() {
       <FeatureUseCases feature={feature} />
       <FAQ faqs={feature.faqs} />
       <FeatureOtherFeatures currentSlug={feature.slug} />
-      <FeatureCTA />
+      <FinalCTA onRequestDemo={openDemo} />
       <Suspense fallback={null}>
         <Footer />
       </Suspense>

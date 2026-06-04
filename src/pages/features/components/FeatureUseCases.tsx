@@ -1,6 +1,66 @@
 import type { FeatureDetail } from "@/mocks/featureDetails";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
+const industryIcons: Record<string, string> = {
+	Fintech: "ri-bank-line",
+	Neobanks: "ri-bank-line",
+	"Fintech & Neobanks": "ri-bank-line",
+	"Fintech & Banking": "ri-bank-line",
+	"Banks & Lenders": "ri-building-2-line",
+	iGaming: "ri-gamepad-line",
+	"iGaming & Betting": "ri-gamepad-line",
+	"FX & Remittance": "ri-exchange-dollar-line",
+	Marketplaces: "ri-store-2-line",
+	"B2B Marketplaces": "ri-store-2-line",
+	"Payment Processors": "ri-secure-payment-line",
+	Insurance: "ri-shield-line",
+	Lending: "ri-money-dollar-circle-line",
+	"E-commerce": "ri-shopping-cart-line",
+	Telecoms: "ri-phone-line",
+	Healthcare: "ri-heart-pulse-line",
+	"Asset Management": "ri-funds-line",
+};
+
+function getIndustryIcon(industry: string) {
+	for (const key of Object.keys(industryIcons)) {
+		if (industry.includes(key)) return industryIcons[key];
+	}
+	return "ri-building-line";
+}
+
+interface FeatureUseCaseCardProps {
+	industry: string;
+	description: string;
+	index: number;
+	isVisible: boolean;
+}
+
+function FeatureUseCaseCard({
+	industry,
+	description,
+	index,
+	isVisible,
+}: FeatureUseCaseCardProps) {
+	return (
+		<div
+			className="flex gap-5 p-6 bg-gray-50 rounded-xl border hover:shadow-md transition-all duration-300"
+			style={{
+				opacity: isVisible ? 1 : 0,
+				transform: isVisible ? "translateY(0)" : "translateY(20px)",
+				transition: `all 0.5s ease-out ${index * 100}ms`,
+			}}
+		>
+			<div className="w-12 h-12 flex items-center justify-center bg-teal-100 rounded-lg shrink-0">
+				<i className={`${getIndustryIcon(industry)} text-xl text-teal-600`} />
+			</div>
+			<div>
+				<h3 className="text-base font-bold text-secondary mb-1.5">{industry}</h3>
+				<p className="text-sm text-gray-600 leading-relaxed">{description}</p>
+			</div>
+		</div>
+	);
+}
+
 interface FeatureUseCasesProps {
 	feature: FeatureDetail;
 }
@@ -10,33 +70,6 @@ export default function FeatureUseCases({ feature }: FeatureUseCasesProps) {
 	const { ref: cardsRef, isVisible: cardsVisible } = useScrollAnimation({
 		threshold: 0.1,
 	});
-
-	const industryIcons: Record<string, string> = {
-		Fintech: "ri-bank-line",
-		Neobanks: "ri-bank-line",
-		"Fintech & Neobanks": "ri-bank-line",
-		"Fintech & Banking": "ri-bank-line",
-		"Banks & Lenders": "ri-building-2-line",
-		iGaming: "ri-gamepad-line",
-		"iGaming & Betting": "ri-gamepad-line",
-		"FX & Remittance": "ri-exchange-dollar-line",
-		Marketplaces: "ri-store-2-line",
-		"B2B Marketplaces": "ri-store-2-line",
-		"Payment Processors": "ri-secure-payment-line",
-		Insurance: "ri-shield-line",
-		Lending: "ri-money-dollar-circle-line",
-		"E-commerce": "ri-shopping-cart-line",
-		Telecoms: "ri-phone-line",
-		Healthcare: "ri-heart-pulse-line",
-		"Asset Management": "ri-funds-line",
-	};
-
-	const getIcon = (industry: string) => {
-		for (const key of Object.keys(industryIcons)) {
-			if (industry.includes(key)) return industryIcons[key];
-		}
-		return "ri-building-line";
-	};
 
 	return (
 		<section className="py-16 md:py-24 bg-white">
@@ -66,29 +99,13 @@ export default function FeatureUseCases({ feature }: FeatureUseCasesProps) {
 					className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6"
 				>
 					{feature.useCases.map((uc, i) => (
-						<div
-							key={i}
-							className="flex gap-5 p-6 bg-gray-50 rounded-xl border hover:shadow-md transition-all duration-300"
-							style={{
-								opacity: cardsVisible ? 1 : 0,
-								transform: cardsVisible ? "translateY(0)" : "translateY(20px)",
-								transition: `all 0.5s ease-out ${i * 100}ms`,
-							}}
-						>
-							<div className="w-12 h-12 flex items-center justify-center bg-teal-100 rounded-lg shrink-0">
-								<i
-									className={`${getIcon(uc.industry)} text-xl text-teal-600`}
-								/>
-							</div>
-							<div>
-								<h3 className="text-base font-bold text-secondary mb-1.5">
-									{uc.industry}
-								</h3>
-								<p className="text-sm text-gray-600 leading-relaxed">
-									{uc.description}
-								</p>
-							</div>
-						</div>
+						<FeatureUseCaseCard
+							key={uc.industry}
+							industry={uc.industry}
+							description={uc.description}
+							index={i}
+							isVisible={cardsVisible}
+						/>
 					))}
 				</div>
 			</div>

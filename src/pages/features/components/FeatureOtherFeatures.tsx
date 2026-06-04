@@ -2,6 +2,48 @@ import { Link } from "react-router-dom";
 import { featureDetails } from "@/mocks/featureDetails";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
+interface FeatureOtherFeatureCardProps {
+	slug: string;
+	icon: string;
+	title: string;
+	tagline: string;
+	index: number;
+	isVisible: boolean;
+}
+
+function FeatureOtherFeatureCard({
+	slug,
+	icon,
+	title,
+	tagline,
+	index,
+	isVisible,
+}: FeatureOtherFeatureCardProps) {
+	return (
+		<Link
+			to={`/features/${slug}`}
+			className="group flex flex-col p-6 bg-gray-50 rounded-xl border hover:shadow-md transition-all duration-300 cursor-pointer"
+			style={{
+				opacity: isVisible ? 1 : 0,
+				transform: isVisible ? "translateY(0)" : "translateY(20px)",
+				transition: `all 0.5s ease-out ${index * 100}ms`,
+			}}
+		>
+			<div className="w-11 h-11 flex items-center justify-center bg-teal-100 rounded-lg mb-4 group-hover:bg-teal-200 transition-colors duration-300">
+				<i className={`${icon} text-xl text-teal-600`} />
+			</div>
+			<h3 className="text-base font-bold text-secondary mb-2 group-hover:text-teal-700 transition-colors duration-300">
+				{title}
+			</h3>
+			<p className="text-sm text-gray-600 leading-relaxed flex-1">{tagline}</p>
+			<div className="mt-4 flex items-center gap-1 text-teal-600 text-sm font-medium">
+				Learn more
+				<i className="ri-arrow-right-line transition-transform duration-300 group-hover:translate-x-1" />
+			</div>
+		</Link>
+	);
+}
+
 interface FeatureOtherFeaturesProps {
 	currentSlug: string;
 }
@@ -42,30 +84,15 @@ export default function FeatureOtherFeatures({
 					className="grid grid-cols-1 sm:grid-cols-3 gap-5 md:gap-6"
 				>
 					{others.map((f, i) => (
-						<Link
+						<FeatureOtherFeatureCard
 							key={f.slug}
-							to={`/features/${f.slug}`}
-							className="group flex flex-col p-6 bg-gray-50 rounded-xl border border-gray-100 hover:border-teal-200 hover:bg-teal-50/30 transition-all duration-300 cursor-pointer"
-							style={{
-								opacity: gridVisible ? 1 : 0,
-								transform: gridVisible ? "translateY(0)" : "translateY(20px)",
-								transition: `all 0.5s ease-out ${i * 100}ms`,
-							}}
-						>
-							<div className="w-11 h-11 flex items-center justify-center bg-teal-100 rounded-lg mb-4 group-hover:bg-teal-200 transition-colors duration-300">
-								<i className={`${f.icon} text-xl text-teal-600`} />
-							</div>
-							<h3 className="text-base font-bold text-secondary mb-2 group-hover:text-teal-700 transition-colors duration-300">
-								{f.title}
-							</h3>
-							<p className="text-sm text-gray-600 leading-relaxed flex-1">
-								{f.tagline}
-							</p>
-							<div className="mt-4 flex items-center gap-1 text-teal-600 text-sm font-medium">
-								Learn more
-								<i className="ri-arrow-right-line transition-transform duration-300 group-hover:translate-x-1" />
-							</div>
-						</Link>
+							slug={f.slug}
+							icon={f.icon}
+							title={f.title}
+							tagline={f.tagline}
+							index={i}
+							isVisible={gridVisible}
+						/>
 					))}
 				</div>
 			</div>
