@@ -1,11 +1,19 @@
 import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
-import { featureDetails } from "@/mocks/featureDetails";
+import { featureDetails, type FeatureDetail } from "@/mocks/featureDetails";
 import Navbar from "@/pages/home/components/Navbar";
 import Footer from "@/pages/home/components/Footer";
 import { useDemoModal } from "@/hooks/useDemoModal";
-import DemoRequestForm from "@/pages/home/components/DemoRequestForm";
 import SEOHead from "@/components/feature/SEOHead";
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from "@/components/ui/card";
+import FinalCTA from "@/pages/home/components/FinalCTA";
 
 const CATEGORIES = [
 	{ label: "All Features", value: "all" },
@@ -28,49 +36,100 @@ const CATEGORY_MAP: Record<string, string[]> = {
 
 const FEATURE_COLORS: Record<
 	string,
-	{ bg: string; icon: string; badge: string }
+	{
+		band: string;
+		icon: string;
+		iconHover: string;
+		badge: string;
+		tagline: string;
+		titleHover: string;
+		borderHover: string;
+		footer: string;
+	}
 > = {
 	"identity-verification": {
-		bg: "from-teal-50 to-cyan-50",
+		band: "from-teal-50 to-cyan-50",
 		icon: "bg-teal-100 text-teal-600",
+		iconHover: "group-hover:bg-teal-200",
 		badge: "bg-teal-100 text-teal-700",
+		tagline: "text-teal-600",
+		titleHover: "group-hover:text-teal-700",
+		borderHover: "hover:border-teal-300",
+		footer: "bg-teal-50/40",
 	},
 	"business-verification-kyb": {
-		bg: "from-emerald-50 to-teal-50",
+		band: "from-emerald-50 to-teal-50",
 		icon: "bg-emerald-100 text-emerald-600",
+		iconHover: "group-hover:bg-emerald-200",
 		badge: "bg-emerald-100 text-emerald-700",
+		tagline: "text-emerald-600",
+		titleHover: "group-hover:text-emerald-700",
+		borderHover: "hover:border-emerald-300",
+		footer: "bg-emerald-50/40",
 	},
 	"aml-sanctions-screening": {
-		bg: "from-orange-50 to-amber-50",
+		band: "from-orange-50 to-amber-50",
 		icon: "bg-orange-100 text-orange-600",
+		iconHover: "group-hover:bg-orange-200",
 		badge: "bg-orange-100 text-orange-700",
+		tagline: "text-orange-600",
+		titleHover: "group-hover:text-orange-700",
+		borderHover: "hover:border-orange-300",
+		footer: "bg-orange-50/40",
 	},
 	"fraud-detection": {
-		bg: "from-rose-50 to-pink-50",
+		band: "from-rose-50 to-pink-50",
 		icon: "bg-rose-100 text-rose-600",
+		iconHover: "group-hover:bg-rose-200",
 		badge: "bg-rose-100 text-rose-700",
+		tagline: "text-rose-600",
+		titleHover: "group-hover:text-rose-700",
+		borderHover: "hover:border-rose-300",
+		footer: "bg-rose-50/40",
 	},
 	"biometrics-liveness": {
-		bg: "from-violet-50 to-purple-50",
+		band: "from-violet-50 to-purple-50",
 		icon: "bg-violet-100 text-violet-600",
+		iconHover: "group-hover:bg-violet-200",
 		badge: "bg-violet-100 text-violet-700",
+		tagline: "text-violet-600",
+		titleHover: "group-hover:text-violet-700",
+		borderHover: "hover:border-violet-300",
+		footer: "bg-violet-50/40",
 	},
 	"address-verification-geolocation": {
-		bg: "from-sky-50 to-blue-50",
+		band: "from-sky-50 to-blue-50",
 		icon: "bg-sky-100 text-sky-600",
+		iconHover: "group-hover:bg-sky-200",
 		badge: "bg-sky-100 text-sky-700",
+		tagline: "text-sky-600",
+		titleHover: "group-hover:text-sky-700",
+		borderHover: "hover:border-sky-300",
+		footer: "bg-sky-50/40",
 	},
 	"transaction-risk-scoring": {
-		bg: "from-amber-50 to-yellow-50",
+		band: "from-amber-50 to-yellow-50",
 		icon: "bg-amber-100 text-amber-600",
+		iconHover: "group-hover:bg-amber-200",
 		badge: "bg-amber-100 text-amber-700",
+		tagline: "text-amber-600",
+		titleHover: "group-hover:text-amber-700",
+		borderHover: "hover:border-amber-300",
+		footer: "bg-amber-50/40",
 	},
 	"ongoing-monitoring": {
-		bg: "from-green-50 to-emerald-50",
+		band: "from-green-50 to-emerald-50",
 		icon: "bg-green-100 text-green-600",
+		iconHover: "group-hover:bg-green-200",
 		badge: "bg-green-100 text-green-700",
+		tagline: "text-green-600",
+		titleHover: "group-hover:text-green-700",
+		borderHover: "hover:border-green-300",
+		footer: "bg-green-50/40",
 	},
 };
+
+const DEFAULT_FEATURE_COLORS = FEATURE_COLORS["identity-verification"];
 
 const CATEGORY_LABEL_MAP: Record<string, string> = {
 	"identity-verification": "Identity & KYC",
@@ -171,10 +230,12 @@ const featuresIndexSchema = [
 	},
 ];
 
+type FeatureColors = (typeof FEATURE_COLORS)[string];
+
 export default function FeaturesIndexPage() {
 	const [search, setSearch] = useState("");
 	const [activeCategory, setActiveCategory] = useState("all");
-	const { isOpen, open, close } = useDemoModal();
+	const { openDemo } = useDemoModal();
 
 	const filtered = useMemo(() => {
 		let list = featureDetails;
@@ -209,10 +270,9 @@ export default function FeaturesIndexPage() {
 				twitterCard="summary_large_image"
 				schema={featuresIndexSchema}
 			/>
-			<Navbar onRequestDemo={open} />
-			<DemoRequestForm
-				isOpen={isOpen}
-				onClose={close}
+			<Navbar
+				onRequestDemo={openDemo}
+				variant="solid"
 			/>
 
 			{/* Hero */}
@@ -238,7 +298,7 @@ export default function FeaturesIndexPage() {
 						</p>
 						<div className="flex flex-col sm:flex-row gap-3 justify-center">
 							<button
-								onClick={open}
+								onClick={openDemo}
 								className="px-7 py-3 bg-teal-500 text-white font-semibold rounded-lg hover:bg-teal-600 transition-all whitespace-nowrap cursor-pointer"
 							>
 								Request a Demo
@@ -350,135 +410,113 @@ export default function FeaturesIndexPage() {
 							</button>
 						</div>
 					) : (
-						<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-							{filtered.map((feature) => {
-								const colors = FEATURE_COLORS[feature.slug] ?? {
-									bg: "from-teal-50 to-cyan-50",
-									icon: "bg-teal-100 text-teal-600",
-									badge: "bg-teal-100 text-teal-700",
-								};
-								const categoryLabel = CATEGORY_LABEL_MAP[feature.slug] ?? "";
-								return (
-									<Link
-										key={feature.slug}
-										to={`/features/${feature.slug}`}
-										className="group relative flex flex-col bg-white border border-gray-100 rounded-2xl overflow-hidden cursor-pointer hover:border-teal-200 transition-all duration-300 hover:shadow-[0_8px_32px_rgba(20,184,166,0.12)]"
-									>
-										{/* Top gradient band */}
-										<div
-											className={`h-2 bg-gradient-to-r ${colors.bg.replace("from-", "from-").replace("to-", "to-")} w-full`}
-										/>
-
-										<div className="flex flex-col sm:flex-row gap-5 p-6">
-											{/* Icon */}
-											<div
-												className={`flex-shrink-0 w-14 h-14 flex items-center justify-center rounded-xl ${colors.icon}`}
-											>
-												<i className={`${feature.icon} text-2xl`} />
-											</div>
-
-											{/* Content */}
-											<div className="flex-1 min-w-0">
-												<div className="flex items-start justify-between gap-2 mb-1">
-													<h2 className="text-base sm:text-lg font-bold text-secondary group-hover:text-teal-600 transition-colors leading-snug">
-														{feature.title}
-													</h2>
-													<span
-														className={`flex-shrink-0 text-[10px] font-semibold px-2 py-1 rounded-full ${colors.badge} hidden sm:inline-flex`}
-													>
-														{categoryLabel}
-													</span>
-												</div>
-												<p className="text-sm text-teal-600 font-medium mb-2 italic">
-													{feature.tagline}
-												</p>
-												<p className="text-sm text-gray-500 leading-relaxed line-clamp-2">
-													{feature.description}
-												</p>
-
-												{/* Stats preview */}
-												<div className="flex items-center gap-4 mt-4 flex-wrap">
-													{feature.stats.slice(0, 3).map((stat) => (
-														<div
-															key={stat.label}
-															className="flex items-center gap-1.5"
-														>
-															<span className="text-sm font-bold text-gray-800">
-																{stat.value}
-															</span>
-															<span className="text-xs text-gray-400">
-																{stat.label}
-															</span>
-														</div>
-													))}
-												</div>
-											</div>
-										</div>
-
-										{/* Capabilities preview */}
-										<div className="px-6 pb-5 mt-auto">
-											<div className="border-t border-gray-50 pt-4">
-												<div className="flex items-center flex-wrap gap-2">
-													{feature.capabilities.slice(0, 4).map((cap) => (
-														<span
-															key={cap.title}
-															className="inline-flex items-center gap-1 text-xs text-gray-500 bg-gray-50 px-2.5 py-1 rounded-full border border-gray-100"
-														>
-															<i className={`${cap.icon} text-[10px]`} />
-															{cap.title}
-														</span>
-													))}
-													{feature.capabilities.length > 4 && (
-														<span className="text-xs text-gray-400">
-															+{feature.capabilities.length - 4} more
-														</span>
-													)}
-												</div>
-											</div>
-										</div>
-
-										{/* Arrow */}
-										<div className="absolute bottom-5 right-5 w-8 h-8 flex items-center justify-center bg-teal-500 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-1 group-hover:translate-y-0">
-											<i className="ri-arrow-right-up-line text-white text-sm" />
-										</div>
-									</Link>
-								);
-							})}
+						<div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+							{filtered.map((feature) => (
+								<FeatureIndexCard
+									key={feature.slug}
+									feature={feature}
+								/>
+							))}
 						</div>
 					)}
 				</div>
 			</section>
 
 			{/* Bottom CTA */}
-			<section className="py-16 bg-gradient-to-r from-teal-500 to-cyan-500">
-				<div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-					<h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-4">
-						Ready to start verifying?
-					</h2>
-					<p className="text-teal-50 text-base mb-8">
-						Talk to our team and get a live demo of any feature tailored to your
-						use case.
-					</p>
-					<div className="flex flex-col sm:flex-row gap-3 justify-center">
-						<button
-							onClick={open}
-							className="px-8 py-3 bg-white text-teal-600 font-bold rounded-lg hover:bg-teal-50 transition-all whitespace-nowrap cursor-pointer"
-						>
-							Request Demo
-						</button>
-						<a
-							href="https://dashboard.verifyafrica.io/login"
-							target="_blank"
-							rel="noopener noreferrer"
-							className="px-8 py-3 border-2 border-white/60 text-white font-semibold rounded-lg hover:bg-white/10 transition-all whitespace-nowrap text-center"
-						>
-							Explore Dashboard
-						</a>
-					</div>
-				</div>
-			</section>
+			<FinalCTA onRequestDemo={openDemo} />
 
 			<Footer />
 		</>
+	);
+}
+
+function FeatureIndexCard({ feature }: { feature: FeatureDetail }) {
+	const colors: FeatureColors =
+		FEATURE_COLORS[feature.slug] ?? DEFAULT_FEATURE_COLORS;
+	const categoryLabel = CATEGORY_LABEL_MAP[feature.slug] ?? "";
+
+	return (
+		<Card
+			className={`group relative gap-0 overflow-hidden border border-gray-200 bg-white py-0 shadow-none ring-0 transition-all duration-300 hover:shadow-[0_8px_32px_rgba(0,0,0,0.06)] ${colors.borderHover}`}
+		>
+			{/* <div className={`h-1.5 w-full bg-linear-to-r ${colors.band}`} /> */}
+			<Link
+				to={`/features/${feature.slug}`}
+				className="flex flex-col h-full cursor-pointer"
+			>
+				<CardHeader className="flex flex-col sm:flex-row gap-4 sm:gap-5 px-5 pt-5 pb-0 sm:px-6 sm:pt-6">
+					<div
+						className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-lg transition-colors duration-300 ${colors.icon} ${colors.iconHover}`}
+					>
+						<i className={`${feature.icon} text-xl`} />
+					</div>
+					<div className="min-w-0 flex-1 space-y-1">
+						<div className="flex items-start justify-between gap-2">
+							<CardTitle
+								className={`text-base sm:text-lg font-bold text-secondary leading-snug transition-colors duration-300 ${colors.titleHover}`}
+							>
+								{feature.title}
+							</CardTitle>
+							{categoryLabel && (
+								<span
+									className={`hidden shrink-0 rounded-full px-2 py-1 text-[10px] font-semibold sm:inline-flex ${colors.badge}`}
+								>
+									{categoryLabel}
+								</span>
+							)}
+						</div>
+						<CardDescription
+							className={`text-sm font-medium italic ${colors.tagline}`}
+						>
+							{feature.tagline}
+						</CardDescription>
+					</div>
+				</CardHeader>
+
+				<CardContent className="px-5 pb-0 py-2 sm:px-6">
+					<p className="text-sm text-gray-600 leading-relaxed line-clamp-2">
+						{feature.description}
+					</p>
+					<div className="mt-4 flex flex-wrap items-center gap-4">
+						{feature.stats.slice(0, 3).map((stat) => (
+							<div
+								key={stat.label}
+								className="flex items-center gap-1.5"
+							>
+								<span className="text-sm font-bold text-secondary">
+									{stat.value}
+								</span>
+								<span className="text-xs text-gray-400">{stat.label}</span>
+							</div>
+						))}
+					</div>
+				</CardContent>
+
+				<CardFooter
+					className={`mt-auto flex-col items-start border-t border-gray-200 px-5 py-4 sm:px-6 ${colors.footer}`}
+				>
+					<div className="flex flex-wrap items-center gap-2">
+						{feature.capabilities.slice(0, 4).map((cap) => (
+							<span
+								key={cap.title}
+								className="inline-flex items-center gap-1 rounded-full border border-gray-100 bg-gray-50 px-2.5 py-1 text-xs text-gray-500"
+							>
+								<i className={`${cap.icon} text-[10px]`} />
+								{cap.title}
+							</span>
+						))}
+						{feature.capabilities.length > 4 && (
+							<span className="text-xs text-gray-400">
+								+{feature.capabilities.length - 4} more
+							</span>
+						)}
+					</div>
+				</CardFooter>
+			</Link>
+
+			<div className="pointer-events-none absolute bottom-4 right-4 flex h-7 w-7 translate-y-1 items-center justify-center rounded-full bg-secondary opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+				<i className="ri-arrow-right-up-line text-sm text-white" />
+			</div>
+		</Card>
 	);
 }

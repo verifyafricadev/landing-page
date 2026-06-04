@@ -7,6 +7,8 @@ import { LOGO_TEXT_COLOR, LogoIcon } from "@/components/icons/brand/logo";
 
 interface NavbarProps {
 	onRequestDemo: () => void;
+	/** `transparent` — white text over hero until scroll; `solid` — dark text and white bg from the start */
+	variant?: "transparent" | "solid";
 }
 
 const navItems = [
@@ -16,7 +18,10 @@ const navItems = [
 	{ href: "/about", label: "About", isLink: true },
 ];
 
-export default function HomeNavbar({ onRequestDemo }: NavbarProps) {
+export default function HomeNavbar({
+	onRequestDemo,
+	variant = "transparent",
+}: NavbarProps) {
 	const [isScrolled, setIsScrolled] = useState(false);
 	const [isVisible, setIsVisible] = useState(false);
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -37,8 +42,8 @@ export default function HomeNavbar({ onRequestDemo }: NavbarProps) {
 		};
 	}, [isMobileMenuOpen]);
 
-	const showSolidBg = isScrolled;
-	const isTransparentNav = !isScrolled;
+	const showSolidBg = variant === "solid" || isScrolled;
+	const isTransparentNav = !showSolidBg;
 
 	const handleHashClick = (
 		e: React.MouseEvent<HTMLAnchorElement>,
