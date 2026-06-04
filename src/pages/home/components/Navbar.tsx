@@ -33,7 +33,7 @@ export default function HomeNavbar({
 
 	useEffect(() => {
 		setTimeout(() => setIsVisible(true), 100);
-		const handleScroll = () => setIsScrolled(window.scrollY > 20);
+		const handleScroll = () => setIsScrolled(window.scrollY > 120);
 		window.addEventListener("scroll", handleScroll, { passive: true });
 		return () => window.removeEventListener("scroll", handleScroll);
 	}, []);
@@ -71,9 +71,10 @@ export default function HomeNavbar({
 		};
 	}, [isMobileMenuOpen]);
 
-	const showSolidBg = variant === "solid" || isScrolled || isMobileMenuOpen;
+	const showSolidBg = isScrolled || isMobileMenuOpen;
 	const showNavShadow = isScrolled;
-	const isTransparentNav = variant === "transparent" && !isScrolled;
+	const useSolidText = variant === "solid" || showSolidBg;
+	const isTransparentNav = variant === "transparent" && !showSolidBg;
 
 	const handleHashClick = (
 		e: React.MouseEvent<HTMLAnchorElement>,
@@ -149,7 +150,7 @@ export default function HomeNavbar({
 										target="_blank"
 										rel="noopener noreferrer"
 										className={`relative text-sm font-medium transition-all duration-300 hover:text-teal-500 group cursor-pointer ${
-											showSolidBg ? "text-gray-700" : "text-white/90"
+											useSolidText ? "text-gray-700" : "text-white/90"
 										}`}
 										style={{
 											opacity: isVisible ? 1 : 0,
@@ -167,7 +168,7 @@ export default function HomeNavbar({
 										key={item.href}
 										to={item.href}
 										className={`relative text-sm font-medium transition-all duration-300 hover:text-teal-500 group ${
-											showSolidBg ? "text-gray-700" : "text-white/90"
+											useSolidText ? "text-gray-700" : "text-white/90"
 										}`}
 										style={{
 											opacity: isVisible ? 1 : 0,
@@ -186,7 +187,7 @@ export default function HomeNavbar({
 										href={item.href}
 										onClick={(e) => handleHashClick(e, item.href)}
 										className={`relative text-sm font-medium transition-all duration-300 hover:text-teal-500 group cursor-pointer ${
-											showSolidBg ? "text-gray-700" : "text-white/90"
+											useSolidText ? "text-gray-700" : "text-white/90"
 										}`}
 										style={{
 											opacity: isVisible ? 1 : 0,

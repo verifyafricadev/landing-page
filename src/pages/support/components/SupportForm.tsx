@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Lock } from "lucide-react";
 
 export default function SupportForm() {
 	const [formData, setFormData] = useState({
@@ -49,7 +50,7 @@ export default function SupportForm() {
 				setStatus("error");
 				setTimeout(() => setStatus("idle"), 5000);
 			}
-		} catch (error) {
+		} catch {
 			setStatus("error");
 			setTimeout(() => setStatus("idle"), 5000);
 		}

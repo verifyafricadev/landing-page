@@ -278,72 +278,56 @@ export default function FeaturesIndexPage() {
 			/>
 
 			{/* Hero */}
-			<section className="pt-32 pb-16 bg-linear-to-b from-gray-50 to-white overflow-hidden relative">
-				<div className="absolute inset-0 overflow-hidden pointer-events-none">
-					<div className="absolute -top-24 -right-24 w-96 h-96 bg-teal-100/40 rounded-full blur-3xl" />
-					<div className="absolute top-32 -left-16 w-64 h-64 bg-cyan-100/30 rounded-full blur-3xl" />
+			<section className="relative min-h-[90vh] flex flex-col justify-center overflow-hidden">
+				<div
+					className="absolute inset-0 opacity-[0.07]"
+					style={{
+						backgroundImage:
+							"linear-gradient(rgba(15,23,42,.8) 1px, transparent 1px), linear-gradient(90deg, rgba(15,23,42,.8) 1px, transparent 1px)",
+						backgroundSize: "64px 64px",
+					}}
+				/>
+				<div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-4 sm:px-6 py-32 max-w-5xl mx-auto">
+					<div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-secondary/15 bg-secondary/5 backdrop-blur-sm text-secondary text-sm font-medium mb-8">
+						<i className="ri-apps-2-line" />
+						<span>Platform Capabilities</span>
+					</div>
+					<h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-secondary tracking-tighter leading-none mb-8">
+						Everything You Need to{" "}
+						<span className="text-teal-500">Verify Africa</span>
+					</h1>
+					<p className="text-lg sm:text-xl text-secondary max-w-3xl leading-relaxed mb-12">
+						A single compliance and identity platform covering every
+						verification need — from KYC to AML, biometrics to transaction risk.
+					</p>
+					<div className="flex flex-col sm:flex-row gap-4 justify-center">
+						<Button
+							size="lg"
+							onClick={openDemo}
+							className="h-auto px-7 py-3.5 bg-teal-500 text-white font-semibold hover:bg-teal-400 cursor-pointer"
+						>
+							Request a Demo
+							<i className="ri-arrow-right-line" />
+						</Button>
+						<Button
+							variant="outline"
+							size="lg"
+							asChild
+							className="h-auto px-7 py-3.5 border-secondary/30 bg-transparent text-secondary font-semibold hover:border-secondary/60 hover:bg-secondary/10 hover:text-secondary cursor-pointer"
+						>
+							<a
+								href="https://docs.verifyafrica.io"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								Read API Docs
+							</a>
+						</Button>
+					</div>
 				</div>
-				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
-					<div className="text-center max-w-3xl mx-auto">
-						<div className="inline-flex items-center gap-2 px-4 py-1.5 bg-teal-50 border border-teal-100 rounded-full text-teal-600 text-xs font-semibold tracking-wide uppercase mb-6">
-							<i className="ri-apps-2-line text-sm" />
-							Platform Capabilities
-						</div>
-						<h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-secondary leading-tight mb-5">
-							Everything You Need to{" "}
-							<span className="text-teal-500">Verify Africa</span>
-						</h1>
-						<p className="text-lg text-gray-600 leading-relaxed mb-8">
-							A single compliance and identity platform covering every
-							verification need — from KYC to AML, biometrics to transaction
-							risk.
-						</p>
-						<div className="flex flex-col sm:flex-row gap-3 justify-center">
-							<Button
-								size="lg"
-								onClick={openDemo}
-								className="h-auto px-7 py-3 bg-teal-500 text-white font-semibold hover:bg-teal-600 cursor-pointer"
-							>
-								Request a Demo
-							</Button>
-							<Button
-								variant="outline"
-								size="lg"
-								asChild
-								className="h-auto px-7 py-3 font-semibold  cursor-pointer"
-							>
-								<a
-									href="https://docs.verifyafrica.io"
-									target="_blank"
-									rel="noopener noreferrer"
-								>
-									Read API Docs
-								</a>
-							</Button>
-						</div>
-					</div>
-
-					{/* Stats strip */}
-					<div className="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-4">
-						{[
-							{ value: "8", label: "Core Products" },
-							{ value: "54", label: "African Countries" },
-							{ value: "<3s", label: "Average Check Time" },
-							{ value: "99.9%", label: "API Uptime" },
-						].map((stat) => (
-							<div
-								key={stat.label}
-								className="bg-white border border-gray-100 rounded-xl p-5 text-center"
-							>
-								<div className="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-1">
-									{stat.value}
-								</div>
-								<div className="text-xs sm:text-sm text-gray-500 font-medium">
-									{stat.label}
-								</div>
-							</div>
-						))}
-					</div>
+				<div className="relative z-10 pb-10 flex flex-col items-center gap-2 text-secondary/40 text-xs uppercase tracking-widest">
+					<span>Scroll</span>
+					<i className="ri-arrow-down-line text-lg animate-bounce" />
 				</div>
 			</section>
 

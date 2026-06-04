@@ -183,10 +183,10 @@ export default function ResourceDetailPage() {
 			/>
 
 			{/* Hero Section */}
-			<section className="pt-32 pb-12 md:pt-40 md:pb-16 bg-gradient-to-br from-teal-50 via-emerald-50 to-white">
+			<section className="pt-32 pb-12 md:pt-40 md:pb-16 bg-linear-to-br from-teal-50 via-emerald-50 to-white">
 				<div className="max-w-4xl mx-auto px-6">
 					<div className="flex items-start gap-4 mb-6">
-						<div className="w-16 h-16 bg-teal-100 rounded-2xl flex items-center justify-center flex-shrink-0">
+						<div className="w-16 h-16 bg-teal-100 rounded-2xl flex items-center justify-center shrink-0">
 							<i className={`${resource.icon} text-3xl text-teal-600`} />
 						</div>
 						<div>
@@ -272,7 +272,7 @@ export default function ResourceDetailPage() {
 											key={index}
 											className="flex items-start gap-3 text-gray-600"
 										>
-											<div className="w-6 h-6 bg-teal-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+											<div className="w-6 h-6 bg-teal-100 rounded-full flex items-center justify-center shrink-0 mt-0.5">
 												<i className="ri-check-line text-teal-600 text-sm" />
 											</div>
 											<span className="leading-relaxed">{item}</span>
@@ -331,7 +331,7 @@ export default function ResourceDetailPage() {
 													key={index}
 													className="flex items-start gap-3 text-gray-700"
 												>
-													<div className="w-6 h-6 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+													<div className="w-6 h-6 bg-emerald-100 rounded-full flex items-center justify-center shrink-0 mt-0.5">
 														<i className="ri-checkbox-circle-line text-emerald-600 text-sm" />
 													</div>
 													<span className="leading-relaxed">{item}</span>
@@ -341,7 +341,7 @@ export default function ResourceDetailPage() {
 									</div>
 								)
 							) : (
-								<div className="bg-gradient-to-br from-teal-50 to-emerald-50 rounded-xl border border-teal-100 p-6 md:p-8">
+								<div className="bg-linear-to-br from-teal-50 to-emerald-50 rounded-xl border border-teal-100 p-6 md:p-8">
 									<div className="flex items-center gap-3 mb-4">
 										<div className="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center">
 											<i className="ri-lock-line text-2xl text-teal-600" />
@@ -407,7 +407,7 @@ export default function ResourceDetailPage() {
 														onClick={() => navigate(`/resources/${r.id}`)}
 														className="flex items-start gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer text-left w-full"
 													>
-														<div className="w-8 h-8 bg-teal-50 rounded-lg flex items-center justify-center flex-shrink-0">
+														<div className="w-8 h-8 bg-teal-50 rounded-lg flex items-center justify-center shrink-0">
 															<i
 																className={`${r.icon} text-teal-600 text-sm`}
 															/>
