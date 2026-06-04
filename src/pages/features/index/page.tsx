@@ -342,11 +342,11 @@ export default function FeaturesIndexPage() {
 			</section>
 
 			{/* Search & Filter Bar */}
-			<section className="sticky top-16 sm:top-20 lg:top-28 z-30 bg-white border-b border-gray-100">
+			<section className="sticky top-16 sm:top-20 z-30 bg-white border-b border-gray-100">
 				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-4">
-					<div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center">
+					<div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center flex-wrap">
 						{/* Search */}
-						<div className="relative flex-1 min-w-0 w-full sm:max-w-xs">
+						<div className="relative flex-1 min-w-40 w-full lg:max-w-md">
 							<i className="ri-search-line pointer-events-none absolute left-3 top-1/2 z-10 -translate-y-1/2 text-sm text-muted-foreground" />
 							<Input
 								type="search"

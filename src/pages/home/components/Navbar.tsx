@@ -88,7 +88,7 @@ export default function HomeNavbar({
 				} ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"}`}
 			>
 				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
-					<div className="relative flex items-center justify-between h-16 sm:h-20 lg:h-28 overflow-hidden lg:overflow-visible">
+					<div className="relative flex items-center justify-between h-16 sm:h-20  overflow-hidden lg:overflow-visible">
 						{/* Logo */}
 						<Link
 							to="/"
@@ -96,7 +96,7 @@ export default function HomeNavbar({
 						>
 							<LogoIcon
 								textColor={isTransparentNav ? "#FFFFFF" : LOGO_TEXT_COLOR}
-								className="h-12 sm:h-18 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+								className="h-12 sm:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
 								aria-label="VerifyAfrica – KYC, AML & Identity Verification Platform for Africa"
 								role="img"
 							/>
