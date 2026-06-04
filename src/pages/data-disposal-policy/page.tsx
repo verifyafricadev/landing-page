@@ -1,5 +1,7 @@
-import { Link } from "react-router-dom";
 import SEOHead from "../../components/feature/SEOHead";
+import Footer from "../../components/feature/Footer";
+import { useDemoModal } from "../../hooks/useDemoModal";
+import Navbar from "../home/components/Navbar";
 
 const SITE_URL = import.meta.env.VITE_SITE_URL || "https://verifyafrica.io";
 
@@ -38,6 +40,8 @@ const dataDisposalSchema = [
 ];
 
 export default function DataDisposalPolicyPage() {
+	const { openDemo } = useDemoModal();
+
 	return (
 		<div className="min-h-screen bg-white">
 			<SEOHead
@@ -49,23 +53,13 @@ export default function DataDisposalPolicyPage() {
 				twitterCard="summary_large_image"
 				schema={dataDisposalSchema}
 			/>
-			{/* Header */}
-			<header className="bg-white border-b border-gray-100">
-				<div className="max-w-4xl mx-auto px-6 py-4">
-					<div className="flex items-center justify-between">
-						<Link to="/">
-							<img
-								src="https://storage.readdy-site.link/project_files/e867a79c-6ad4-431f-b9b4-472c3bcdc336/8195c097-6839-48ae-86dc-51bd07febc5a_ChatGPT_Image_Feb_9__2026__10_18_46_AM-removebg-preview.png?v=7367ed1f2953d9fa10cf29e8cd5c7ddc"
-								alt="VerifyAfrica"
-								className="h-20 w-auto object-contain"
-							/>
-						</Link>
-					</div>
-				</div>
-			</header>
+			<Navbar
+				onRequestDemo={openDemo}
+				variant="solid"
+			/>
 
 			{/* Content */}
-			<main className="max-w-4xl mx-auto px-6 py-12">
+			<main className="max-w-4xl mx-auto px-6 pt-32 pb-12">
 				<div className="mb-8">
 					<h1 className="text-3xl font-bold text-secondary mb-2">
 						Data Disposal & Destruction Policy
@@ -463,6 +457,7 @@ export default function DataDisposalPolicyPage() {
 					</p>
 				</section>
 			</main>
+			<Footer />
 		</div>
 	);
 }

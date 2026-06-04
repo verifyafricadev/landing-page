@@ -1,167 +1,135 @@
+import { Fragment } from "react";
 import { useScrollAnimation } from "../../../hooks/useScrollAnimation";
+
+const milestones = [
+	{
+		year: "2024",
+		title: "The Beginning",
+		description:
+			"VerifyAfrica was founded by a team of compliance experts and engineers who saw the fragmented identity verification landscape across Africa as a problem worth solving.",
+	},
+	{
+		year: "2025",
+		title: "First 4 Countries",
+		description:
+			"We expanded our coverage to 4 African nations, partnering with Government data providers and regulatory bodies to build reliable verification pipelines.",
+	},
+	{
+		year: "2026",
+		title: "Pan-African Coverage",
+		description:
+			"Achieved full coverage across all 54 African countries, becoming the first compliance platform to offer truly continent‑wide identity verification.",
+	},
+	{
+		year: "2026",
+		title: "AI-Powered Compliance",
+		description:
+			"Introduced AI-driven risk scoring, automated document verification, and real‑time compliance monitoring — processing over 50 million verifications.",
+	},
+];
+
+const storyIntro = {
+	eyebrow: "Our Journey",
+	title: "From Lagos to the Continent",
+	description:
+		"What started as a mission to simplify KYC in Nigeria has grown into Africa's most comprehensive compliance infrastructure.",
+};
+
+function SectionIntro({
+	isVisible,
+	align = "center",
+	invert = false,
+}: {
+	isVisible: boolean;
+	align?: "center" | "left";
+	invert?: boolean;
+}) {
+	return (
+		<div
+			className={`mb-14 ${align === "center" ? "text-center" : "text-left"}`}
+		>
+			<span
+				className={`inline-block text-xs font-semibold tracking-widest uppercase mb-3 transition-all duration-600 ${
+					invert ? "text-teal-300" : "text-teal-600"
+				} ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"}`}
+			>
+				{storyIntro.eyebrow}
+			</span>
+			<h2
+				className={`text-3xl lg:text-4xl font-bold mb-4 transition-all duration-700 delay-100 ${
+					invert ? "text-white" : "text-secondary"
+				} ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+			>
+				{storyIntro.title}
+			</h2>
+			<p
+				className={`text-base max-w-2xl leading-relaxed transition-all duration-700 delay-200 ${
+					align === "center" ? "mx-auto" : ""
+				} ${invert ? "text-white/70" : "text-gray-500"} ${
+					isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+				}`}
+			>
+				{storyIntro.description}
+			</p>
+		</div>
+	);
+}
 
 export default function OurStory() {
 	const { ref, isVisible } = useScrollAnimation({ threshold: 0.15 });
 
-	const milestones = [
-		{
-			year: "2024",
-			title: "The Beginning",
-			description:
-				"VerifyAfrica was founded by a team of compliance experts and engineers who saw the fragmented identity verification landscape across Africa as a problem worth solving.",
-		},
-		{
-			year: "2025",
-			title: "First 4 Countries",
-			description:
-				"We expanded our coverage to 4 African nations, partnering with Government data providers and regulatory bodies to build reliable verification pipelines.",
-		},
-		{
-			year: "2026",
-			title: "Pan-African Coverage",
-			description:
-				"Achieved full coverage across all 54 African countries, becoming the first compliance platform to offer truly continent‑wide identity verification.",
-		},
-		{
-			year: "2026",
-			title: "AI-Powered Compliance",
-			description:
-				"Introduced AI-driven risk scoring, automated document verification, and real‑time compliance monitoring — processing over 50 million verifications.",
-		},
-	];
-
 	return (
-		<section
-			id="story"
-			ref={ref}
-			className="py-24 bg-white"
-		>
-			<div className="max-w-6xl mx-auto px-6 lg:px-12">
-				<div className="text-center mb-16">
-					<span
-						className={`inline-block text-xs font-semibold tracking-widest uppercase text-teal-600 mb-3 transition-all duration-600 ${
-							isVisible
-								? "opacity-100 translate-y-0"
-								: "opacity-0 -translate-y-4"
-						}`}
-					>
-						Our Journey
-					</span>
-					<h2
-						className={`text-3xl lg:text-4xl font-bold text-secondary mb-4 transition-all duration-700 delay-100 ${
-							isVisible
-								? "opacity-100 translate-y-0"
-								: "opacity-0 translate-y-6"
-						}`}
-					>
-						From Lagos to the Continent
-					</h2>
-					<p
-						className={`text-base text-gray-500 max-w-2xl mx-auto leading-relaxed transition-all duration-700 delay-200 ${
-							isVisible
-								? "opacity-100 translate-y-0"
-								: "opacity-0 translate-y-6"
-						}`}
-					>
-						What started as a mission to simplify KYC in Nigeria has grown into
-						Africa&apos;s most comprehensive compliance infrastructure.
-					</p>
-				</div>
+		<Fragment>
+			<section
+				className="py-24 bg-secondary text-white overflow-visible"
+				id="story"
+				ref={ref}
+			>
+				<div className="max-w-6xl mx-auto px-6 lg:px-12">
+					<div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-start relative">
+						<div className="lg:sticky lg:top-28 lg:self-start">
+							<SectionIntro
+								isVisible={isVisible}
+								align="left"
+								invert
+							/>
+						</div>
 
-				<div className="relative">
-					{/* Timeline line */}
-					<div className="absolute left-1/2 top-0 bottom-0 w-px bg-gray-200 hidden lg:block"></div>
-
-					<div className="space-y-12 lg:space-y-0">
-						{milestones.map((milestone, index) => {
-							const isLeft = index % 2 === 0;
-							return (
-								<div
-									key={index}
-									className={`relative lg:flex items-center lg:mb-16 transition-all duration-700 ${
+						<div className="relative pl-8">
+							<div className="absolute left-0 top-2 bottom-2 w-px bg-white/15" />
+							{milestones.map((milestone, index) => (
+								<article
+									key={`magazine-spine-${milestone.title}`}
+									className={`relative pb-10 last:pb-0 transition-all duration-700 ${
 										isVisible
-											? "opacity-100 translate-y-0"
-											: "opacity-0 translate-y-10"
+											? "opacity-100 translate-x-0"
+											: "opacity-0 translate-x-8"
 									}`}
-									style={{ transitionDelay: `${200 + index * 150}ms` }}
+									style={{ transitionDelay: `${260 + index * 130}ms` }}
 								>
-									{/* Left content */}
-									<div
-										className={`lg:w-1/2 ${
-											isLeft
-												? "lg:pr-16 lg:text-right"
-												: "lg:pr-16 lg:text-right lg:order-1 lg:invisible"
-										}`}
-									>
-										{isLeft && (
-											<div>
-												<span className="inline-block text-sm font-bold text-teal-500 mb-2">
-													{milestone.year}
-												</span>
-												<h4 className="text-xl font-bold text-secondary mb-2">
-													<a
-														href="#story"
-														className="hover:text-teal-600 transition-colors"
-													>
-														{milestone.title}
-													</a>
-												</h4>
-												<p className="text-sm text-gray-500 leading-relaxed">
-													{milestone.description}
-												</p>
-											</div>
-										)}
-									</div>
-
-									{/* Center dot */}
-									<div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 w-10 h-10 items-center justify-center bg-teal-500 rounded-full shadow-lg shadow-teal-500/30 z-10">
-										<span className="text-white text-xs font-bold">
-											{milestone.year.slice(-2)}
-										</span>
-									</div>
-
-									{/* Right content */}
-									<div
-										className={`lg:w-1/2 ${
-											!isLeft
-												? "lg:pl-16 lg:text-left lg:order-2"
-												: "lg:pl-16 lg:text-left lg:invisible"
-										}`}
-									>
-										{!isLeft && (
-											<div>
-												<span className="inline-block text-sm font-bold text-teal-500 mb-2">
-													{milestone.year}
-												</span>
-												<h4 className="text-xl font-bold text-secondary mb-2">
-													<a
-														href="#story"
-														className="hover:text-teal-600 transition-colors"
-													>
-														{milestone.title}
-													</a>
-												</h4>
-												<p className="text-sm text-gray-500 leading-relaxed">
-													{milestone.description}
-												</p>
-											</div>
-										)}
-									</div>
-
-									{/* Mobile year badge */}
-									<div className="lg:hidden flex items-center space-x-3 mb-2">
-										<div className="w-8 h-8 flex items-center justify-center bg-teal-500 rounded-full">
-											<span className="text-white text-xs font-bold">
-												{milestone.year.slice(-2)}
+									<span className="absolute left-[-2.45rem] top-1 flex h-5 w-5 items-center justify-center rounded-full border border-teal-300 bg-secondary">
+										<span className="h-2 w-2 rounded-full bg-teal-300" />
+									</span>
+									<div className="rounded-[1.75rem] border border-white/10 bg-white/6 p-7 hover:bg-white/10 transition-colors">
+										<div className="mb-5 flex items-center justify-between gap-4">
+											<span className="text-xs font-bold uppercase tracking-[0.3em] text-teal-300">
+												{milestone.year}
+											</span>
+											<span className="text-5xl font-bold tracking-tighter text-white/10">
+												0{index + 1}
 											</span>
 										</div>
+										<h3 className="text-2xl font-bold">{milestone.title}</h3>
+										<p className="mt-4 text-sm leading-relaxed text-white/65">
+											{milestone.description}
+										</p>
 									</div>
-								</div>
-							);
-						})}
+								</article>
+							))}
+						</div>
 					</div>
 				</div>
-			</div>
-		</section>
+			</section>
+		</Fragment>
 	);
 }

@@ -9,13 +9,55 @@ import {
 } from "lucide-react";
 import { useStaggerAnimation } from "../../../hooks/useScrollAnimation";
 
-const values: {
+type CoreValue = {
 	icon: LucideIcon;
 	title: string;
 	description: string;
 	bg: string;
 	iconColor: string;
-}[] = [
+};
+
+function CoreValueCard({
+	value,
+	isVisible,
+	delay,
+}: {
+	value: CoreValue;
+	isVisible: boolean;
+	delay: number;
+}) {
+	const Icon = value.icon;
+
+	return (
+		<div
+			className={`group p-7 rounded-lg border border-gray-100 bg-white hover:shadow-lg hover:-translate-y-1 transition-all duration-200 ${
+				isVisible
+					? "opacity-100 translate-y-0 scale-100"
+					: "opacity-0 translate-y-8 scale-95"
+			}`}
+			style={{ transitionDelay: `${delay}ms` }}
+		>
+			<div
+				className={`w-12 h-12 flex items-center justify-center ${value.bg} rounded-lg mb-5 group-hover:scale-110 transition-transform duration-300`}
+			>
+				<Icon className={`text-xl ${value.iconColor}`} />
+			</div>
+			<h4 className="text-lg font-bold text-secondary mb-2">
+				<a
+					href="#values"
+					className="hover:text-teal-600 transition-colors"
+				>
+					{value.title}
+				</a>
+			</h4>
+			<p className="text-sm text-gray-500 leading-relaxed">
+				{value.description}
+			</p>
+		</div>
+	);
+}
+
+const values: CoreValue[] = [
 	{
 		icon: ShieldCheck,
 		title: "Trust First",
@@ -117,32 +159,12 @@ export default function CoreValues() {
 
 				<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 					{values.map((value, index) => (
-						<div
-							key={index}
-							className={`group p-7 rounded-lg border border-gray-100 bg-white hover:shadow-lg hover:-translate-y-1 transition-all duration-500 ${
-								isVisible
-									? "opacity-100 translate-y-0 scale-100"
-									: "opacity-0 translate-y-8 scale-95"
-							}`}
-							style={{ transitionDelay: `${getDelay(index) + 200}ms` }}
-						>
-							<div
-								className={`w-12 h-12 flex items-center justify-center ${value.bg} rounded-lg mb-5 group-hover:scale-110 transition-transform duration-300`}
-							>
-								<value.icon className={`text-xl ${value.iconColor}`} />
-							</div>
-							<h4 className="text-lg font-bold text-secondary mb-2">
-								<a
-									href="#values"
-									className="hover:text-teal-600 transition-colors"
-								>
-									{value.title}
-								</a>
-							</h4>
-							<p className="text-sm text-gray-500 leading-relaxed">
-								{value.description}
-							</p>
-						</div>
+						<CoreValueCard
+							key={value.title}
+							value={value}
+							isVisible={isVisible}
+							delay={getDelay(index) + 200}
+						/>
 					))}
 				</div>
 			</div>
