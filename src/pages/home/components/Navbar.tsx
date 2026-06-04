@@ -227,12 +227,12 @@ export default function HomeNavbar({
 									target="_blank"
 									rel="noopener noreferrer"
 								>
-									Login
+									Explore Dashboard
 								</a>
 							</Button>
 							<Button
 								onClick={onRequestDemo}
-								className="h-auto px-5 py-2.5 bg-teal-500 text-white font-medium hover:bg-teal-600 hover:shadow-lg hover:shadow-teal-500/30 cursor-pointer"
+								className="h-auto px-5 py-2.5 bg-teal-500 text-white font-medium hover:bg-teal-600 cursor-pointer"
 							>
 								Request Demo
 							</Button>
