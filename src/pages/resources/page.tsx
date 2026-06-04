@@ -533,7 +533,7 @@ export default function ResourcesPage() {
 			<ResourcesHero />
 
 			{/* Resources Grid */}
-			<section className="py-16 md:py-20">
+			<section className="py-24">
 				<div className="max-w-7xl mx-auto px-6 lg:px-12">
 					<div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
 						{resources.map((resource) => (
@@ -549,7 +549,7 @@ export default function ResourcesPage() {
 			</section>
 
 			{/* Bottom CTA */}
-			<section className="py-16 bg-white border-t border-gray-100">
+			<section className="py-24 bg-white border-t border-gray-100">
 				<div className="max-w-3xl mx-auto px-6 text-center">
 					<div className="w-14 h-14 mx-auto mb-6 bg-teal-100 rounded-2xl flex items-center justify-center">
 						<i className="ri-question-answer-line text-2xl text-teal-600" />
