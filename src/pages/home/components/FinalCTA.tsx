@@ -1,98 +1,177 @@
-import { useScrollAnimation } from '../../../hooks/useScrollAnimation';
-import { Link } from 'react-router-dom';
-import { track } from '@/lib/analytics';
+import { useScrollAnimation } from "../../../hooks/useScrollAnimation";
+import { Link } from "react-router-dom";
+import { track } from "@/lib/analytics";
+import { Button } from "@/components/ui/button";
 
 interface FinalCTAProps {
-  onRequestDemo: () => void;
+	onRequestDemo: () => void;
+}
+
+function DashboardPreview() {
+	const navItems = [
+		"Inbox",
+		"Verifications",
+		"Compliance",
+		"Risk monitoring",
+		"Audit trail",
+		"Analytics",
+	];
+
+	return (
+		<div
+			className="relative mx-auto w-full max-w-lg lg:max-w-none h-[280px] sm:h-[320px] lg:h-[380px] select-none pointer-events-none"
+			aria-hidden
+		>
+			<div className="absolute inset-0 bg-linear-to-l from-white via-transparent to-transparent z-10" />
+
+			<div className="absolute inset-0 flex items-center justify-center lg:justify-end lg:pr-4">
+				<div
+					className="relative w-[92%] sm:w-[85%] lg:w-[520px] h-full"
+					style={{ perspective: "1200px" }}
+				>
+					{/* Back panel — sidebar */}
+					<div
+						className="absolute top-6 left-0 w-[58%] h-[88%] bg-white rounded-xl border border-gray-200 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.12)] overflow-hidden"
+						style={{
+							transform: "rotateY(-8deg) rotateX(4deg) translateZ(-20px)",
+						}}
+					>
+						<div className="px-4 py-3 border-b border-gray-100 flex items-center gap-2">
+							<div className="w-2 h-2 rounded-full bg-teal-500" />
+							<span className="text-[10px] font-semibold text-gray-400 uppercase tracking-wider">
+								VerifyAfrica
+							</span>
+						</div>
+						<div className="p-3 space-y-1">
+							{navItems.map((item, i) => (
+								<div
+									key={item}
+									className={`px-2.5 py-1.5 rounded-md text-[11px] ${
+										i === 1
+											? "bg-teal-50 text-teal-700 font-medium"
+											: "text-gray-500"
+									}`}
+								>
+									{item}
+								</div>
+							))}
+						</div>
+					</div>
+
+					{/* Front panel — review card */}
+					<div
+						className="absolute top-0 right-0 w-[72%] h-[92%] bg-white rounded-xl border border-gray-200 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.18)] overflow-hidden"
+						style={{
+							transform: "rotateY(-12deg) rotateX(6deg) translateZ(30px)",
+						}}
+					>
+						<div className="px-4 py-3 border-b border-gray-100 flex items-center justify-between">
+							<span className="text-xs font-semibold text-gray-800">
+								Verification Review
+							</span>
+							<span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 font-medium">
+								Pending
+							</span>
+						</div>
+						<div className="p-4 space-y-4">
+							<div>
+								<p className="text-[10px] text-gray-400 uppercase tracking-wide mb-1">
+									Risk score
+								</p>
+								<p className="text-3xl font-bold text-red-500 leading-none">
+									28
+								</p>
+							</div>
+							<div className="space-y-2">
+								<div className="h-2 rounded-full bg-gray-100 overflow-hidden">
+									<div className="h-full w-[72%] bg-teal-500 rounded-full" />
+								</div>
+								<div className="flex gap-2 flex-wrap">
+									<span className="text-[10px] px-2 py-0.5 rounded bg-red-50 text-red-600">
+										PEP match
+									</span>
+									<span className="text-[10px] px-2 py-0.5 rounded bg-orange-50 text-orange-600">
+										Document flag
+									</span>
+								</div>
+							</div>
+							<div className="rounded-lg bg-gray-50 p-3 space-y-2">
+								<div className="h-2 w-full bg-gray-200 rounded" />
+								<div className="h-2 w-4/5 bg-gray-200 rounded" />
+								<div className="h-2 w-3/5 bg-gray-200 rounded" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	);
 }
 
 export default function FinalCTA({ onRequestDemo }: FinalCTAProps) {
-  const { ref, isVisible } = useScrollAnimation({ threshold: 0.3 });
+	const { ref, isVisible } = useScrollAnimation({ threshold: 0.3 });
 
-  return (
-    <section ref={ref} className="py-14 sm:py-20 lg:py-32 bg-gradient-to-br from-teal-600 via-cyan-600 to-teal-700 text-white relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/20"></div>
-      
-      {/* Animated background shapes */}
-      <div 
-        className={`absolute top-10 left-10 w-24 sm:w-48 lg:w-64 h-24 sm:h-48 lg:h-64 bg-white/5 rounded-full blur-3xl transition-all duration-1000 ${
-          isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-50'
-        }`}
-      ></div>
-      <div 
-        className={`absolute bottom-10 right-10 w-32 sm:w-64 lg:w-96 h-32 sm:h-64 lg:h-96 bg-teal-400/10 rounded-full blur-3xl transition-all duration-1000 delay-300 ${
-          isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-50'
-        }`}
-      ></div>
-      
-      {/* Floating particles - Reduced on mobile */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none hidden sm:block">
-        {[...Array(10)].map((_, i) => (
-          <div
-            key={i}
-            className={`absolute w-2 h-2 bg-white/20 rounded-full transition-all duration-1000 ${
-              isVisible ? 'opacity-100' : 'opacity-0'
-            }`}
-            style={{
-              left: `${10 + Math.random() * 80}%`,
-              top: `${10 + Math.random() * 80}%`,
-              animation: `float ${4 + Math.random() * 4}s ease-in-out infinite`,
-              animationDelay: `${Math.random() * 2}s`,
-              transitionDelay: `${i * 100}ms`,
-            }}
-          />
-        ))}
-      </div>
-      
-      {/* Animated grid lines - Hidden on mobile */}
-      <div className="absolute inset-0 opacity-10 hidden md:block">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-          backgroundSize: '50px 50px',
-        }}></div>
-      </div>
-      
-      <div className="relative max-w-5xl mx-auto px-5 sm:px-6 lg:px-12 text-center">
-        <h2 
-          className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-3 sm:mb-6 leading-tight transition-all duration-700 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}
-        >
-          African onboarding doesn&apos;t have to be fragmented
-        </h2>
-        <p 
-          className={`text-sm sm:text-base lg:text-xl text-white/90 mb-6 sm:mb-10 max-w-3xl mx-auto leading-relaxed px-2 transition-all duration-700 delay-150 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}
-        >
-          Run identity, compliance, and monitoring through one platform.
-        </p>
-        <div 
-          className={`flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 transition-all duration-700 delay-300 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}
-        >
-          <button 
-            onClick={() => {
-              track('demo_cta_clicked', { source: 'final_cta', location: 'bottom_section' });
-              onRequestDemo();
-            }}
-            className="group relative px-5 sm:px-8 lg:px-10 py-3 sm:py-4 bg-white text-teal-600 text-sm sm:text-base font-semibold rounded-lg overflow-hidden transition-all shadow-lg hover:shadow-2xl whitespace-nowrap cursor-pointer"
-          >
-            <span className="absolute inset-0 bg-gradient-to-r from-gray-100 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-            <span className="relative z-10 flex items-center justify-center space-x-2">
-              <span>Request a Demo</span>
-              <i className="ri-arrow-right-line text-lg transition-transform group-hover:translate-x-2"></i>
-            </span>
-          </button>
-          <Link to="/docs" className="group relative px-5 sm:px-8 lg:px-10 py-3 sm:py-4 bg-transparent text-white text-sm sm:text-base font-semibold rounded-lg border-2 border-white overflow-hidden transition-all whitespace-nowrap cursor-pointer hover:bg-white/10 flex items-center justify-center">
-            <span className="relative z-10 flex items-center space-x-2">
-              <span>Start Integration</span>
-              <i className="ri-code-line text-lg transition-transform group-hover:rotate-12 group-hover:scale-110"></i>
-            </span>
-          </Link>
-        </div>
-      </div>
-    </section>
-  );
+	return (
+		<section ref={ref} className="py-16 sm:py-20 lg:py-28 bg-white overflow-hidden">
+			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+				<div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+					<div
+						className={`transition-all duration-700 ${
+							isVisible
+								? "opacity-100 translate-y-0"
+								: "opacity-0 translate-y-8"
+						}`}
+					>
+						<h2 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold text-secondary leading-tight tracking-tight mb-4 sm:mb-5">
+							Turn compliance into a system of action
+						</h2>
+						<p className="text-base sm:text-lg text-gray-600 leading-relaxed mb-8 sm:mb-10 max-w-xl">
+							Engineered for regulated teams to deliver consistent verification,
+							meet compliance standards, and maintain full traceability across
+							African markets.
+						</p>
+						<div
+							className={`flex flex-col sm:flex-row gap-3 sm:gap-4 transition-all duration-700 delay-150 ${
+								isVisible
+									? "opacity-100 translate-y-0"
+									: "opacity-0 translate-y-8"
+							}`}
+						>
+							<Button
+								size="lg"
+								className="h-11 px-6 rounded-lg bg-teal-500 text-white hover:bg-teal-600 cursor-pointer"
+								onClick={() => {
+									track("demo_cta_clicked", {
+										source: "final_cta",
+										location: "bottom_section",
+									});
+									onRequestDemo();
+								}}
+							>
+								Schedule a demo
+							</Button>
+							<Button
+								variant="outline"
+								size="lg"
+								asChild
+								className="h-11 px-6 rounded-lg cursor-pointer"
+							>
+								<Link to="/docs">Start Integration</Link>
+							</Button>
+						</div>
+					</div>
+
+					<div
+						className={`transition-all duration-700 delay-200 ${
+							isVisible
+								? "opacity-100 translate-y-0"
+								: "opacity-0 translate-y-10"
+						}`}
+					>
+						<DashboardPreview />
+					</div>
+				</div>
+			</div>
+		</section>
+	);
 }
