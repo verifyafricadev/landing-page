@@ -7,6 +7,7 @@ import {
 	AccordionItem,
 	AccordionTrigger,
 } from "@/components/ui/accordion";
+import { HoverUnderline } from "@/components/ui/hover-underline";
 
 const faqs = [
 	{
@@ -95,7 +96,7 @@ export default function FAQ() {
 							className="text-teal-600 font-semibold hover:text-teal-700 transition-colors relative group"
 						>
 							<span>Contact us</span>
-							<span className="absolute -bottom-0.75 left-0 w-0 h-0.5 bg-teal-600 group-hover:w-full transition-all duration-300"></span>
+							<HoverUnderline className="-bottom-0.75 bg-teal-600" />
 						</Link>
 					</p>
 				</div>

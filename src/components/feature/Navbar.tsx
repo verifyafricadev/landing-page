@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { X, Menu, ExternalLink } from 'lucide-react';
 import { smoothScrollTo } from '../../hooks/useScrollAnimation';
+import { HoverUnderline } from '@/components/ui/hover-underline';
 
 interface NavbarProps {
   onRequestDemo: () => void;
@@ -149,7 +150,7 @@ export default function Navbar({ onRequestDemo, variant = 'transparent' }: Navba
                     }}
                   >
                     {item.label}
-                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-teal-500 group-hover:w-full transition-all duration-300"></span>
+                    <HoverUnderline />
                   </a>
                 ) : item.isLink ? (
                   <Link
@@ -165,7 +166,7 @@ export default function Navbar({ onRequestDemo, variant = 'transparent' }: Navba
                     }}
                   >
                     {item.label}
-                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-teal-500 group-hover:w-full transition-all duration-300"></span>
+                    <HoverUnderline />
                   </Link>
                 ) : (
                   <a
@@ -182,7 +183,7 @@ export default function Navbar({ onRequestDemo, variant = 'transparent' }: Navba
                     }}
                   >
                     {item.label}
-                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-teal-500 group-hover:w-full transition-all duration-300"></span>
+                    <HoverUnderline />
                   </a>
                 )
               ))}
