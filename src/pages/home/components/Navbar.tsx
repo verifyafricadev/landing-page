@@ -43,7 +43,8 @@ export default function HomeNavbar({
 	}, [isMobileMenuOpen]);
 
 	const showSolidBg = variant === "solid" || isScrolled;
-	const isTransparentNav = !showSolidBg;
+	const showNavShadow = isScrolled;
+	const isTransparentNav = variant === "transparent" && !isScrolled;
 
 	const handleHashClick = (
 		e: React.MouseEvent<HTMLAnchorElement>,
@@ -83,7 +84,7 @@ export default function HomeNavbar({
 			<nav
 				className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
 					showSolidBg
-						? "bg-white/95 backdrop-blur-md shadow-lg shadow-black/5"
+						? `bg-white/95 backdrop-blur-md ${showNavShadow ? "shadow-lg shadow-black/5" : "shadow-none"}`
 						: "bg-transparent shadow-none"
 				} ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"}`}
 			>
@@ -189,10 +190,9 @@ export default function HomeNavbar({
 							</a>
 							<Button
 								onClick={onRequestDemo}
-								className="group relative h-auto px-5 py-2.5 bg-teal-500 text-white hover:bg-teal-500/90 hover:shadow-lg hover:shadow-teal-500/30 cursor-pointer overflow-hidden"
+								className="h-auto px-5 py-2.5 bg-teal-500 text-white font-medium hover:bg-teal-600 hover:shadow-lg hover:shadow-teal-500/30 cursor-pointer"
 							>
-								<span className="absolute inset-0 bg-linear-to-r from-teal-400 to-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-								<span className="relative z-10">Request Demo</span>
+								Request Demo
 							</Button>
 						</div>
 

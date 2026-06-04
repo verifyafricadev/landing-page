@@ -310,9 +310,15 @@ export default function FeaturesIndexPage() {
 								variant="outline"
 								size="lg"
 								asChild
-								className="h-auto px-7 py-3 font-semibold hover:border-teal-400 hover:text-teal-600 cursor-pointer"
+								className="h-auto px-7 py-3 font-semibold  cursor-pointer"
 							>
-								<Link to="/docs">Read API Docs</Link>
+								<a
+									href="https://docs.verifyafrica.io"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									Read API Docs
+								</a>
 							</Button>
 						</div>
 					</div>
@@ -329,7 +335,7 @@ export default function FeaturesIndexPage() {
 								key={stat.label}
 								className="bg-white border border-gray-100 rounded-xl p-5 text-center"
 							>
-								<div className="text-2xl sm:text-3xl font-extrabold text-teal-500 mb-1">
+								<div className="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-1">
 									{stat.value}
 								</div>
 								<div className="text-xs sm:text-sm text-gray-500 font-medium">
