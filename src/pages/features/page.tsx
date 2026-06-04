@@ -2,7 +2,7 @@ import { useParams, Navigate } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
 import { featureDetails } from '@/mocks/featureDetails';
 import { useDemoModal } from '@/hooks/useDemoModal';
-import Navbar from '@/components/feature/Navbar';
+import Navbar from '@/pages/home/components/Navbar';
 import SEOHead from '@/components/feature/SEOHead';
 import FeatureHero from './components/FeatureHero';
 import FeatureStats from './components/FeatureStats';

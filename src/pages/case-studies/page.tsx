@@ -1,4 +1,4 @@
-import Navbar from '../../components/feature/Navbar';
+import Navbar from '@/pages/home/components/Navbar';
 import CaseStudiesHero from './components/CaseStudiesHero';
 import AfricaMapVisualization from './components/AfricaMapVisualization';
 import UseCasesGrid from './components/UseCasesGrid';

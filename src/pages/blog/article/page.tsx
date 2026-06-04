@@ -1,6 +1,6 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { useEffect, useMemo, useState, lazy, Suspense, memo } from "react";
-import Navbar from "../../../components/feature/Navbar";
+import Navbar from "@/pages/home/components/Navbar";
 import SEOHead from "../../../components/feature/SEOHead";
 import ArticleHero from "../components/ArticleHero";
 import { blogArticles } from "../../../mocks/blogArticles";

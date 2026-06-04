@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { smoothScrollTo } from "../../../hooks/useScrollAnimation";
 import { HoverUnderline } from "@/components/ui/hover-underline";
 import { Button } from "@/components/ui/button";
 import { LOGO_TEXT_COLOR, LogoIcon } from "@/components/icons/brand/logo";
+import { cn } from "@/lib/utils";
 
 interface NavbarProps {
 	onRequestDemo: () => void;
@@ -14,6 +15,7 @@ interface NavbarProps {
 const navItems = [
 	{ href: "/features", label: "Features", isLink: true },
 	{ href: "https://docs.verifyafrica.io", label: "API Docs" },
+	{ href: "/resources", label: "Resources", isLink: true },
 	{ href: "#pricing", label: "Pricing" },
 	{ href: "/about", label: "About", isLink: true },
 ];
@@ -25,7 +27,9 @@ export default function HomeNavbar({
 	const [isScrolled, setIsScrolled] = useState(false);
 	const [isVisible, setIsVisible] = useState(false);
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+	const location = useLocation();
 	const navigate = useNavigate();
+	const isHomePage = location.pathname === "/";
 
 	useEffect(() => {
 		setTimeout(() => setIsVisible(true), 100);
@@ -33,6 +37,31 @@ export default function HomeNavbar({
 		window.addEventListener("scroll", handleScroll, { passive: true });
 		return () => window.removeEventListener("scroll", handleScroll);
 	}, []);
+
+	useEffect(() => {
+		setIsMobileMenuOpen(false);
+	}, [location]);
+
+	useEffect(() => {
+		if (location.hash) {
+			let attempts = 0;
+			const maxAttempts = 20;
+			const tryScroll = () => {
+				const element = document.querySelector(location.hash);
+				if (element) {
+					smoothScrollTo(location.hash, {
+						duration: 1200,
+						easing: "easeInOutQuart",
+						offset: -80,
+					});
+				} else if (attempts < maxAttempts) {
+					attempts++;
+					setTimeout(tryScroll, 200);
+				}
+			};
+			setTimeout(tryScroll, 150);
+		}
+	}, [location]);
 
 	// Lock body scroll when mobile menu is open
 	useEffect(() => {
@@ -42,7 +71,7 @@ export default function HomeNavbar({
 		};
 	}, [isMobileMenuOpen]);
 
-	const showSolidBg = variant === "solid" || isScrolled;
+	const showSolidBg = variant === "solid" || isScrolled || isMobileMenuOpen;
 	const showNavShadow = isScrolled;
 	const isTransparentNav = variant === "transparent" && !isScrolled;
 
@@ -51,11 +80,16 @@ export default function HomeNavbar({
 		href: string,
 	) => {
 		e.preventDefault();
-		smoothScrollTo(href, {
-			duration: 1200,
-			easing: "easeInOutQuart",
-			offset: -80,
-		});
+		setIsMobileMenuOpen(false);
+		if (isHomePage) {
+			smoothScrollTo(href, {
+				duration: 1200,
+				easing: "easeInOutQuart",
+				offset: -80,
+			});
+		} else {
+			navigate("/" + href);
+		}
 	};
 
 	const handleMobileItemClick = (
@@ -68,7 +102,7 @@ export default function HomeNavbar({
 			window.open(href, "_blank", "noopener,noreferrer");
 		} else if (isLink) {
 			navigate(href);
-		} else {
+		} else if (isHomePage) {
 			setTimeout(() => {
 				smoothScrollTo(href, {
 					duration: 1200,
@@ -76,6 +110,8 @@ export default function HomeNavbar({
 					offset: -80,
 				});
 			}, 320);
+		} else {
+			navigate("/" + href);
 		}
 	};
 
@@ -84,7 +120,7 @@ export default function HomeNavbar({
 			<nav
 				className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
 					showSolidBg
-						? `bg-white/95 backdrop-blur-md ${showNavShadow ? "shadow-lg shadow-black/5" : "shadow-none"}`
+						? `bg-white backdrop-blur-md ${showNavShadow ? "shadow-lg shadow-black/5" : "shadow-none"}`
 						: "bg-transparent shadow-none"
 				} ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"}`}
 			>
@@ -176,18 +212,24 @@ export default function HomeNavbar({
 								transition: "all 0.4s ease-out 500ms",
 							}}
 						>
-							<a
-								href="https://dashboard.verifyafrica.io/login"
-								target="_blank"
-								rel="noopener noreferrer"
-								className={`px-5 py-2.5 text-sm font-medium rounded-lg transition-all duration-300 whitespace-nowrap hover:scale-105 active:scale-95 cursor-pointer ${
-									showSolidBg
-										? "text-gray-700 border border-gray-300 hover:border-teal-400 hover:text-teal-600"
-										: "text-white border border-white/30 hover:border-white/60 hover:bg-white/10"
-								}`}
+							<Button
+								variant="outline"
+								asChild
+								className={cn(
+									"h-auto px-5 py-2.5 whitespace-nowrap transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer",
+									isTransparentNav
+										? " bg-transparent text-white hover:border-white/60 hover:bg-white/10 hover:text-white"
+										: "t",
+								)}
 							>
-								Explore Dashboard
-							</a>
+								<a
+									href="https://dashboard.verifyafrica.io/login"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									Login
+								</a>
+							</Button>
 							<Button
 								onClick={onRequestDemo}
 								className="h-auto px-5 py-2.5 bg-teal-500 text-white font-medium hover:bg-teal-600 hover:shadow-lg hover:shadow-teal-500/30 cursor-pointer"
@@ -287,7 +329,7 @@ export default function HomeNavbar({
 								target="_blank"
 								rel="noopener noreferrer"
 							>
-								Explore Dashboard
+								Login
 							</a>
 						</Button>
 						<Button

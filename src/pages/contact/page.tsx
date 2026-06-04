@@ -1,5 +1,5 @@
 import { useDemoModal } from '../../hooks/useDemoModal';
-import Navbar from '../../components/feature/Navbar';
+import Navbar from '@/pages/home/components/Navbar';
 import ContactHero from './components/ContactHero';
 import ContactForm from './components/ContactForm';
 import ContactInfo from './components/ContactInfo';

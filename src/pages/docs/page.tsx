@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDemoModal } from "../../hooks/useDemoModal";
-import Navbar from "../../components/feature/Navbar";
+import Navbar from "@/pages/home/components/Navbar";
 import Footer from "../../components/feature/Footer";
 import BackToTop from "../../components/feature/BackToTop";
 import DocsSidebar from "./components/DocsSidebar";

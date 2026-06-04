@@ -1,6 +1,6 @@
 import { useState, useMemo, lazy, Suspense, useEffect } from 'react';
 import { useDemoModal } from '../../hooks/useDemoModal';
-import Navbar from '../../components/feature/Navbar';
+import Navbar from '@/pages/home/components/Navbar';
 import BlogHero from './components/BlogHero';
 import SEOHead from '../../components/feature/SEOHead';
 import BackToTop from '../../components/feature/BackToTop';

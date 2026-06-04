@@ -1,6 +1,6 @@
 import { lazy, Suspense } from 'react';
 import { useDemoModal } from '../../hooks/useDemoModal';
-import Navbar from '../../components/feature/Navbar';
+import Navbar from '@/pages/home/components/Navbar';
 import AboutHero from './components/AboutHero';
 import SEOHead from '../../components/feature/SEOHead';
 
