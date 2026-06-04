@@ -31,7 +31,7 @@ function UseCaseCard({
 		<Link
 			ref={cardRef}
 			to={`/case-studies?open=${useCase.caseStudyId}`}
-			className="group relative shrink-0 w-[280px] sm:w-[300px] lg:w-[calc((100%-2rem)/3)] bg-white border border-gray-200 rounded-xl p-5 sm:p-6 hover:border-gray-300 hover:shadow-sm transition-all duration-300 cursor-pointer overflow-hidden"
+			className="group relative shrink-0 w-[280px] sm:w-[300px] lg:w-[calc((100%-3.5rem)/3)] bg-white border border-gray-200 rounded-xl p-5 sm:p-6 hover:border-gray-300 hover:shadow-sm transition-all duration-300 cursor-pointer overflow-hidden"
 		>
 			<div className="flex items-center gap-3 mb-3">
 				<div
