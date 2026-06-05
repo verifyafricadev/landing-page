@@ -1,4 +1,8 @@
-import { LockOpen } from "@phosphor-icons/react";
+import {
+	ArrowDownIcon,
+	CheckIcon,
+	LockOpenIcon,
+} from "@phosphor-icons/react";
 import { useScrollAnimation } from "../../../hooks/useScrollAnimation";
 
 export default function ResourcesHero() {
@@ -21,7 +25,7 @@ export default function ResourcesHero() {
 				}`}
 			>
 				<div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-secondary/15 bg-secondary/5 backdrop-blur-sm text-secondary text-sm font-medium mb-8">
-					<LockOpen className="size-4" />
+					<LockOpenIcon className="size-4" />
 					<span>Free Resources for Compliance Teams</span>
 				</div>
 				<h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-secondary tracking-tighter leading-none mb-8">
@@ -34,22 +38,22 @@ export default function ResourcesHero() {
 				</p>
 				<div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-sm text-secondary/60">
 					<span className="flex items-center gap-2">
-						<i className="ri-check-line text-teal-500" />
+						<CheckIcon className="text-teal-500" />
 						No spam, ever
 					</span>
 					<span className="flex items-center gap-2">
-						<i className="ri-check-line text-teal-500" />
+						<CheckIcon className="text-teal-500" />
 						Company emails only
 					</span>
 					<span className="flex items-center gap-2">
-						<i className="ri-check-line text-teal-500" />
+						<CheckIcon className="text-teal-500" />
 						Instant access
 					</span>
 				</div>
 			</div>
 			<div className="relative z-10 pb-10 flex flex-col items-center gap-2 text-secondary/40 text-xs uppercase tracking-widest">
 				<span>Scroll</span>
-				<i className="ri-arrow-down-line text-lg animate-bounce" />
+				<ArrowDownIcon className="text-lg animate-bounce" />
 			</div>
 		</section>
 	);

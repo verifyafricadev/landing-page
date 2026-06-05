@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
-import { ArrowUp } from '@phosphor-icons/react';
+import {
+	ArrowUpIcon,
+} from "@phosphor-icons/react";
 
 export default function BackToTop() {
   const [visible, setVisible] = useState(false);
@@ -29,7 +31,7 @@ export default function BackToTop() {
           : 'opacity-0 translate-y-4 pointer-events-none',
       ].join(' ')}
     >
-      <ArrowUp className="text-lg" />
+      <ArrowUpIcon className="text-lg" />
     </button>
   );
 }

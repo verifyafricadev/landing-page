@@ -1,4 +1,8 @@
-import { Globe, Lock, ShieldCheck } from "@phosphor-icons/react";
+import {
+	GlobeIcon,
+	Lock,
+	ShieldCheckIcon,
+} from "@phosphor-icons/react";
 import { useScrollAnimation } from "../../../hooks/useScrollAnimation";
 
 const pillars = [
@@ -6,7 +10,7 @@ const pillars = [
 		title: "SOC 2 Type II Certified",
 		description:
 			"We meet SOC 2 Type II with audited controls across security, availability, and confidentiality. All systems use strict change management, access control, and continuous monitoring validated annually.",
-		icon: ShieldCheck,
+		icon: ShieldCheckIcon,
 	},
 	{
 		title: "Data Security",
@@ -18,7 +22,7 @@ const pillars = [
 		title: "GDPR",
 		description:
 			"We operate under full GDPR oversight with strict data-minimization, encryption, access governance, and auditability across all processing. All data handling follows EU privacy requirements.",
-		icon: Globe,
+		icon: GlobeIcon,
 	},
 ] as const;
 

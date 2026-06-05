@@ -4,6 +4,9 @@ import { caseStudies, industries } from "../../../mocks/caseStudies";
 import CaseStudyCard from "./CaseStudyCard";
 import CaseStudyModal from "./CaseStudyModal";
 import { track } from "@/lib/analytics";
+import {
+	FileMagnifyingGlassIcon,
+} from "@phosphor-icons/react";
 
 export default function CaseStudiesGrid() {
 	const [searchParams, setSearchParams] = useSearchParams();
@@ -95,7 +98,7 @@ export default function CaseStudiesGrid() {
 				{/* Empty State */}
 				{filteredStudies.length === 0 && (
 					<div className="text-center py-16">
-						<i className="ri-file-search-line text-5xl text-gray-300 mb-4 block"></i>
+						<FileMagnifyingGlassIcon className="text-5xl text-gray-300 mb-4 block" />
 						<h3 className="text-xl font-semibold text-gray-700 mb-2">
 							No case studies found
 						</h3>

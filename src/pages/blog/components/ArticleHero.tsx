@@ -1,5 +1,9 @@
 import { memo } from "react";
 import { Link } from "react-router-dom";
+import {
+	CalendarIcon,
+	ClockIcon,
+} from "@phosphor-icons/react";
 
 interface ArticleHeroProps {
 	category: string;
@@ -71,11 +75,11 @@ const ArticleHero = memo(function ArticleHero({
 					</div>
 					<div className="flex items-center gap-4 text-xs text-gray-400">
 						<span className="flex items-center gap-1">
-							<i className="ri-calendar-line w-3.5 h-3.5 flex items-center justify-center"></i>
+							<CalendarIcon className="w-3.5 h-3.5 flex items-center justify-center" />
 							{date}
 						</span>
 						<span className="flex items-center gap-1">
-							<i className="ri-time-line w-3.5 h-3.5 flex items-center justify-center"></i>
+							<ClockIcon className="w-3.5 h-3.5 flex items-center justify-center" />
 							{readTime}
 						</span>
 					</div>

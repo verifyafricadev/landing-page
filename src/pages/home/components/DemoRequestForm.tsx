@@ -1,5 +1,12 @@
 import { useState, FormEvent, useEffect } from "react";
 import { track } from "@/lib/analytics";
+import {
+	ArrowRightIcon,
+	CalendarIcon,
+	CheckIcon,
+	LockIcon,
+	XIcon,
+} from "@phosphor-icons/react";
 
 interface DemoRequestFormProps {
 	isOpen: boolean;
@@ -182,14 +189,14 @@ This demo request was submitted via the VerifyAfrica website.`,
 					onClick={handleClose}
 					className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors cursor-pointer z-10"
 				>
-					<i className="ri-close-line text-lg text-gray-600"></i>
+					<XIcon className="text-lg text-gray-600" />
 				</button>
 
 				<div className="p-8">
 					{isSubmitted ? (
 						<div className="text-center py-12">
 							<div className="w-16 h-16 flex items-center justify-center bg-teal-100 rounded-full mx-auto mb-5">
-								<i className="ri-check-line text-3xl text-teal-600"></i>
+								<CheckIcon className="text-3xl text-teal-600" />
 							</div>
 							<h3 className="text-xl font-bold text-secondary mb-2">
 								Demo Request Received!
@@ -210,7 +217,7 @@ This demo request was submitted via the VerifyAfrica website.`,
 							<div className="mb-6">
 								<div className="inline-flex items-center px-3 py-1 rounded-full bg-teal-100 text-teal-700 text-xs font-semibold tracking-wide uppercase mb-4">
 									<span className="w-4 h-4 flex items-center justify-center mr-1.5">
-										<i className="ri-calendar-line text-sm"></i>
+										<CalendarIcon className="text-sm" />
 									</span>
 									Schedule a Demo
 								</div>
@@ -432,14 +439,14 @@ This demo request was submitted via the VerifyAfrica website.`,
 									) : (
 										<>
 											Request a Demo
-											<i className="ri-arrow-right-line text-base"></i>
+											<ArrowRightIcon className="text-base" />
 										</>
 									)}
 								</button>
 
 								<p className="text-xs text-gray-400 text-center flex items-center justify-center gap-1.5">
 									<span className="w-3.5 h-3.5 flex items-center justify-center">
-										<i className="ri-lock-line text-xs"></i>
+										<LockIcon className="text-xs" />
 									</span>
 									Your information is secure and encrypted. By submitting, you
 									agree to our{" "}

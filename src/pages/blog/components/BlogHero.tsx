@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 import { useScrollAnimation } from "../../../hooks/useScrollAnimation";
 import { blogArticles } from "../../../mocks/blogArticles";
+import {
+	ClockIcon,
+} from "@phosphor-icons/react";
 
 export default function BlogHero() {
 	const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation({
@@ -103,7 +106,7 @@ export default function BlogHero() {
 											</div>
 										</div>
 										<div className="flex items-center gap-1 text-sm text-gray-400">
-											<i className="ri-time-line w-4 h-4 flex items-center justify-center"></i>
+											<ClockIcon className="w-4 h-4 flex items-center justify-center" />
 											<span>{featured.readTime}</span>
 										</div>
 									</div>

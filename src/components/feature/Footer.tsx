@@ -1,22 +1,27 @@
 import { Link, useNavigate } from "react-router-dom";
-import { LogoIcon } from "@/components/icons/brand/logo";
+import { Logo } from "@/components/icons/brand/logo";
 import { Button } from "@/components/ui/button";
+import {
+	InstagramLogoIcon,
+	LinkedinLogoIcon,
+	XLogoIcon,
+} from "@phosphor-icons/react";
 
 const socialLinks = [
 	{
 		href: "https://www.linkedin.com/company/verifyafrica",
 		label: "LinkedIn",
-		icon: "ri-linkedin-fill",
+		icon: LinkedinLogoIcon,
 	},
 	{
 		href: "https://x.com/V3rifyAfrica",
 		label: "X (Twitter)",
-		icon: "ri-twitter-x-fill",
+		icon: XLogoIcon,
 	},
 	{
 		href: "https://www.instagram.com/verifyafrica1/",
 		label: "Instagram",
-		icon: "ri-instagram-fill",
+		icon: InstagramLogoIcon,
 	},
 ] as const;
 
@@ -64,7 +69,7 @@ export default function Footer() {
 							to="/"
 							className="flex items-center mb-4 sm:mb-6 group"
 						>
-							<LogoIcon
+							<Logo
 								textColor="#FFFFFF"
 								className="h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
 								aria-label="VerifyAfrica – AI-Powered Compliance & Identity Infrastructure for Africa"

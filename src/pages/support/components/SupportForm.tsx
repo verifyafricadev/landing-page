@@ -1,5 +1,7 @@
 import { useState } from "react";
-import { Lock } from "@phosphor-icons/react";
+import {
+	Lock,
+} from "@phosphor-icons/react";
 
 export default function SupportForm() {
 	const [formData, setFormData] = useState({

@@ -1,6 +1,11 @@
 import { Fragment } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import {
+	ArrowDownIcon,
+	ArrowRightIcon,
+	ShieldCheckIcon,
+} from "@phosphor-icons/react";
 
 export default function AboutHero() {
 	return (
@@ -19,7 +24,7 @@ export default function AboutHero() {
 			<div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-4 sm:px-6 py-32 max-w-5xl mx-auto">
 				<Fragment>
 					<div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-secondary/15 bg-secondary/5 backdrop-blur-sm text-secondary text-sm font-medium mb-8">
-						<i className="ri-shield-check-line" />
+						<ShieldCheckIcon />
 						<span>About VerifyAfrica</span>
 					</div>
 
@@ -41,7 +46,7 @@ export default function AboutHero() {
 						>
 							<Link to="/contact">
 								Request Demo
-								<i className="ri-arrow-right-line" />
+								<ArrowRightIcon />
 							</Link>
 						</Button>
 						<Button
@@ -58,7 +63,7 @@ export default function AboutHero() {
 
 			<div className="relative z-10 pb-10 flex flex-col items-center gap-2 text-secondary/40 text-xs uppercase tracking-widest">
 				<span>Scroll</span>
-				<i className="ri-arrow-down-line text-lg animate-bounce" />
+				<ArrowDownIcon className="text-lg animate-bounce" />
 			</div>
 
 			<style>{`

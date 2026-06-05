@@ -1,6 +1,10 @@
 import { useScrollAnimation } from "../../../hooks/useScrollAnimation";
 import { Link } from "react-router-dom";
-import { Check, Crown, TrendUp } from "@phosphor-icons/react";
+import {
+	CheckIcon,
+	CrownIcon,
+	TrendUpIcon,
+} from "@phosphor-icons/react";
 import { track } from "@/lib/analytics";
 import { useDemoModal } from "@/hooks/useDemoModal";
 import { HoverUnderline } from "@/components/ui/hover-underline";
@@ -31,7 +35,7 @@ const plans = [
 		],
 		badge: null,
 		highlight: false,
-		icon: TrendUp,
+		icon: TrendUpIcon,
 	},
 	{
 		id: "enterprise",
@@ -50,7 +54,7 @@ const plans = [
 		],
 		badge: "Recommended",
 		highlight: true,
-		icon: Crown,
+		icon: CrownIcon,
 	},
 ] as const;
 
@@ -153,7 +157,7 @@ export default function Pricing() {
 												key={feature}
 												className="flex items-center gap-3 text-sm text-gray-700"
 											>
-												<Check className="h-4 w-4 text-teal-500 shrink-0" />
+												<CheckIcon className="h-4 w-4 text-teal-500 shrink-0" />
 												{feature}
 											</li>
 										))}

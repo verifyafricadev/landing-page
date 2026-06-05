@@ -3,6 +3,10 @@ import type { FeatureDetail } from "@/mocks/featureDetails";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import {
+	ArrowDownIcon,
+	ArrowRightIcon,
+} from "@phosphor-icons/react";
 
 interface FeatureHeroProps {
 	feature: FeatureDetail;
@@ -18,7 +22,7 @@ function HeroCTAs({ className }: { className?: string }) {
 			>
 				<Link to="/contact">
 					Request Demo
-					<i className="ri-arrow-right-line" />
+					<ArrowRightIcon />
 				</Link>
 			</Button>
 			<Button
@@ -40,6 +44,8 @@ function HeroCTAs({ className }: { className?: string }) {
 }
 
 export default function FeatureHero({ feature }: FeatureHeroProps) {
+	const FeatureIcon = feature.icon;
+
 	return (
 		<section className="relative min-h-[90vh] flex flex-col justify-center overflow-hidden">
 			<Fragment>
@@ -65,7 +71,7 @@ export default function FeatureHero({ feature }: FeatureHeroProps) {
 			<div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-4 sm:px-6 py-32 max-w-5xl mx-auto">
 				<Fragment>
 					<div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm text-teal-300 text-sm font-medium mb-8">
-						<i className={feature.icon} />
+						<FeatureIcon className="size-4" aria-hidden />
 						<span>
 							{feature.tagline.split("—")[0]?.trim() || feature.tagline}
 						</span>
@@ -82,7 +88,7 @@ export default function FeatureHero({ feature }: FeatureHeroProps) {
 
 			<div className="relative z-10 pb-10 flex flex-col items-center gap-2 text-white/40 text-xs uppercase tracking-widest">
 				<span>Scroll</span>
-				<i className="ri-arrow-down-line text-lg animate-bounce" />
+				<ArrowDownIcon className="text-lg animate-bounce" />
 			</div>
 
 			<style>{`

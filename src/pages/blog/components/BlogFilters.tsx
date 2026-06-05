@@ -1,5 +1,8 @@
 
 import { blogCategories } from '../../../mocks/blogArticles';
+import {
+	MagnifyingGlassIcon,
+} from "@phosphor-icons/react";
 
 interface BlogFiltersProps {
   activeCategory: string;
@@ -57,7 +60,7 @@ export default function BlogFilters({
 
         {/* Search input */}
         <div className="relative w-full lg:w-72 flex-shrink-0">
-          <i className="ri-search-line absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5 flex items-center justify-center"></i>
+          <MagnifyingGlassIcon className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5 flex items-center justify-center" />
           <input
             type="text"
             placeholder="Search articles..."

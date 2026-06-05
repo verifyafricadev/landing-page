@@ -1,9 +1,15 @@
+import {
+	ArrowRightIcon,
+	CodeIcon,
+	SquaresFourIcon,
+	type Icon,
+} from "@phosphor-icons/react";
 import { useScrollAnimation } from "../../../hooks/useScrollAnimation";
 
 const options = [
 	{
 		variant: "light" as const,
-		icon: "ri-dashboard-line",
+		icon: SquaresFourIcon,
 		title: "VerifyAfrica Dashboard",
 		description:
 			"Manage onboarding, monitor risk, and review cases through our compliance interface. Perfect for teams who need a visual workflow and case management system.",
@@ -12,7 +18,7 @@ const options = [
 	},
 	{
 		variant: "dark" as const,
-		icon: "ri-code-s-slash-line",
+		icon: CodeIcon,
 		title: "Integrate via API",
 		description:
 			"Embed identity and compliance checks directly into your onboarding flow or CRM. Flexible, modular, and built for scale.",
@@ -85,7 +91,7 @@ export type HowItWorksCardVariant = "light" | "dark";
 
 export interface HowItWorksCardProps {
 	variant: HowItWorksCardVariant;
-	icon: string;
+	icon: Icon;
 	title: string;
 	description: string;
 	href: string;
@@ -126,6 +132,7 @@ function HowItWorksCard({
 	index = 0,
 }: HowItWorksCardProps) {
 	const styles = variantStyles[variant];
+	const CardIcon = icon;
 
 	return (
 		<div
@@ -170,9 +177,7 @@ function HowItWorksCard({
 					<div
 						className={`w-11 h-11 sm:w-14 md:w-16 sm:h-14 md:h-16 flex items-center justify-center bg-teal-500 rounded-lg sm:rounded-xl mb-3 sm:mb-6 transition-all duration-500 group-hover:scale-110 ${styles.iconHoverRotate} group-hover:shadow-lg group-hover:shadow-teal-500/30`}
 					>
-						<i
-							className={`${icon} text-xl sm:text-2xl md:text-3xl text-white transition-transform duration-300 group-hover:scale-110`}
-						/>
+						<CardIcon className="text-xl sm:text-2xl md:text-3xl text-white transition-transform duration-300 group-hover:scale-110" aria-hidden />
 					</div>
 					<h3
 						className={`text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-4 transition-colors duration-300 ${styles.title}`}
@@ -198,7 +203,7 @@ function HowItWorksCard({
 								className={`absolute bottom-0 left-0 w-0 h-0.5 ${styles.linkUnderline} group-hover/link:w-full transition-all duration-300`}
 							/>
 						</span>
-						<i className="ri-arrow-right-line transition-transform group-hover/link:translate-x-2" />
+						<ArrowRightIcon className="transition-transform group-hover/link:translate-x-2" />
 					</a>
 				</div>
 			</div>

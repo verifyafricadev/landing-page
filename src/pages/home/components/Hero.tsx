@@ -1,6 +1,10 @@
 import { useEffect, useState, useMemo, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { track } from '@/lib/analytics';
+import {
+	ArrowRightIcon,
+	CodeIcon,
+} from "@phosphor-icons/react";
 
 interface HeroProps {
   onRequestDemo: () => void;
@@ -244,7 +248,7 @@ export default function Hero({ onRequestDemo }: HeroProps) {
             <span className="absolute inset-0 bg-gradient-to-r from-teal-400 to-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
             <span className="relative z-10 flex items-center space-x-2">
               <span>Request a Demo</span>
-              <i className="ri-arrow-right-line text-lg transition-transform group-hover:translate-x-2"></i>
+              <ArrowRightIcon className="text-lg transition-transform group-hover:translate-x-2" />
             </span>
           </button>
           <Link
@@ -253,7 +257,7 @@ export default function Hero({ onRequestDemo }: HeroProps) {
             style={{ textShadow: '0 1px 3px rgba(0, 0, 0, 0.4)' }}
           >
             <span>View API Docs</span>
-            <i className="ri-code-line text-lg transition-transform group-hover:rotate-12 group-hover:scale-110"></i>
+            <CodeIcon className="text-lg transition-transform group-hover:rotate-12 group-hover:scale-110" />
           </Link>
         </div>
 

@@ -3,15 +3,15 @@ import { cn } from "@/lib/utils";
 
 export const LOGO_TEXT_COLOR = "#15242E";
 
-type LogoIconProps = React.SVGProps<SVGSVGElement> & {
+type LogoProps = React.SVGProps<SVGSVGElement> & {
 	textColor?: string;
 };
 
-export const LogoIcon = ({
+export const Logo = ({
 	textColor = LOGO_TEXT_COLOR,
 	className,
 	...props
-}: LogoIconProps) => {
+}: LogoProps) => {
 	return (
 		<svg
 			width="439"

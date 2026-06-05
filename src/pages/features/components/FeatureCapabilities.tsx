@@ -1,5 +1,6 @@
 import type { FeatureDetail } from "@/mocks/featureDetails";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import type { Icon } from "@phosphor-icons/react";
 
 interface FeatureCapabilitiesProps {
 	feature: FeatureDetail;
@@ -57,7 +58,7 @@ export default function FeatureCapabilities({
 }
 
 interface FeatureCapabilityCardProps {
-	icon: string;
+	icon: Icon;
 	title: string;
 	description: string;
 	index: number;
@@ -71,6 +72,8 @@ function FeatureCapabilityCard({
 	index,
 	isVisible,
 }: FeatureCapabilityCardProps) {
+	const CapabilityIcon = icon;
+
 	return (
 		<div
 			className="bg-white rounded-xl p-6 border hover:shadow-md transition-all duration-300 group"
@@ -81,7 +84,7 @@ function FeatureCapabilityCard({
 			}}
 		>
 			<div className="w-11 h-11 flex items-center justify-center bg-teal-50 rounded-lg mb-4 group-hover:bg-teal-100 transition-colors duration-300">
-				<i className={`${icon} text-xl text-teal-600`} />
+				<CapabilityIcon className="text-xl text-teal-600" aria-hidden />
 			</div>
 			<h3 className="text-base font-bold text-secondary mb-2 group-hover:text-teal-700 transition-colors duration-300">
 				{title}

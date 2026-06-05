@@ -1,6 +1,18 @@
 import { useState, useRef, useEffect } from "react";
 import { countriesServed } from "../../../mocks/caseStudies";
 import CountryDetailModal from "./CountryDetailModal";
+import {
+	ArrowsClockwiseIcon,
+	CaretRightIcon,
+	CircleIcon,
+	CornersInIcon,
+	CrosshairIcon,
+	MagnifyingGlassIcon,
+	MagnifyingGlassPlusIcon,
+	MapPinIcon,
+	XCircleIcon,
+	XIcon,
+} from "@phosphor-icons/react";
 
 interface CountryData {
 	name: string;
@@ -298,7 +310,7 @@ export default function AfricaMapVisualization() {
 				{/* Header */}
 				<div className="text-center mb-12">
 					<div className="inline-flex items-center gap-2 px-4 py-2 bg-teal-50 border border-teal-100 rounded-full mb-4">
-						<i className="ri-map-pin-line text-teal-600"></i>
+						<MapPinIcon className="text-teal-600" />
 						<span className="text-teal-700 text-sm font-medium">
 							Pan-African Coverage
 						</span>
@@ -318,7 +330,7 @@ export default function AfricaMapVisualization() {
 					>
 						<div className="relative">
 							<div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-								<i className="ri-search-line text-gray-400 text-lg"></i>
+								<MagnifyingGlassIcon className="text-gray-400 text-lg" />
 							</div>
 							<input
 								type="text"
@@ -336,7 +348,7 @@ export default function AfricaMapVisualization() {
 									onClick={clearSearch}
 									className="absolute inset-y-0 right-0 pr-4 flex items-center cursor-pointer hover:text-gray-600 transition-colors"
 								>
-									<i className="ri-close-circle-fill text-gray-400 text-lg"></i>
+									<XCircleIcon className="text-gray-400 text-lg" />
 								</button>
 							)}
 						</div>
@@ -373,7 +385,7 @@ export default function AfricaMapVisualization() {
 									</div>
 								) : (
 									<div className="px-4 py-6 text-center">
-										<i className="ri-map-pin-line text-gray-300 text-3xl mb-2"></i>
+										<MapPinIcon className="text-gray-300 text-3xl mb-2" />
 										<p className="text-sm text-gray-500">
 											No countries found for "{searchQuery}"
 										</p>
@@ -386,7 +398,7 @@ export default function AfricaMapVisualization() {
 					{/* Highlighted Country Badge */}
 					{highlightedCountry && (
 						<div className="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-teal-500 text-white rounded-full animate-pulse">
-							<i className="ri-focus-3-line"></i>
+							<CrosshairIcon />
 							<span className="text-sm font-medium">
 								Showing:{" "}
 								{
@@ -398,7 +410,7 @@ export default function AfricaMapVisualization() {
 								onClick={clearSearch}
 								className="ml-1 hover:bg-teal-600 rounded-full p-0.5 cursor-pointer"
 							>
-								<i className="ri-close-line"></i>
+								<XIcon></XIcon>
 							</button>
 						</div>
 					)}
@@ -406,7 +418,7 @@ export default function AfricaMapVisualization() {
 					{/* Zoomed Region Badge */}
 					{selectedRegion && (
 						<div className="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-secondary text-white rounded-full">
-							<i className="ri-zoom-in-line"></i>
+							<MagnifyingGlassPlusIcon />
 							<span className="text-sm font-medium">
 								Zoomed: {selectedRegion}
 							</span>
@@ -415,7 +427,7 @@ export default function AfricaMapVisualization() {
 								className="ml-1 hover:bg-gray-700 rounded-full p-1 cursor-pointer transition-colors"
 								title="Reset zoom"
 							>
-								<i className="ri-fullscreen-exit-line"></i>
+								<CornersInIcon />
 							</button>
 						</div>
 					)}
@@ -434,7 +446,7 @@ export default function AfricaMapVisualization() {
 										onClick={resetZoom}
 										className="text-xs text-teal-600 hover:text-teal-700 font-medium flex items-center gap-1 cursor-pointer"
 									>
-										<i className="ri-refresh-line"></i>
+										<ArrowsClockwiseIcon />
 										Reset
 									</button>
 								)}
@@ -468,9 +480,9 @@ export default function AfricaMapVisualization() {
 												{regionCounts[region as keyof typeof regionCounts]}
 											</span>
 											{selectedRegion === region ? (
-												<i className="ri-zoom-in-line text-teal-400"></i>
+												<MagnifyingGlassPlusIcon className="text-teal-400" />
 											) : (
-												<i className="ri-arrow-right-s-line text-gray-400"></i>
+												<CaretRightIcon className="text-gray-400" />
 											)}
 										</div>
 									</button>
@@ -545,7 +557,7 @@ export default function AfricaMapVisualization() {
 							{selectedRegion && (
 								<div className="absolute top-4 right-4 z-20 flex items-center gap-2">
 									<div className="px-3 py-1.5 bg-white/10 backdrop-blur-sm rounded-full text-white text-xs font-medium flex items-center gap-2">
-										<i className="ri-zoom-in-line text-teal-400"></i>
+										<MagnifyingGlassPlusIcon className="text-teal-400" />
 										<span>{regionZoomConfig[selectedRegion]?.scale}x zoom</span>
 									</div>
 									<button
@@ -553,7 +565,7 @@ export default function AfricaMapVisualization() {
 										className="w-8 h-8 flex items-center justify-center bg-white/10 backdrop-blur-sm rounded-full text-white hover:bg-white/20 transition-colors cursor-pointer"
 										title="Reset zoom"
 									>
-										<i className="ri-fullscreen-exit-line"></i>
+										<CornersInIcon />
 									</button>
 								</div>
 							)}
@@ -786,7 +798,7 @@ export default function AfricaMapVisualization() {
 										: "Click a region to zoom in"}
 								</div>
 								<div className="flex items-center gap-2 text-white/60 text-xs">
-									<i className="ri-checkbox-blank-circle-fill text-teal-400 text-[8px]"></i>
+									<CircleIcon className="text-teal-400 text-[8px]" />
 									<span>Active Coverage</span>
 								</div>
 							</div>
@@ -810,7 +822,7 @@ export default function AfricaMapVisualization() {
 											style={{ backgroundColor: color }}
 										></div>
 										{selectedRegion === region && (
-											<i className="ri-zoom-in-line text-teal-400 text-xs"></i>
+											<MagnifyingGlassPlusIcon className="text-teal-400 text-xs" />
 										)}
 									</div>
 									<div

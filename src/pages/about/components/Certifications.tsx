@@ -1,9 +1,9 @@
 import {
-	ShieldCheck,
-	Lock,
-	FileLock,
-	CreditCard,
 	Bank,
+	CreditCardIcon,
+	FileLockIcon,
+	Lock,
+	ShieldCheckIcon,
 	type Icon,
 } from "@phosphor-icons/react";
 import { useScrollAnimation } from "../../../hooks/useScrollAnimation";
@@ -16,7 +16,7 @@ const certifications: {
 	{
 		name: "ISO 27001",
 		description: "Information Security",
-		icon: ShieldCheck,
+		icon: ShieldCheckIcon,
 	},
 	{
 		name: "SOC 2 Type II",
@@ -26,12 +26,12 @@ const certifications: {
 	{
 		name: "GDPR",
 		description: "Data Protection",
-		icon: FileLock,
+		icon: FileLockIcon,
 	},
 	{
 		name: "PCI DSS",
 		description: "Payment Security",
-		icon: CreditCard,
+		icon: CreditCardIcon,
 	},
 	{
 		name: "NDPR",

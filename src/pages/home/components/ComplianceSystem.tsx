@@ -1,3 +1,6 @@
+import {
+	CheckCircleIcon,
+} from "@phosphor-icons/react";
 import { useScrollAnimation } from "../../../hooks/useScrollAnimation";
 
 export default function ComplianceSystem() {
@@ -52,7 +55,7 @@ export default function ComplianceSystem() {
 								}}
 							>
 								<div className="w-4 h-4 sm:w-6 sm:h-6 flex items-center justify-center flex-shrink-0">
-									<i className="ri-checkbox-circle-fill text-base sm:text-xl text-teal-400"></i>
+									<CheckCircleIcon className="text-base sm:text-xl text-teal-400" />
 								</div>
 								<span className="text-xs sm:text-sm md:text-base font-medium">
 									{feature}

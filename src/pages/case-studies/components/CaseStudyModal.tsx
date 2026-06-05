@@ -1,3 +1,10 @@
+import {
+	DownloadIcon,
+	LightbulbIcon,
+	QuotesIcon,
+	WarningIcon,
+	XIcon,
+} from "@phosphor-icons/react";
 import { useEffect } from "react";
 
 interface CaseStudyResult {
@@ -53,7 +60,7 @@ export default function CaseStudyModal({
 					onClick={onClose}
 					className="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center bg-white/90 backdrop-blur-sm rounded-full shadow-lg hover:bg-gray-100 transition-colors cursor-pointer"
 				>
-					<i className="ri-close-line text-xl text-gray-700"></i>
+					<XIcon className="text-xl text-gray-700" />
 				</button>
 
 				{/* Hero Image */}
@@ -97,7 +104,7 @@ export default function CaseStudyModal({
 					{/* Challenge */}
 					<div className="mb-8">
 						<h3 className="text-lg font-bold text-secondary mb-3 flex items-center gap-2">
-							<i className="ri-error-warning-line text-orange-500"></i>
+							<WarningIcon className="text-orange-500" />
 							The Challenge
 						</h3>
 						<p className="text-gray-600 leading-relaxed">
@@ -108,7 +115,7 @@ export default function CaseStudyModal({
 					{/* Solution */}
 					<div className="mb-8">
 						<h3 className="text-lg font-bold text-secondary mb-3 flex items-center gap-2">
-							<i className="ri-lightbulb-line text-teal-500"></i>
+							<LightbulbIcon className="text-teal-500" />
 							The Solution
 						</h3>
 						<p className="text-gray-600 leading-relaxed">
@@ -118,7 +125,7 @@ export default function CaseStudyModal({
 
 					{/* Quote */}
 					<div className="bg-gradient-to-br from-teal-50 to-cyan-50 rounded-xl p-6 mb-8">
-						<i className="ri-double-quotes-l text-4xl text-teal-300 mb-2 block"></i>
+						<QuotesIcon className="text-4xl text-teal-300 mb-2 block" />
 						<p className="text-lg text-gray-800 italic mb-4">
 							{caseStudy.quote}
 						</p>
@@ -143,7 +150,7 @@ export default function CaseStudyModal({
 					{/* CTA */}
 					<div className="flex flex-col sm:flex-row gap-4">
 						<button className="flex-1 px-6 py-3 bg-teal-500 text-white font-medium rounded-lg hover:bg-teal-600 transition-colors cursor-pointer whitespace-nowrap">
-							<i className="ri-download-line mr-2"></i>
+							<DownloadIcon className="mr-2" />
 							Download PDF Case Study
 						</button>
 						<button

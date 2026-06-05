@@ -1,5 +1,13 @@
 import { useEffect } from "react";
-import type { Icon } from "@phosphor-icons/react";
+import {
+	CalendarIcon,
+	CaretRightIcon,
+	CheckCircleIcon,
+	CheckIcon,
+	QuestionIcon,
+	XIcon,
+	type Icon,
+} from "@phosphor-icons/react";
 
 interface UseCaseBenefit {
 	metric: string;
@@ -55,7 +63,7 @@ export default function UseCaseModal({
 					onClick={onClose}
 					className="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center bg-white/90 backdrop-blur-sm rounded-full shadow-lg hover:bg-gray-100 transition-colors cursor-pointer"
 				>
-					<i className="ri-close-line text-xl text-gray-700"></i>
+					<XIcon className="text-xl text-gray-700" />
 				</button>
 
 				{/* Hero Image */}
@@ -104,7 +112,7 @@ export default function UseCaseModal({
 					{/* Use Cases */}
 					<div className="mb-8">
 						<h3 className="text-lg font-bold text-secondary mb-4 flex items-center gap-2">
-							<i className="ri-checkbox-circle-line text-teal-500"></i>
+							<CheckCircleIcon className="text-teal-500" />
 							Key Use Cases
 						</h3>
 						<div className="grid sm:grid-cols-2 gap-3">
@@ -114,7 +122,7 @@ export default function UseCaseModal({
 									className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg"
 								>
 									<div className="w-8 h-8 flex items-center justify-center bg-teal-100 rounded-lg">
-										<i className="ri-check-line text-teal-600"></i>
+										<CheckIcon className="text-teal-600" />
 									</div>
 									<span className="text-gray-700 text-sm">{item}</span>
 								</div>
@@ -125,28 +133,28 @@ export default function UseCaseModal({
 					{/* Why VerifyAfrica */}
 					<div className="mb-8 p-5 bg-gray-50 rounded-xl">
 						<h3 className="text-lg font-bold text-secondary mb-3 flex items-center gap-2">
-							<i className="ri-question-line text-teal-500"></i>
+							<QuestionIcon className="text-teal-500" />
 							Why Choose VerifyAfrica?
 						</h3>
 						<ul className="space-y-2">
 							<li className="flex items-start gap-2 text-gray-600 text-sm">
-								<i className="ri-arrow-right-s-line text-teal-500 mt-0.5"></i>
+								<CaretRightIcon className="text-teal-500 mt-0.5" />
 								<span>
 									Pan-African coverage with 35+ countries and 50+ ID types
 								</span>
 							</li>
 							<li className="flex items-start gap-2 text-gray-600 text-sm">
-								<i className="ri-arrow-right-s-line text-teal-500 mt-0.5"></i>
+								<CaretRightIcon className="text-teal-500 mt-0.5" />
 								<span>AI-powered verification with 99.7% accuracy rate</span>
 							</li>
 							<li className="flex items-start gap-2 text-gray-600 text-sm">
-								<i className="ri-arrow-right-s-line text-teal-500 mt-0.5"></i>
+								<CaretRightIcon className="text-teal-500 mt-0.5" />
 								<span>
 									Full regulatory compliance across all African markets
 								</span>
 							</li>
 							<li className="flex items-start gap-2 text-gray-600 text-sm">
-								<i className="ri-arrow-right-s-line text-teal-500 mt-0.5"></i>
+								<CaretRightIcon className="text-teal-500 mt-0.5" />
 								<span>
 									Easy API integration with comprehensive documentation
 								</span>
@@ -163,7 +171,7 @@ export default function UseCaseModal({
 							}}
 							className="flex-1 px-6 py-3 bg-teal-500 text-white font-medium rounded-lg hover:bg-teal-600 transition-colors cursor-pointer whitespace-nowrap"
 						>
-							<i className="ri-calendar-line mr-2"></i>
+							<CalendarIcon className="mr-2" />
 							Request a Demo
 						</button>
 						<button

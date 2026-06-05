@@ -1,5 +1,15 @@
 import { useScrollAnimation } from "../../../hooks/useScrollAnimation";
 import FeatureCard, { type Feature } from "./FeatureCard";
+import {
+	ArrowsClockwiseIcon,
+	BugIcon,
+	BuildingsIcon,
+	ChartBarIcon,
+	FingerprintIcon,
+	MapPinIcon,
+	ShieldCheckIcon,
+	WarningIcon,
+} from "@phosphor-icons/react";
 
 export default function Features() {
 	const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation();
@@ -10,56 +20,56 @@ export default function Features() {
 	const features: Feature[] = [
 		{
 			slug: "identity-verification",
-			icon: "ri-shield-check-line",
+			icon: ShieldCheckIcon,
 			title: "Identity Verification",
 			description:
 				"Verify user identities across all African countries with AI-driven checks and document validation.",
 		},
 		{
 			slug: "business-verification-kyb",
-			icon: "ri-building-line",
+			icon: BuildingsIcon,
 			title: "Business Verification (KYB)",
 			description:
 				"Comprehensive business verification with registry integrations and corporate structure analysis.",
 		},
 		{
 			slug: "aml-sanctions-screening",
-			icon: "ri-alert-line",
+			icon: WarningIcon,
 			title: "AML & Sanctions Screening",
 			description:
 				"Real-time screening against global sanctions lists, PEP databases, and adverse media.",
 		},
 		{
 			slug: "fraud-detection",
-			icon: "ri-bug-line",
+			icon: BugIcon,
 			title: "Fraud Detection",
 			description:
 				"AI-powered fraud detection with behavioral analysis and pattern recognition.",
 		},
 		{
 			slug: "biometrics-liveness",
-			icon: "ri-fingerprint-line",
+			icon: FingerprintIcon,
 			title: "Biometrics & Liveness",
 			description:
 				"Advanced biometric verification with liveness detection to prevent spoofing attacks.",
 		},
 		{
 			slug: "address-verification-geolocation",
-			icon: "ri-map-pin-line",
+			icon: MapPinIcon,
 			title: "Address Verification & Geolocation Signals",
 			description:
 				"Location-based risk assessment and verification using geolocation intelligence.",
 		},
 		{
 			slug: "transaction-risk-scoring",
-			icon: "ri-bar-chart-line",
+			icon: ChartBarIcon,
 			title: "Transaction Risk Scoring & Decisioning",
 			description:
 				"Configurable risk scoring engine with automated decisioning workflows.",
 		},
 		{
 			slug: "ongoing-monitoring",
-			icon: "ri-refresh-line",
+			icon: ArrowsClockwiseIcon,
 			title: "Ongoing Monitoring",
 			description:
 				"Continuous monitoring of user risk profiles with real-time alerts and updates.",

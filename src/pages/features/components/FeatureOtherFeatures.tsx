@@ -1,10 +1,14 @@
 import { Link } from "react-router-dom";
 import { featureDetails } from "@/mocks/featureDetails";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import {
+	ArrowRightIcon,
+	type Icon,
+} from "@phosphor-icons/react";
 
 interface FeatureOtherFeatureCardProps {
 	slug: string;
-	icon: string;
+	icon: Icon;
 	title: string;
 	tagline: string;
 	index: number;
@@ -19,6 +23,8 @@ function FeatureOtherFeatureCard({
 	index,
 	isVisible,
 }: FeatureOtherFeatureCardProps) {
+	const FeatureIcon = icon;
+
 	return (
 		<Link
 			to={`/features/${slug}`}
@@ -30,7 +36,7 @@ function FeatureOtherFeatureCard({
 			}}
 		>
 			<div className="w-11 h-11 flex items-center justify-center bg-teal-100 rounded-lg mb-4 group-hover:bg-teal-200 transition-colors duration-300">
-				<i className={`${icon} text-xl text-teal-600`} />
+				<FeatureIcon className="text-xl text-teal-600" aria-hidden />
 			</div>
 			<h3 className="text-base font-bold text-secondary mb-2 group-hover:text-teal-700 transition-colors duration-300">
 				{title}
@@ -38,7 +44,7 @@ function FeatureOtherFeatureCard({
 			<p className="text-sm text-gray-600 leading-relaxed flex-1">{tagline}</p>
 			<div className="mt-4 flex items-center gap-1 text-teal-600 text-sm font-medium">
 				Learn more
-				<i className="ri-arrow-right-line transition-transform duration-300 group-hover:translate-x-1" />
+				<ArrowRightIcon className="transition-transform duration-300 group-hover:translate-x-1" />
 			</div>
 		</Link>
 	);

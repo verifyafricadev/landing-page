@@ -1,5 +1,8 @@
 import { useScrollAnimation } from "../../../hooks/useScrollAnimation";
 import { useDemoModal } from "../../../hooks/useDemoModal";
+import {
+	ShieldCheckIcon,
+} from "@phosphor-icons/react";
 
 export default function BlogCTA() {
 	const { ref, isVisible } = useScrollAnimation();
@@ -14,7 +17,7 @@ export default function BlogCTA() {
 				}`}
 			>
 				<div className="w-14 h-14 mx-auto mb-6 bg-teal-100 rounded-2xl flex items-center justify-center">
-					<i className="ri-shield-check-line text-2xl text-teal-600"></i>
+					<ShieldCheckIcon className="text-2xl text-teal-600" />
 				</div>
 				<h2 className="text-3xl font-bold text-secondary mb-4">
 					Ready to Simplify Your Compliance?

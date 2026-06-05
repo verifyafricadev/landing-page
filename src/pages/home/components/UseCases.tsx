@@ -1,6 +1,11 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { CaretLeft, CaretRight } from "@phosphor-icons/react";
+import {
+	ArrowRightIcon,
+	ArrowUpRightIcon,
+	CaretLeftIcon,
+	CaretRightIcon,
+} from "@phosphor-icons/react";
 import { useScrollAnimation } from "../../../hooks/useScrollAnimation";
 import { useCaseCategories } from "@/mocks/caseStudies";
 import { Button } from "@/components/ui/button";
@@ -47,7 +52,7 @@ function UseCaseCard({
 				{useCase.description}
 			</p>
 			<div className="absolute bottom-3 right-3 w-7 h-7 flex items-center justify-center bg-secondary rounded-full opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-300 z-20">
-				<i className="ri-arrow-right-up-line text-white text-sm" />
+				<ArrowUpRightIcon className="text-white text-sm" />
 			</div>
 		</Link>
 	);
@@ -233,14 +238,14 @@ export default function UseCases() {
 							aria-label="Previous use cases"
 							className="h-10 rounded-full cursor-pointer"
 						>
-							<CaretLeft className="w-5 h-5" />
+							<CaretLeftIcon className="w-5 h-5" />
 						</Button>
 						<Button
 							onClick={handleNext}
 							aria-label="Next use cases"
 							className="h-10 rounded-full cursor-pointer"
 						>
-							<CaretRight className="w-5 h-5" />
+							<CaretRightIcon className="w-5 h-5" />
 						</Button>
 					</div>
 				</div>
@@ -261,7 +266,7 @@ export default function UseCases() {
 						<Link to="/case-studies">
 							View all use cases
 							<span className="w-5 h-5 flex items-center justify-center rounded-full bg-secondary text-white group-hover/button:bg-white group-hover/button:text-secondary transition-all duration-300 group-hover/button:translate-x-1">
-								<i className="ri-arrow-right-line text-xs"></i>
+								<ArrowRightIcon className="text-xs" />
 							</span>
 						</Link>
 					</Button>

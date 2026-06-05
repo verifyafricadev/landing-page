@@ -1,3 +1,6 @@
+import {
+	ClockIcon,
+} from "@phosphor-icons/react";
 import { Link } from "react-router-dom";
 
 interface ArticleCardProps {
@@ -91,7 +94,7 @@ export default function ArticleCard({
 						</div>
 					</div>
 					<span className="text-xs text-gray-400 flex items-center gap-1">
-						<i className="ri-time-line w-3.5 h-3.5 flex items-center justify-center"></i>
+						<ClockIcon className="w-3.5 h-3.5 flex items-center justify-center" />
 						{readTime}
 					</span>
 				</div>

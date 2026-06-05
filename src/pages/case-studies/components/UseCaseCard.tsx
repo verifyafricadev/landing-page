@@ -1,4 +1,7 @@
-import { ArrowRight, type Icon } from "@phosphor-icons/react";
+import {
+	ArrowRightIcon,
+	type Icon,
+} from "@phosphor-icons/react";
 import { Card, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -92,7 +95,7 @@ export default function UseCaseCard({
 					tabIndex={-1}
 				>
 					Explore solution
-					<ArrowRight className="size-4" />
+					<ArrowRightIcon className="size-4" />
 				</Button>
 			</div>
 		</Card>

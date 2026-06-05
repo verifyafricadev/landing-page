@@ -1,5 +1,11 @@
 import { useState, useEffect } from "react";
-import { LockOpen, X } from "@phosphor-icons/react";
+import {
+	CheckIcon,
+	CircleNotchIcon,
+	LockOpenIcon,
+	WarningIcon,
+	X,
+} from "@phosphor-icons/react";
 
 interface EmailGateModalProps {
 	isOpen: boolean;
@@ -139,7 +145,7 @@ export default function EmailGateModal({
 					<div className="flex items-center justify-between">
 						<div className="flex items-center gap-3">
 							<div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center">
-								<LockOpen className="size-5 text-white" />
+								<LockOpenIcon className="size-5 text-white" />
 							</div>
 							<div>
 								<h3 className="text-white font-semibold text-sm">
@@ -194,7 +200,7 @@ export default function EmailGateModal({
 								/>
 								{error && (
 									<p className="mt-2 text-xs text-red-600 flex items-center gap-1">
-										<i className="ri-error-warning-line" />
+										<WarningIcon />
 										{error}
 									</p>
 								)}
@@ -207,12 +213,12 @@ export default function EmailGateModal({
 							>
 								{isSubmitting ? (
 									<>
-										<i className="ri-loader-4-line animate-spin" />
+										<CircleNotchIcon className="animate-spin" />
 										Unlocking...
 									</>
 								) : (
 									<>
-										<i className="ri-lock-unlock-line" />
+										<LockOpenIcon />
 										Unlock Resource
 									</>
 								)}
@@ -225,7 +231,7 @@ export default function EmailGateModal({
 					) : (
 						<div className="text-center py-4">
 							<div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
-								<i className="ri-check-line text-3xl text-emerald-600" />
+								<CheckIcon className="text-3xl text-emerald-600" />
 							</div>
 							<h4 className="text-lg font-semibold text-secondary mb-2">
 								Resource Unlocked!

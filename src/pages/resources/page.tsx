@@ -5,6 +5,19 @@ import SEOHead from "../../components/feature/SEOHead";
 import BackToTop from "../../components/feature/BackToTop";
 import ResourcesHero from "./components/ResourcesHero";
 import ResourceCard, { Resource } from "./components/ResourceCard";
+import {
+	BankIcon,
+	ChartBarHorizontalIcon,
+	ChartLineIcon,
+	ChartPieIcon,
+	ChatsCircleIcon,
+	DetectiveIcon,
+	FingerprintIcon,
+	GlobeIcon,
+	ShieldCheckIcon,
+	UserFocusIcon,
+	UserPlusIcon,
+} from "@phosphor-icons/react";
 
 const Footer = lazy(() => import("../../components/feature/Footer"));
 
@@ -17,7 +30,7 @@ export const resources: Resource[] = [
 			"Correspondent Banking & African Fintechs: The 2026 Compliance & Access Guide",
 		description:
 			"A definitive guide to understanding how correspondent banking relationships work, why African fintechs and payment operators lose access, and what compliance infrastructure is required to open and retain correspondent banking lines in 2026. Covers derisking triggers, FATF greylist exposure, AML programme standards, and the documentation architecture that separates funded operators from those cut off.",
-		icon: "ri-bank-line",
+		icon: BankIcon,
 		category: "PDF Guide",
 		readTime: "28 min read",
 		pages: "27 pages",
@@ -49,7 +62,7 @@ export const resources: Resource[] = [
 			"Synthetic Identity Fraud in Africa: The 2026 Detection & Prevention Guide",
 		description:
 			"A comprehensive guide to understanding and combating synthetic identity fraud across African markets in 2026. Covers how fraudsters exploit fragmented registry systems, BVN/NIN/Ghana Card spoofing techniques, AI-generated document fraud, liveness bypass attacks, and the detection architecture that stops synthetic identities before they cost you.",
-		icon: "ri-spy-line",
+		icon: DetectiveIcon,
 		category: "PDF Guide",
 		readTime: "32 min read",
 		pages: "30 pages",
@@ -81,7 +94,7 @@ export const resources: Resource[] = [
 			"The African Fintech Onboarding Gap: How KYC Friction Is Silently Costing You Customers",
 		description:
 			"A data-driven revenue analysis showing how KYC friction costs African fintechs millions annually. Covers the $2M+ annual LTV loss calculation at 10,000 monthly onboarding attempts, the 72-hour rule for lost users, the CBN March 2026 Baseline Standards mandate, and what the top 10% of African fintech operators do differently to achieve 85%+ onboarding conversion.",
-		icon: "ri-line-chart-line",
+		icon: ChartLineIcon,
 		category: "PDF Guide",
 		readTime: "30 min read",
 		pages: "11 pages",
@@ -113,7 +126,7 @@ export const resources: Resource[] = [
 			"Series A Due Diligence in Africa: The 2026 Investor Compliance Guide",
 		description:
 			"A comprehensive guide to navigating investor-grade due diligence for Series A fundraising in Africa in 2026. Covers KYC/AML obligations for investors and founders, regulatory readiness across key African markets, data room compliance requirements, beneficial ownership disclosure, and enforcement trends affecting African tech startups raising institutional capital.",
-		icon: "ri-funds-line",
+		icon: ChartPieIcon,
 		category: "PDF Guide",
 		readTime: "35 min read",
 		pages: "33 pages",
@@ -144,7 +157,7 @@ export const resources: Resource[] = [
 		title: "KYC in Ghana: The 2026 Compliance Guide",
 		description:
 			"A comprehensive guide to navigating Ghana's Know Your Customer landscape in 2026. Covers Bank of Ghana tiered KYC mandates, Ghana Card / NIA integration, Ghana Data Protection Act compliance, FIC AML/CFT guidance, and enforcement actions affecting banks, fintechs, mobile money operators, and capital market intermediaries.",
-		icon: "ri-shield-check-line",
+		icon: ShieldCheckIcon,
 		category: "PDF Guide",
 		readTime: "33 min read",
 		pages: "31 pages",
@@ -175,7 +188,7 @@ export const resources: Resource[] = [
 		title: "KYC in Kenya: The 2026 Compliance Guide",
 		description:
 			"A comprehensive guide to navigating Kenya's Know Your Customer landscape in 2026. Covers CBK tiered KYC mandates, POCAMLA amendments, Kenya Data Protection Act compliance, Huduma Namba integration, and enforcement actions affecting banks, fintechs, mobile money operators, and iGaming platforms.",
-		icon: "ri-shield-check-line",
+		icon: ShieldCheckIcon,
 		category: "PDF Guide",
 		readTime: "34 min read",
 		pages: "32 pages",
@@ -205,7 +218,7 @@ export const resources: Resource[] = [
 		title: "KYC in South Africa: The 2026 Compliance Guide",
 		description:
 			"A comprehensive guide to navigating South Africa's Know Your Customer landscape in 2026. Covers FICA 2024 amendments, FIC updated guidance, POPIA data protection compliance, DHA Smart ID integration, and enforcement actions affecting financial services, fintechs, and VASPs.",
-		icon: "ri-shield-check-line",
+		icon: ShieldCheckIcon,
 		category: "PDF Guide",
 		readTime: "32 min read",
 		pages: "30 pages",
@@ -235,7 +248,7 @@ export const resources: Resource[] = [
 		title: "KYC in Nigeria: The 2026 Compliance Guide",
 		description:
 			"A definitive guide to navigating Nigeria's evolving Know Your Customer landscape in 2026. Covers BVN-NIN integration, CBN tiered KYC mandates, document verification standards, and enforcement timelines for fintechs, banks, and DFS providers.",
-		icon: "ri-shield-check-line",
+		icon: ShieldCheckIcon,
 		category: "PDF Guide",
 		readTime: "30 min read",
 		pages: "28 pages",
@@ -265,7 +278,7 @@ export const resources: Resource[] = [
 		title: "KYC in Africa: The 2025 Compliance Landscape",
 		description:
 			"A comprehensive report mapping why global KYC tools fail in Africa, how 54 fragmented national identity systems create compliance liability, and what regulated businesses must do to build audit-ready, multi-market infrastructure before the window closes.",
-		icon: "ri-shield-check-line",
+		icon: ShieldCheckIcon,
 		category: "PDF Guide",
 		readTime: "25 min read",
 		pages: "24 pages",
@@ -285,7 +298,7 @@ export const resources: Resource[] = [
 		title: "African KYC Compliance Checklist 2025",
 		description:
 			"A comprehensive checklist covering Know Your Customer requirements across all 54 African countries. Built for compliance teams operating in multiple jurisdictions.",
-		icon: "ri-shield-check-line",
+		icon: ShieldCheckIcon,
 		category: "Checklist",
 		readTime: "15 min read",
 		pages: "12 pages",
@@ -312,7 +325,7 @@ export const resources: Resource[] = [
 		title: "AML Risk Assessment Template for African Fintechs",
 		description:
 			"A practical, ready-to-use risk assessment framework designed specifically for fintech companies operating across African markets.",
-		icon: "ri-bar-chart-grouped-line",
+		icon: ChartBarHorizontalIcon,
 		category: "Template",
 		readTime: "20 min read",
 		pages: "18 pages",
@@ -339,7 +352,7 @@ export const resources: Resource[] = [
 		title: "PEP Screening Guide: Africa Edition",
 		description:
 			"Everything you need to know about screening Politically Exposed Persons in African markets, from domestic PEPs to foreign and international organization PEPs.",
-		icon: "ri-user-search-line",
+		icon: UserFocusIcon,
 		category: "Guide",
 		readTime: "12 min read",
 		pages: "10 pages",
@@ -366,7 +379,7 @@ export const resources: Resource[] = [
 		title: "Biometric Verification Implementation Playbook",
 		description:
 			"A step-by-step implementation guide for deploying biometric identity verification across African markets, from vendor selection to go-live.",
-		icon: "ri-fingerprint-line",
+		icon: FingerprintIcon,
 		category: "Playbook",
 		readTime: "25 min read",
 		pages: "22 pages",
@@ -393,7 +406,7 @@ export const resources: Resource[] = [
 		title: "Cross-Border Data Protection Compliance Checklist",
 		description:
 			"Navigate the complex web of data protection regulations when operating across African and European markets. Side-by-side comparison and actionable compliance steps.",
-		icon: "ri-global-line",
+		icon: GlobeIcon,
 		category: "Checklist",
 		readTime: "18 min read",
 		pages: "16 pages",
@@ -420,7 +433,7 @@ export const resources: Resource[] = [
 		title: "Fintech Customer Onboarding Compliance Playbook",
 		description:
 			"The complete playbook for building a compliant, friction-free customer onboarding process that satisfies regulators while converting users.",
-		icon: "ri-user-add-line",
+		icon: UserPlusIcon,
 		category: "Playbook",
 		readTime: "22 min read",
 		pages: "20 pages",
@@ -552,7 +565,7 @@ export default function ResourcesPage() {
 			<section className="py-24 bg-white border-t border-gray-100">
 				<div className="max-w-3xl mx-auto px-6 text-center">
 					<div className="w-14 h-14 mx-auto mb-6 bg-teal-100 rounded-2xl flex items-center justify-center">
-						<i className="ri-question-answer-line text-2xl text-teal-600" />
+						<ChatsCircleIcon className="text-2xl text-teal-600" />
 					</div>
 					<h2 className="text-2xl md:text-3xl font-bold text-secondary mb-4">
 						Need a Custom Compliance Resource?

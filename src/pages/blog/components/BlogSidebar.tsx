@@ -2,6 +2,11 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useScrollAnimation } from "../../../hooks/useScrollAnimation";
 import { popularResources } from "../../../mocks/blogArticles";
+import {
+	CheckIcon,
+	FileTextIcon,
+	PaperPlaneTiltIcon,
+} from "@phosphor-icons/react";
 
 // Map each resource title to its best matching internal route
 const resourceLinkMap: Record<string, string> = {
@@ -71,7 +76,7 @@ export default function BlogSidebar() {
 				}`}
 			>
 				<div className="w-10 h-10 bg-teal-100 rounded-lg flex items-center justify-center mb-4">
-					<i className="ri-mail-send-line text-teal-600 text-lg"></i>
+					<PaperPlaneTiltIcon className="text-teal-600 text-lg" />
 				</div>
 				<h3 className="text-base font-bold text-secondary mb-2">
 					Stay Updated
@@ -83,7 +88,7 @@ export default function BlogSidebar() {
 
 				{isSuccess ? (
 					<div className="flex items-center gap-2 text-teal-700 bg-teal-100 rounded-lg p-3">
-						<i className="ri-check-line w-5 h-5 flex items-center justify-center"></i>
+						<CheckIcon className="w-5 h-5 flex items-center justify-center" />
 						<span className="text-sm font-medium">
 							Subscribed successfully!
 						</span>
@@ -136,7 +141,7 @@ export default function BlogSidebar() {
 								className="flex items-start gap-3 p-3 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer group"
 							>
 								<div className="w-9 h-9 bg-teal-50 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-teal-100 transition-colors">
-									<i className="ri-file-text-line text-teal-600"></i>
+									<FileTextIcon className="text-teal-600" />
 								</div>
 								<div className="min-w-0">
 									<p className="text-sm font-medium text-gray-800 group-hover:text-teal-700 transition-colors leading-snug">

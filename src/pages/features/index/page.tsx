@@ -16,6 +16,14 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import FinalCTA from "@/pages/home/components/FinalCTA";
+import {
+	ArrowDownIcon,
+	ArrowRightIcon,
+	ArrowUpRightIcon,
+	MagnifyingGlassIcon,
+	SquaresFourIcon,
+	XIcon,
+} from "@phosphor-icons/react";
 
 const CATEGORIES = [
 	{ label: "All Features", value: "all" },
@@ -289,7 +297,7 @@ export default function FeaturesIndexPage() {
 				/>
 				<div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-4 sm:px-6 py-32 max-w-5xl mx-auto">
 					<div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-secondary/15 bg-secondary/5 backdrop-blur-sm text-secondary text-sm font-medium mb-8">
-						<i className="ri-apps-2-line" />
+						<SquaresFourIcon />
 						<span>Platform Capabilities</span>
 					</div>
 					<h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-secondary tracking-tighter leading-none mb-8">
@@ -307,7 +315,7 @@ export default function FeaturesIndexPage() {
 							className="h-auto px-7 py-3.5 bg-teal-500 text-white font-semibold hover:bg-teal-400 cursor-pointer"
 						>
 							Request a Demo
-							<i className="ri-arrow-right-line" />
+							<ArrowRightIcon />
 						</Button>
 						<Button
 							variant="outline"
@@ -327,7 +335,7 @@ export default function FeaturesIndexPage() {
 				</div>
 				<div className="relative z-10 pb-10 flex flex-col items-center gap-2 text-secondary/40 text-xs uppercase tracking-widest">
 					<span>Scroll</span>
-					<i className="ri-arrow-down-line text-lg animate-bounce" />
+					<ArrowDownIcon className="text-lg animate-bounce" />
 				</div>
 			</section>
 
@@ -337,7 +345,7 @@ export default function FeaturesIndexPage() {
 					<div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center flex-wrap">
 						{/* Search */}
 						<div className="relative flex-1 min-w-40 w-full lg:max-w-md">
-							<i className="ri-search-line pointer-events-none absolute left-3 top-1/2 z-10 -translate-y-1/2 text-sm text-muted-foreground" />
+							<MagnifyingGlassIcon className="pointer-events-none absolute left-3 top-1/2 z-10 -translate-y-1/2 text-sm text-muted-foreground" />
 							<Input
 								type="search"
 								placeholder="Search features…"
@@ -354,7 +362,7 @@ export default function FeaturesIndexPage() {
 									aria-label="Clear search"
 									className="absolute right-1 top-1/2 size-7 -translate-y-1/2 text-muted-foreground hover:text-foreground"
 								>
-									<i className="ri-close-line text-sm" />
+									<XIcon className="text-sm" />
 								</Button>
 							)}
 						</div>
@@ -392,7 +400,7 @@ export default function FeaturesIndexPage() {
 					{filtered.length === 0 ? (
 						<div className="text-center py-24">
 							<div className="w-16 h-16 flex items-center justify-center mx-auto bg-gray-100 rounded-2xl mb-4">
-								<i className="ri-search-line text-3xl text-gray-400" />
+								<MagnifyingGlassIcon className="text-3xl text-gray-400" />
 							</div>
 							<h3 className="text-lg font-semibold text-gray-700 mb-2">
 								No features match your search
@@ -449,7 +457,7 @@ function FeatureIndexCard({ feature }: { feature: FeatureDetail }) {
 					<div
 						className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-lg transition-colors duration-300 ${colors.icon} ${colors.iconHover}`}
 					>
-						<i className={`${feature.icon} text-xl`} />
+						<feature.icon className="text-xl" aria-hidden />
 					</div>
 					<div className="min-w-0 flex-1 space-y-1">
 						<div className="flex items-start justify-between gap-2">
@@ -502,7 +510,7 @@ function FeatureIndexCard({ feature }: { feature: FeatureDetail }) {
 								key={cap.title}
 								className="inline-flex items-center gap-1 rounded-full border border-gray-100 bg-gray-50 px-2.5 py-1 text-xs text-gray-500"
 							>
-								<i className={`${cap.icon} text-[10px]`} />
+								<cap.icon className="text-[10px]" aria-hidden />
 								{cap.title}
 							</span>
 						))}
@@ -516,7 +524,7 @@ function FeatureIndexCard({ feature }: { feature: FeatureDetail }) {
 			</Link>
 
 			<div className="pointer-events-none absolute bottom-4 right-4 flex h-7 w-7 translate-y-1 items-center justify-center rounded-full bg-secondary opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-				<i className="ri-arrow-right-up-line text-sm text-white" />
+				<ArrowUpRightIcon className="text-sm text-white" />
 			</div>
 		</Card>
 	);

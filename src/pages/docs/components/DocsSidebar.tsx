@@ -1,3 +1,7 @@
+import {
+	CaretDownIcon,
+	MagnifyingGlassIcon,
+} from "@phosphor-icons/react";
 import { useState } from "react";
 
 interface DocsSidebarProps {
@@ -197,7 +201,7 @@ export default function DocsSidebar({
 						API Reference
 					</h3>
 					<div className="relative">
-						<i className="ri-search-line absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
+						<MagnifyingGlassIcon className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm" />
 						<input
 							type="text"
 							placeholder="Search..."
@@ -225,11 +229,12 @@ export default function DocsSidebar({
 										className="w-full flex items-center justify-between px-2 py-2 text-sm font-semibold text-gray-800 hover:text-teal-600 transition-colors cursor-pointer rounded-lg hover:bg-gray-50"
 									>
 										<span>{section.label}</span>
-										<i
-											className={`ri-arrow-down-s-line text-gray-400 transition-transform duration-200 ${
+										<CaretDownIcon
+											className={`text-gray-400 transition-transform duration-200 ${
 												isCollapsed ? "-rotate-90" : ""
 											}`}
-										></i>
+											aria-hidden
+										/>
 									</button>
 									{!isCollapsed && (
 										<div className="ml-2 mt-1 space-y-0.5">
@@ -254,11 +259,12 @@ export default function DocsSidebar({
 									className="w-full flex items-center justify-between px-2 py-2 text-sm font-semibold text-gray-800 hover:text-teal-600 transition-colors cursor-pointer rounded-lg hover:bg-gray-50"
 								>
 									<span>{section.label}</span>
-									<i
-										className={`ri-arrow-down-s-line text-gray-400 transition-transform duration-200 ${
+									<CaretDownIcon
+										className={`text-gray-400 transition-transform duration-200 ${
 											isSecCollapsed ? "-rotate-90" : ""
 										}`}
-									></i>
+										aria-hidden
+									/>
 								</button>
 								{!isSecCollapsed && (
 									<div className="ml-2 mt-1 space-y-0.5">
@@ -282,11 +288,12 @@ export default function DocsSidebar({
 																({cg.items.length})
 															</span>
 														</span>
-														<i
-															className={`ri-arrow-down-s-line text-gray-400 text-xs transition-transform duration-200 ${
+														<CaretDownIcon
+															className={`text-gray-400 text-xs transition-transform duration-200 ${
 																isCountryCollapsed ? "-rotate-90" : ""
 															}`}
-														></i>
+															aria-hidden
+														/>
 													</button>
 													{!isCountryCollapsed && (
 														<div className="ml-3 space-y-0.5">

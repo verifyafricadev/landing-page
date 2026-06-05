@@ -7,6 +7,22 @@ import BackToTop from "../../../components/feature/BackToTop";
 import EmailGateModal from "../components/EmailGateModal";
 import { track } from "../../../lib/analytics";
 import { resources } from "../page";
+import {
+	CheckCircleIcon,
+	CheckIcon,
+	ClockIcon,
+	DownloadIcon,
+	FilePdfIcon,
+	FileXIcon,
+	FlameIcon,
+	LinkedinLogoIcon,
+	LinkIcon,
+	ListBulletsIcon,
+	LockIcon,
+	LockOpenIcon,
+	ShieldCheckIcon,
+	XLogoIcon,
+} from "@phosphor-icons/react";
 
 const Footer = lazy(() => import("../../../components/feature/Footer"));
 
@@ -44,7 +60,7 @@ export default function ResourceDetailPage() {
 			<div className="min-h-screen bg-gray-50 flex items-center justify-center">
 				<div className="text-center">
 					<div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
-						<i className="ri-file-close-line text-2xl text-gray-400" />
+						<FileXIcon className="text-2xl text-gray-400" />
 					</div>
 					<h1 className="text-xl font-bold text-secondary mb-2">
 						Resource Not Found
@@ -187,13 +203,13 @@ export default function ResourceDetailPage() {
 				<div className="max-w-4xl mx-auto px-6">
 					<div className="flex items-start gap-4 mb-6">
 						<div className="w-16 h-16 bg-teal-100 rounded-2xl flex items-center justify-center shrink-0">
-							<i className={`${resource.icon} text-3xl text-teal-600`} />
+							<resource.icon className="text-3xl text-teal-600" aria-hidden />
 						</div>
 						<div>
 							<div className="flex items-center gap-2 mb-2">
 								{resource.isNew && (
 									<span className="px-3 py-1 bg-amber-100 text-amber-700 text-xs font-semibold rounded-full flex items-center gap-1">
-										<i className="ri-fire-line" />
+										<FlameIcon />
 										Recently Added
 									</span>
 								)}
@@ -213,16 +229,16 @@ export default function ResourceDetailPage() {
 
 					<div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 mb-8">
 						<span className="flex items-center gap-1">
-							<i className="ri-time-line" />
+							<ClockIcon />
 							{resource.readTime}
 						</span>
 						<span className="flex items-center gap-1">
-							<i className="ri-file-list-line" />
+							<ListBulletsIcon />
 							{resource.pages}
 						</span>
 						{isPdfResource && (
 							<span className="flex items-center gap-1 text-teal-600">
-								<i className="ri-file-pdf-line" />
+								<FilePdfIcon />
 								PDF Download
 							</span>
 						)}
@@ -235,20 +251,20 @@ export default function ResourceDetailPage() {
 							onClick={() => handleShare("linkedin")}
 							className="px-4 py-2 bg-[#0077b5] text-white text-sm font-medium rounded-lg hover:bg-[#006396] transition-all cursor-pointer flex items-center gap-2"
 						>
-							<i className="ri-linkedin-fill" />
+							<LinkedinLogoIcon />
 							LinkedIn
 						</button>
 						<button
 							onClick={() => handleShare("twitter")}
 							className="px-4 py-2 bg-secondary text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-all cursor-pointer flex items-center gap-2"
 						>
-							<i className="ri-twitter-x-fill" />X
+							<XLogoIcon />X
 						</button>
 						<button
 							onClick={() => handleShare("copy_link")}
 							className="px-4 py-2 bg-gray-100 text-gray-700 text-sm font-medium rounded-lg hover:bg-teal-50 hover:text-teal-600 transition-all cursor-pointer flex items-center gap-2 relative"
 						>
-							<i className={copiedLink ? "ri-check-line" : "ri-link"} />
+							{copiedLink ? <CheckIcon /> : <LinkIcon />}
 							{copiedLink ? "Copied!" : "Copy Link"}
 						</button>
 					</div>
@@ -273,7 +289,7 @@ export default function ResourceDetailPage() {
 											className="flex items-start gap-3 text-gray-600"
 										>
 											<div className="w-6 h-6 bg-teal-100 rounded-full flex items-center justify-center shrink-0 mt-0.5">
-												<i className="ri-check-line text-teal-600 text-sm" />
+												<CheckIcon className="text-teal-600 text-sm" />
 											</div>
 											<span className="leading-relaxed">{item}</span>
 										</li>
@@ -287,7 +303,7 @@ export default function ResourceDetailPage() {
 									<div className="bg-emerald-50 rounded-xl border border-emerald-100 p-6 md:p-8">
 										<div className="flex items-center gap-3 mb-4">
 											<div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center">
-												<i className="ri-lock-unlock-line text-2xl text-emerald-600" />
+												<LockOpenIcon className="text-2xl text-emerald-600" />
 											</div>
 											<div>
 												<h3 className="text-lg font-bold text-secondary">
@@ -306,7 +322,7 @@ export default function ResourceDetailPage() {
 											onClick={handleDownload}
 											className="w-full py-3.5 bg-emerald-500 text-white text-sm font-medium rounded-lg hover:bg-emerald-600 transition-all cursor-pointer flex items-center justify-center gap-2"
 										>
-											<i className="ri-download-line" />
+											<DownloadIcon />
 											Download PDF
 										</button>
 									</div>
@@ -314,7 +330,7 @@ export default function ResourceDetailPage() {
 									<div className="bg-emerald-50 rounded-xl border border-emerald-100 p-6 md:p-8">
 										<div className="flex items-center gap-3 mb-4">
 											<div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center">
-												<i className="ri-lock-unlock-line text-2xl text-emerald-600" />
+												<LockOpenIcon className="text-2xl text-emerald-600" />
 											</div>
 											<div>
 												<h3 className="text-lg font-bold text-secondary">
@@ -332,7 +348,7 @@ export default function ResourceDetailPage() {
 													className="flex items-start gap-3 text-gray-700"
 												>
 													<div className="w-6 h-6 bg-emerald-100 rounded-full flex items-center justify-center shrink-0 mt-0.5">
-														<i className="ri-checkbox-circle-line text-emerald-600 text-sm" />
+														<CheckCircleIcon className="text-emerald-600 text-sm" />
 													</div>
 													<span className="leading-relaxed">{item}</span>
 												</li>
@@ -344,7 +360,7 @@ export default function ResourceDetailPage() {
 								<div className="bg-linear-to-br from-teal-50 to-emerald-50 rounded-xl border border-teal-100 p-6 md:p-8">
 									<div className="flex items-center gap-3 mb-4">
 										<div className="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center">
-											<i className="ri-lock-line text-2xl text-teal-600" />
+											<LockIcon className="text-2xl text-teal-600" />
 										</div>
 										<div>
 											<h3 className="text-lg font-bold text-secondary">
@@ -366,22 +382,22 @@ export default function ResourceDetailPage() {
 										onClick={() => setIsModalOpen(true)}
 										className="w-full py-3.5 bg-teal-500 text-white text-sm font-medium rounded-lg hover:bg-teal-600 transition-all cursor-pointer flex items-center justify-center gap-2 group"
 									>
-										<i className="ri-lock-unlock-line" />
+										<LockOpenIcon />
 										{isPdfResource
 											? "Unlock PDF Download"
 											: "Unlock Full Resource"}
 									</button>
 									<div className="flex items-center justify-center gap-4 text-xs text-gray-400 mt-4">
 										<span className="flex items-center gap-1">
-											<i className="ri-check-line text-teal-500" />
+											<CheckIcon className="text-teal-500" />
 											No spam
 										</span>
 										<span className="flex items-center gap-1">
-											<i className="ri-check-line text-teal-500" />
+											<CheckIcon className="text-teal-500" />
 											Company emails only
 										</span>
 										<span className="flex items-center gap-1">
-											<i className="ri-check-line text-teal-500" />
+											<CheckIcon className="text-teal-500" />
 											Instant access
 										</span>
 									</div>
@@ -429,7 +445,7 @@ export default function ResourceDetailPage() {
 								{/* CTA */}
 								<div className="bg-teal-50 rounded-xl p-6">
 									<div className="w-10 h-10 bg-teal-100 rounded-lg flex items-center justify-center mb-3">
-										<i className="ri-shield-check-line text-teal-600" />
+										<ShieldCheckIcon className="text-teal-600" />
 									</div>
 									<h3 className="text-sm font-bold text-secondary mb-2">
 										Need Help Implementing?

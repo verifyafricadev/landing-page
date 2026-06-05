@@ -1,5 +1,7 @@
 import { useState } from 'react';
-import { Lock } from '@phosphor-icons/react';
+import {
+	Lock,
+} from "@phosphor-icons/react";
 import { track } from '@/lib/analytics';
 
 export default function ContactForm() {

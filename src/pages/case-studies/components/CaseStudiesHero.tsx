@@ -1,4 +1,7 @@
-import { Globe } from "@phosphor-icons/react";
+import {
+	ArrowDownIcon,
+	GlobeIcon,
+} from "@phosphor-icons/react";
 
 const stats = [
 	{ value: "10", label: "Industry Categories" },
@@ -23,7 +26,7 @@ export default function CaseStudiesHero() {
 				<div className="text-center">
 					{/* Badge */}
 					<div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-secondary/15 bg-secondary/5 backdrop-blur-sm text-secondary text-sm font-medium mb-8">
-						<Globe className="w-4 h-4" />
+						<GlobeIcon className="w-4 h-4" />
 						<span>Use Cases &amp; Coverage</span>
 					</div>
 
@@ -58,7 +61,7 @@ export default function CaseStudiesHero() {
 			</div>
 			<div className="relative z-10 pb-10 flex flex-col items-center gap-2 text-secondary/40 text-xs uppercase tracking-widest">
 				<p>Scroll</p>
-				<i className="ri-arrow-down-line text-lg animate-bounce" />
+				<ArrowDownIcon className="text-lg animate-bounce" />
 			</div>
 		</section>
 	);

@@ -3,8 +3,12 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { smoothScrollTo } from "../../../hooks/useScrollAnimation";
 import { HoverUnderline } from "@/components/ui/hover-underline";
 import { Button } from "@/components/ui/button";
-import { LOGO_TEXT_COLOR, LogoIcon } from "@/components/icons/brand/logo";
+import { LOGO_TEXT_COLOR, Logo } from "@/components/icons/brand/logo";
 import { cn } from "@/lib/utils";
+import {
+	ListIcon,
+	XIcon,
+} from "@phosphor-icons/react";
 
 interface NavbarProps {
 	onRequestDemo: () => void;
@@ -132,7 +136,7 @@ export default function HomeNavbar({
 							to="/"
 							className="flex items-center group shrink-0"
 						>
-							<LogoIcon
+							<Logo
 								textColor={isTransparentNav ? "#FFFFFF" : LOGO_TEXT_COLOR}
 								className="h-12 sm:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
 								aria-label="VerifyAfrica – KYC, AML & Identity Verification Platform for Africa"
@@ -259,9 +263,11 @@ export default function HomeNavbar({
 										: "text-gray-800 bg-gray-100 hover:bg-gray-200 border-transparent"
 								}`}
 							>
-								<i
-									className={`${isMobileMenuOpen ? "ri-close-line" : "ri-menu-line"} text-xl sm:text-2xl`}
-								/>
+								{isMobileMenuOpen ? (
+									<XIcon className="text-xl sm:text-2xl" aria-hidden />
+								) : (
+									<ListIcon className="text-xl sm:text-2xl" aria-hidden />
+								)}
 							</Button>
 						</div>
 					</div>

@@ -1,5 +1,8 @@
 import { useScrollAnimation } from '../../../hooks/useScrollAnimation';
 import ArticleCard from './ArticleCard';
+import {
+	NewspaperIcon,
+} from "@phosphor-icons/react";
 
 interface Article {
   id: string;
@@ -26,7 +29,7 @@ export default function ArticleGrid({ articles }: ArticleGridProps) {
     return (
       <div className="text-center py-20">
         <div className="w-16 h-16 mx-auto mb-4 bg-gray-100 rounded-full flex items-center justify-center">
-          <i className="ri-article-line text-2xl text-gray-400"></i>
+          <NewspaperIcon className="text-2xl text-gray-400" />
         </div>
         <h3 className="text-lg font-semibold text-gray-700 mb-2">No articles found</h3>
         <p className="text-sm text-gray-400">Try adjusting your search or filter criteria.</p>

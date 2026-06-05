@@ -1,10 +1,10 @@
 import {
-	ShieldCheck,
-	Globe,
-	Lightbulb,
-	Users,
+	GlobeIcon,
+	LightbulbIcon,
 	Lock,
-	Scales,
+	ScalesIcon,
+	ShieldCheckIcon,
+	UsersIcon,
 	type Icon,
 } from "@phosphor-icons/react";
 import { useStaggerAnimation } from "../../../hooks/useScrollAnimation";
@@ -59,7 +59,7 @@ function CoreValueCard({
 
 const values: CoreValue[] = [
 	{
-		icon: ShieldCheck,
+		icon: ShieldCheckIcon,
 		title: "Trust First",
 		description:
 			"Every decision we make is rooted in building and maintaining trust — with our clients, their customers, and the regulators who oversee them.",
@@ -67,7 +67,7 @@ const values: CoreValue[] = [
 		iconColor: "text-teal-600",
 	},
 	{
-		icon: Globe,
+		icon: GlobeIcon,
 		title: "Africa-Native",
 		description:
 			"We don’t adapt foreign solutions for Africa. We build from the ground up, understanding local regulations, data sources, and market nuances.",
@@ -75,7 +75,7 @@ const values: CoreValue[] = [
 		iconColor: "text-amber-600",
 	},
 	{
-		icon: Lightbulb,
+		icon: LightbulbIcon,
 		title: "Relentless Innovation",
 		description:
 			"From AI-powered document verification to real-time risk scoring, we continuously push the boundaries of what compliance technology can do.",
@@ -83,7 +83,7 @@ const values: CoreValue[] = [
 		iconColor: "text-rose-600",
 	},
 	{
-		icon: Users,
+		icon: UsersIcon,
 		title: "Customer Obsession",
 		description:
 			"Our clients’ success is our success. We provide dedicated support, custom integrations, and proactive compliance guidance to every partner.",
@@ -99,7 +99,7 @@ const values: CoreValue[] = [
 		iconColor: "text-emerald-600",
 	},
 	{
-		icon: Scales,
+		icon: ScalesIcon,
 		title: "Regulatory Excellence",
 		description:
 			"We stay ahead of evolving regulations across 54 countries, ensuring our clients are always compliant with the latest requirements.",

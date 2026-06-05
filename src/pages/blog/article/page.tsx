@@ -7,6 +7,14 @@ import { blogArticles } from "../../../mocks/blogArticles";
 import { useDemoModal } from "../../../hooks/useDemoModal";
 import { detectCountryFromText } from "@/utils/countryGeo";
 import { track } from "@/lib/analytics";
+import {
+	CheckIcon,
+	ClockIcon,
+	LightbulbIcon,
+	LinkedinLogoIcon,
+	LinkIcon,
+	XLogoIcon,
+} from "@phosphor-icons/react";
 
 // Below-fold — lazy loaded
 const Footer = lazy(() => import("../../../components/feature/Footer"));
@@ -84,7 +92,7 @@ const ShareBar = memo(function ShareBar({
 				}
 				className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-teal-50 hover:text-teal-600 text-gray-500 transition-colors cursor-pointer"
 			>
-				<i className="ri-twitter-x-line text-sm"></i>
+				<XLogoIcon className="text-sm" />
 			</a>
 			<a
 				href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`${SITE_URL}/blog/${articleId}`)}`}
@@ -98,7 +106,7 @@ const ShareBar = memo(function ShareBar({
 				}
 				className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-teal-50 hover:text-teal-600 text-gray-500 transition-colors cursor-pointer"
 			>
-				<i className="ri-linkedin-line text-sm"></i>
+				<LinkedinLogoIcon className="text-sm" />
 			</a>
 			<button
 				onClick={() => {
@@ -111,7 +119,7 @@ const ShareBar = memo(function ShareBar({
 				className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-teal-50 hover:text-teal-600 text-gray-500 transition-colors cursor-pointer"
 				title="Copy link"
 			>
-				<i className="ri-link text-sm"></i>
+				<LinkIcon className="text-sm" />
 			</button>
 		</div>
 	);
@@ -312,7 +320,7 @@ export default function ArticlePage() {
 				{/* Last updated timestamp */}
 				{isoDate && (
 					<div className="flex items-center gap-2 mb-8 pb-6 border-b border-gray-100">
-						<i className="ri-time-line w-4 h-4 flex items-center justify-center text-gray-400 text-sm"></i>
+						<ClockIcon className="w-4 h-4 flex items-center justify-center text-gray-400 text-sm" />
 						<time
 							dateTime={isoDate}
 							className="text-xs text-gray-400 font-medium tracking-wide uppercase"
@@ -354,7 +362,7 @@ export default function ArticlePage() {
 				{/* Key takeaways */}
 				<div className="mt-10 p-6 bg-teal-50 rounded-xl border border-teal-100">
 					<h2 className="text-base font-bold text-teal-800 mb-3 flex items-center gap-2">
-						<i className="ri-lightbulb-line w-5 h-5 flex items-center justify-center text-teal-600"></i>
+						<LightbulbIcon className="w-5 h-5 flex items-center justify-center text-teal-600" />
 						Key Takeaways
 					</h2>
 					<ul className="space-y-2">
@@ -363,7 +371,7 @@ export default function ArticlePage() {
 								key={i}
 								className="flex items-start gap-2 text-sm text-teal-700"
 							>
-								<i className="ri-check-line w-4 h-4 flex items-center justify-center text-teal-500 mt-0.5 shrink-0"></i>
+								<CheckIcon className="w-4 h-4 flex items-center justify-center text-teal-500 mt-0.5 shrink-0" />
 								{point}
 							</li>
 						))}

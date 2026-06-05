@@ -1,18 +1,22 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import {
-	ArrowRight,
-	Check,
-	CheckCircle,
-	Clock,
-	Download,
-	Eye,
-	EyeSlash,
-	FileText,
-	Flame,
-	List,
+	ArrowRightIcon,
+	CheckCircleIcon,
+	CheckIcon,
+	ClockIcon,
+	DownloadIcon,
+	EyeIcon,
+	EyeSlashIcon,
+	FileTextIcon,
+	FlameIcon,
+	LinkedinLogoIcon,
+	LinkIcon,
+	ListBulletsIcon,
 	Lock,
-	LockOpen,
+	LockOpenIcon,
+	XLogoIcon,
+	type Icon,
 } from "@phosphor-icons/react";
 import { useScrollAnimation } from "../../../hooks/useScrollAnimation";
 import EmailGateModal from "./EmailGateModal";
@@ -41,7 +45,7 @@ export interface Resource {
 	teaserContent: string[];
 	gatedContent?: string[];
 	pdfUrl?: string;
-	icon: string;
+	icon: Icon;
 	category: string;
 	readTime: string;
 	pages: string;
@@ -53,6 +57,16 @@ interface ResourceCardProps {
 	resource: Resource;
 	isUnlocked: boolean;
 	onUnlock: (id: string) => void;
+}
+
+function ResourceIconDisplay({
+	icon: IconComponent,
+	className,
+}: {
+	icon: Icon;
+	className?: string;
+}) {
+	return <IconComponent className={className} aria-hidden />;
 }
 
 export default function ResourceCard({
@@ -148,12 +162,15 @@ export default function ResourceCard({
 				<CardHeader className="p-6 pb-4">
 					<div className="flex items-center justify-between mb-4">
 						<div className="w-12 h-12 bg-teal-50 rounded-xl flex items-center justify-center shrink-0">
-							<i className={`${resource.icon} text-xl text-teal-600`} />
+							<ResourceIconDisplay
+								icon={resource.icon}
+								className="text-xl text-teal-600"
+							/>
 						</div>
 						<div className="flex items-center gap-2">
 							{resource.isNew && (
 								<span className="px-3 py-1 bg-amber-100 text-amber-700 text-xs font-semibold rounded-full flex items-center gap-1">
-									<Flame className="size-3.5" />
+									<FlameIcon className="size-3.5" />
 									Recently Added
 								</span>
 							)}
@@ -172,16 +189,16 @@ export default function ResourceCard({
 
 					<div className="flex items-center gap-4 text-xs text-gray-400 mt-4">
 						<span className="flex items-center gap-1">
-							<Clock className="size-3.5" />
+							<ClockIcon className="size-3.5" />
 							{resource.readTime}
 						</span>
 						<span className="flex items-center gap-1">
-							<List className="size-3.5" />
+							<ListBulletsIcon className="size-3.5" />
 							{resource.pages}
 						</span>
 						{isPdfResource && (
 							<span className="flex items-center gap-1 text-teal-600">
-								<FileText className="size-3.5" />
+								<FileTextIcon className="size-3.5" />
 								PDF
 							</span>
 						)}
@@ -208,7 +225,7 @@ export default function ResourceCard({
 											key={index}
 											className="flex items-start gap-2 text-sm text-gray-600"
 										>
-											<Check className="size-4 text-teal-500 mt-0.5 shrink-0" />
+											<CheckIcon className="size-4 text-teal-500 mt-0.5 shrink-0" />
 											<span>{item}</span>
 										</li>
 									))}
@@ -233,7 +250,7 @@ export default function ResourceCard({
 								>
 									<AccordionTrigger className="py-3 text-xs font-semibold uppercase tracking-wider text-emerald-700 hover:no-underline cursor-pointer">
 										<span className="flex items-center gap-2">
-											<LockOpen className="size-3.5" />
+											<LockOpenIcon className="size-3.5" />
 											Full Actionable Content — Unlocked
 										</span>
 									</AccordionTrigger>
@@ -244,7 +261,7 @@ export default function ResourceCard({
 													key={index}
 													className="flex items-start gap-2 text-sm text-gray-700"
 												>
-													<CheckCircle className="size-4 text-emerald-500 mt-0.5 shrink-0" />
+													<CheckCircleIcon className="size-4 text-emerald-500 mt-0.5 shrink-0" />
 													<span>{item}</span>
 												</li>
 											))}
@@ -257,7 +274,7 @@ export default function ResourceCard({
 					{isUnlocked && isPdfResource && (
 						<div className="rounded-lg border border-emerald-100 bg-emerald-50 p-4">
 							<p className="text-xs font-semibold text-emerald-700 uppercase tracking-wider mb-3 flex items-center gap-2">
-								<LockOpen className="size-3.5" />
+								<LockOpenIcon className="size-3.5" />
 								PDF Unlocked — Ready to Download
 							</p>
 							<p className="text-sm text-gray-600 mb-3">
@@ -268,7 +285,7 @@ export default function ResourceCard({
 								onClick={handleDownload}
 								className="w-full h-auto py-2.5 bg-emerald-500 text-white hover:bg-emerald-600 cursor-pointer"
 							>
-								<Download className="size-4" />
+								<DownloadIcon className="size-4" />
 								Download PDF
 							</Button>
 						</div>
@@ -283,7 +300,7 @@ export default function ResourceCard({
 							className="h-auto p-0 text-teal-600 font-medium hover:text-teal-700 cursor-pointer"
 						>
 							View Full Page
-							<ArrowRight className="size-4" />
+							<ArrowRightIcon className="size-4" />
 						</Button>
 						<div className="flex items-center gap-2 mt-3">
 							<span className="text-xs text-gray-400 mr-1">Share:</span>
@@ -300,10 +317,7 @@ export default function ResourceCard({
 									title="Share on LinkedIn"
 									onClick={() => trackShare("linkedin")}
 								>
-									<i
-										className="ri-linkedin-fill text-base"
-										aria-hidden
-									/>
+									<LinkedinLogoIcon className="text-base" aria-hidden />
 								</a>
 							</Button>
 							<Button
@@ -319,10 +333,7 @@ export default function ResourceCard({
 									title="Share on X/Twitter"
 									onClick={() => trackShare("twitter")}
 								>
-									<i
-										className="ri-twitter-x-fill text-base"
-										aria-hidden
-									/>
+									<XLogoIcon className="text-base" aria-hidden />
 								</a>
 							</Button>
 							<Button
@@ -339,13 +350,11 @@ export default function ResourceCard({
 										handleCopyLink();
 									}}
 								>
-									<i
-										className={cn(
-											"text-base",
-											copiedLink ? "ri-check-line" : "ri-link",
-										)}
-										aria-hidden
-									/>
+									{copiedLink ? (
+										<CheckIcon className="text-base" aria-hidden />
+									) : (
+										<LinkIcon className="text-base" aria-hidden />
+									)}
 									{copiedLink && (
 										<span className="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-gray-800 text-white text-xs rounded whitespace-nowrap pointer-events-none">
 											Copied!
@@ -362,7 +371,7 @@ export default function ResourceCard({
 								onClick={handleDownload}
 								className="w-full h-auto py-3 bg-emerald-500 text-white hover:bg-emerald-600 cursor-pointer"
 							>
-								<Download className="size-4" />
+								<DownloadIcon className="size-4" />
 								Download PDF
 							</Button>
 						) : (
@@ -371,9 +380,9 @@ export default function ResourceCard({
 								className="w-full h-auto py-3 bg-emerald-500 text-white hover:bg-emerald-600 cursor-pointer"
 							>
 								{showGatedContent ? (
-									<EyeSlash className="size-4" />
+									<EyeSlashIcon className="size-4" />
 								) : (
-									<Eye className="size-4" />
+									<EyeIcon className="size-4" />
 								)}
 								{showGatedContent ? "Hide Full Content" : "View Full Content"}
 							</Button>
@@ -384,7 +393,7 @@ export default function ResourceCard({
 							className="w-full h-auto py-3 bg-teal-500 text-white hover:bg-teal-600 cursor-pointer group"
 						>
 							<Lock className="size-4 group-hover:hidden" />
-							<LockOpen className="size-4 hidden group-hover:inline" />
+							<LockOpenIcon className="size-4 hidden group-hover:inline" />
 							{isPdfResource ? "Unlock PDF Download" : "Unlock Full Guide"}
 						</Button>
 					)}

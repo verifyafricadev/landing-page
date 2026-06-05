@@ -1,3 +1,22 @@
+import {
+	BuildingsIcon,
+	CameraIcon,
+	CheckCircleIcon,
+	ClockIcon,
+	CurrencyCircleDollarIcon,
+	DatabaseIcon,
+	FileMagnifyingGlassIcon,
+	GaugeIcon,
+	GraphIcon,
+	IdentificationCardIcon,
+	MapPinIcon,
+	ShieldCheckIcon,
+	ShieldStarIcon,
+	TranslateIcon,
+	UserFocusIcon,
+	UsersIcon,
+	XIcon,
+} from "@phosphor-icons/react";
 import { useEffect } from "react";
 
 interface CountryData {
@@ -186,12 +205,12 @@ export default function CountryDetailModal({
 						onClick={onClose}
 						className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center bg-white/20 hover:bg-white/30 rounded-full transition-colors cursor-pointer"
 					>
-						<i className="ri-close-line text-white text-xl"></i>
+						<XIcon className="text-white text-xl" />
 					</button>
 
 					{/* Region Badge */}
 					<div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/20 rounded-full mb-4">
-						<i className="ri-map-pin-line text-white text-sm"></i>
+						<MapPinIcon className="text-white text-sm" />
 						<span className="text-white text-sm font-medium">
 							{country.region}
 						</span>
@@ -221,7 +240,7 @@ export default function CountryDetailModal({
 					<div className="grid grid-cols-3 gap-4 mb-8">
 						{details.population && (
 							<div className="text-center p-4 bg-gray-50 rounded-xl">
-								<i className="ri-group-line text-2xl text-gray-400 mb-2"></i>
+								<UsersIcon className="text-2xl text-gray-400 mb-2" />
 								<div className="text-lg font-bold text-secondary">
 									{details.population}
 								</div>
@@ -230,7 +249,7 @@ export default function CountryDetailModal({
 						)}
 						{details.capital && (
 							<div className="text-center p-4 bg-gray-50 rounded-xl">
-								<i className="ri-building-line text-2xl text-gray-400 mb-2"></i>
+								<BuildingsIcon className="text-2xl text-gray-400 mb-2" />
 								<div className="text-lg font-bold text-secondary">
 									{details.capital}
 								</div>
@@ -239,7 +258,7 @@ export default function CountryDetailModal({
 						)}
 						{details.currency && (
 							<div className="text-center p-4 bg-gray-50 rounded-xl">
-								<i className="ri-money-dollar-circle-line text-2xl text-gray-400 mb-2"></i>
+								<CurrencyCircleDollarIcon className="text-2xl text-gray-400 mb-2" />
 								<div className="text-sm font-bold text-secondary">
 									{details.currency.split(" ")[0]}
 								</div>
@@ -249,19 +268,19 @@ export default function CountryDetailModal({
 						{!details.population && !details.capital && !details.currency && (
 							<>
 								<div className="text-center p-4 bg-gray-50 rounded-xl">
-									<i className="ri-checkbox-circle-line text-2xl text-teal-500 mb-2"></i>
+									<CheckCircleIcon className="text-2xl text-teal-500 mb-2" />
 									<div className="text-lg font-bold text-secondary">Active</div>
 									<div className="text-xs text-gray-500">Status</div>
 								</div>
 								<div className="text-center p-4 bg-gray-50 rounded-xl">
-									<i className="ri-shield-check-line text-2xl text-teal-500 mb-2"></i>
+									<ShieldCheckIcon className="text-2xl text-teal-500 mb-2" />
 									<div className="text-lg font-bold text-secondary">
 										Verified
 									</div>
 									<div className="text-xs text-gray-500">Coverage</div>
 								</div>
 								<div className="text-center p-4 bg-gray-50 rounded-xl">
-									<i className="ri-speed-line text-2xl text-teal-500 mb-2"></i>
+									<GaugeIcon className="text-2xl text-teal-500 mb-2" />
 									<div className="text-lg font-bold text-secondary">&lt;3s</div>
 									<div className="text-xs text-gray-500">Avg. Time</div>
 								</div>
@@ -272,10 +291,7 @@ export default function CountryDetailModal({
 					{/* Supported ID Types */}
 					<div className="mb-8">
 						<h3 className="text-sm font-semibold text-secondary mb-3 flex items-center gap-2">
-							<i
-								className="ri-id-card-line"
-								style={{ color: regionColor }}
-							></i>
+							<IdentificationCardIcon style={{ color: regionColor }} />
 							Supported ID Types
 						</h3>
 						<div className="flex flex-wrap gap-2">
@@ -294,10 +310,7 @@ export default function CountryDetailModal({
 					{details.languages && details.languages.length > 0 && (
 						<div className="mb-8">
 							<h3 className="text-sm font-semibold text-secondary mb-3 flex items-center gap-2">
-								<i
-									className="ri-translate-2"
-									style={{ color: regionColor }}
-								></i>
+								<TranslateIcon style={{ color: regionColor }} />
 								Languages Supported
 							</h3>
 							<div className="flex flex-wrap gap-2">
@@ -318,10 +331,7 @@ export default function CountryDetailModal({
 						details.verificationPartners.length > 0 && (
 							<div className="mb-8">
 								<h3 className="text-sm font-semibold text-secondary mb-3 flex items-center gap-2">
-									<i
-										className="ri-links-line"
-										style={{ color: regionColor }}
-									></i>
+									<GraphIcon style={{ color: regionColor }} />
 									Verification Partners
 								</h3>
 								<div className="flex flex-wrap gap-2">
@@ -340,16 +350,13 @@ export default function CountryDetailModal({
 					{/* Verification Features */}
 					<div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6">
 						<h3 className="text-sm font-semibold text-secondary mb-4 flex items-center gap-2">
-							<i
-								className="ri-shield-star-line"
-								style={{ color: regionColor }}
-							></i>
+							<ShieldStarIcon style={{ color: regionColor }} />
 							Verification Features
 						</h3>
 						<div className="grid grid-cols-2 gap-3">
 							<div className="flex items-center gap-3 p-3 bg-white rounded-xl">
 								<div className="w-8 h-8 flex items-center justify-center rounded-lg bg-teal-100">
-									<i className="ri-user-search-line text-teal-600"></i>
+									<UserFocusIcon className="text-teal-600" />
 								</div>
 								<span className="text-sm text-gray-700">
 									Identity Verification
@@ -357,7 +364,7 @@ export default function CountryDetailModal({
 							</div>
 							<div className="flex items-center gap-3 p-3 bg-white rounded-xl">
 								<div className="w-8 h-8 flex items-center justify-center rounded-lg bg-cyan-100">
-									<i className="ri-camera-line text-cyan-600"></i>
+									<CameraIcon className="text-cyan-600" />
 								</div>
 								<span className="text-sm text-gray-700">
 									Liveness Detection
@@ -365,7 +372,7 @@ export default function CountryDetailModal({
 							</div>
 							<div className="flex items-center gap-3 p-3 bg-white rounded-xl">
 								<div className="w-8 h-8 flex items-center justify-center rounded-lg bg-emerald-100">
-									<i className="ri-file-search-line text-emerald-600"></i>
+									<FileMagnifyingGlassIcon className="text-emerald-600" />
 								</div>
 								<span className="text-sm text-gray-700">
 									Document Verification
@@ -373,7 +380,7 @@ export default function CountryDetailModal({
 							</div>
 							<div className="flex items-center gap-3 p-3 bg-white rounded-xl">
 								<div className="w-8 h-8 flex items-center justify-center rounded-lg bg-amber-100">
-									<i className="ri-database-2-line text-amber-600"></i>
+									<DatabaseIcon className="text-amber-600" />
 								</div>
 								<span className="text-sm text-gray-700">Database Check</span>
 							</div>
@@ -385,7 +392,7 @@ export default function CountryDetailModal({
 				<div className="p-6 border-t border-gray-100 bg-gray-50">
 					<div className="flex items-center justify-between">
 						<div className="flex items-center gap-2 text-sm text-gray-500">
-							<i className="ri-time-line"></i>
+							<ClockIcon></ClockIcon>
 							<span>Real-time verification available</span>
 						</div>
 						<button

@@ -1,3 +1,7 @@
+import {
+	CaretDownIcon,
+	CheckIcon,
+} from "@phosphor-icons/react";
 import { useState } from "react";
 
 interface DocsContentProps {
@@ -1656,9 +1660,10 @@ function BulkDocsContent() {
 													.join(", ")}
 											</td>
 											<td className="px-4 py-3 text-right">
-												<i
-													className={`ri-arrow-down-s-line text-gray-400 transition-transform duration-200 ${expandedType === vt.id ? "rotate-180" : ""}`}
-												></i>
+												<CaretDownIcon
+													className={`text-gray-400 transition-transform duration-200 ${expandedType === vt.id ? "rotate-180" : ""}`}
+													aria-hidden
+												/>
 											</td>
 										</tr>
 										{expandedType === vt.id && (
@@ -1855,14 +1860,14 @@ function BulkDocsContent() {
 					</h3>
 					<ul className="space-y-2 text-sm text-gray-600">
 						<li className="flex items-start gap-2">
-							<i className="ri-check-line text-teal-500 mt-0.5 flex-shrink-0 w-4 h-4 flex items-center justify-center"></i>
+							<CheckIcon className="text-teal-500 mt-0.5 flex-shrink-0 w-4 h-4 flex items-center justify-center" />
 							<span>
 								Keep batches under 100 records for optimal performance. Split
 								larger datasets across multiple requests.
 							</span>
 						</li>
 						<li className="flex items-start gap-2">
-							<i className="ri-check-line text-teal-500 mt-0.5 flex-shrink-0 w-4 h-4 flex items-center justify-center"></i>
+							<CheckIcon className="text-teal-500 mt-0.5 flex-shrink-0 w-4 h-4 flex items-center justify-center" />
 							<span>
 								Use the{" "}
 								<code className="font-mono text-xs bg-gray-200 px-1 rounded">
@@ -1873,7 +1878,7 @@ function BulkDocsContent() {
 							</span>
 						</li>
 						<li className="flex items-start gap-2">
-							<i className="ri-check-line text-teal-500 mt-0.5 flex-shrink-0 w-4 h-4 flex items-center justify-center"></i>
+							<CheckIcon className="text-teal-500 mt-0.5 flex-shrink-0 w-4 h-4 flex items-center justify-center" />
 							<span>
 								Check the{" "}
 								<code className="font-mono text-xs bg-gray-200 px-1 rounded">
@@ -1883,7 +1888,7 @@ function BulkDocsContent() {
 							</span>
 						</li>
 						<li className="flex items-start gap-2">
-							<i className="ri-check-line text-teal-500 mt-0.5 flex-shrink-0 w-4 h-4 flex items-center justify-center"></i>
+							<CheckIcon className="text-teal-500 mt-0.5 flex-shrink-0 w-4 h-4 flex items-center justify-center" />
 							<span>
 								Use{" "}
 								<code className="font-mono text-xs bg-gray-200 px-1 rounded">
@@ -1893,7 +1898,7 @@ function BulkDocsContent() {
 							</span>
 						</li>
 						<li className="flex items-start gap-2">
-							<i className="ri-check-line text-teal-500 mt-0.5 flex-shrink-0 w-4 h-4 flex items-center justify-center"></i>
+							<CheckIcon className="text-teal-500 mt-0.5 flex-shrink-0 w-4 h-4 flex items-center justify-center" />
 							<span>
 								Each verification in a batch consumes the same API credit as a
 								single standalone call.

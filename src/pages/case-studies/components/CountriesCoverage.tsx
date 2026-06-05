@@ -1,5 +1,9 @@
 import { useState } from "react";
 import { countriesServed, regions } from "../../../mocks/caseStudies";
+import {
+	ShieldCheckIcon,
+	XIcon,
+} from "@phosphor-icons/react";
 
 interface CountryModalProps {
 	country: (typeof countriesServed)[0] | null;
@@ -22,7 +26,7 @@ function CountryModal({ country, onClose }: CountryModalProps) {
 					onClick={onClose}
 					className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center text-gray-400 hover:text-gray-600 transition-colors cursor-pointer"
 				>
-					<i className="ri-close-line text-2xl"></i>
+					<XIcon className="text-2xl" />
 				</button>
 
 				<div className="flex items-center gap-4 mb-6">
@@ -50,7 +54,7 @@ function CountryModal({ country, onClose }: CountryModalProps) {
 								className="flex items-center gap-3 p-3 bg-teal-50 rounded-lg border border-teal-100"
 							>
 								<div className="w-8 h-8 flex items-center justify-center bg-teal-500 rounded-full">
-									<i className="ri-shield-check-line text-white text-sm"></i>
+									<ShieldCheckIcon className="text-white text-sm" />
 								</div>
 								<span className="text-sm font-medium text-gray-700">
 									{idType}

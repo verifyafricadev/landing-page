@@ -1,4 +1,7 @@
-import { Warning, ShieldCheck } from "@phosphor-icons/react";
+import {
+	ShieldCheckIcon,
+	WarningIcon,
+} from "@phosphor-icons/react";
 import { useScrollAnimation } from "../../../hooks/useScrollAnimation";
 
 const problemParagraphs = [
@@ -71,7 +74,7 @@ export default function ProblemSolution() {
 								))}
 							</div>
 							<div className="mt-8 sm:mt-10 pt-4">
-								<Warning
+								<WarningIcon
 									className="w-10 h-10 sm:w-12 sm:h-12 text-red-400/90 stroke-[1.25]"
 									aria-hidden
 								/>
@@ -96,7 +99,7 @@ export default function ProblemSolution() {
 							</div>
 							<div className="mt-8 sm:mt-10 pt-4 border-t border-white/10">
 								<div className="flex items-start gap-3">
-									<ShieldCheck
+									<ShieldCheckIcon
 										className="w-10 h-10 sm:w-12 sm:h-12 text-teal-400 stroke-[1.25] shrink-0"
 										aria-hidden
 									/>
