@@ -1,4 +1,4 @@
-import { LockOpen } from "lucide-react";
+import { LockOpen } from "@phosphor-icons/react";
 import { useScrollAnimation } from "../../../hooks/useScrollAnimation";
 
 export default function ResourcesHero() {

@@ -4,13 +4,13 @@ import {
 	Lightbulb,
 	Users,
 	Lock,
-	Scale,
-	type LucideIcon,
-} from "lucide-react";
+	Scales,
+	type Icon,
+} from "@phosphor-icons/react";
 import { useStaggerAnimation } from "../../../hooks/useScrollAnimation";
 
 type CoreValue = {
-	icon: LucideIcon;
+	icon: Icon;
 	title: string;
 	description: string;
 	bg: string;
@@ -99,7 +99,7 @@ const values: CoreValue[] = [
 		iconColor: "text-emerald-600",
 	},
 	{
-		icon: Scale,
+		icon: Scales,
 		title: "Regulatory Excellence",
 		description:
 			"We stay ahead of evolving regulations across 54 countries, ensuring our clients are always compliant with the latest requirements.",

@@ -1,4 +1,4 @@
-import { ArrowRight, type LucideIcon } from "lucide-react";
+import { ArrowRight, type Icon } from "@phosphor-icons/react";
 import { Card, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -10,7 +10,7 @@ interface UseCaseBenefit {
 
 interface UseCaseCardProps {
 	category: string;
-	icon: LucideIcon;
+	icon: Icon;
 	color: string;
 	description: string;
 	useCases: string[];

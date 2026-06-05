@@ -1,17 +1,17 @@
 import {
 	ShieldCheck,
 	Lock,
-	FileShield,
+	FileLock,
 	CreditCard,
-	Landmark,
-	type LucideIcon,
-} from "lucide-react";
+	Bank,
+	type Icon,
+} from "@phosphor-icons/react";
 import { useScrollAnimation } from "../../../hooks/useScrollAnimation";
 
 const certifications: {
 	name: string;
 	description: string;
-	icon: LucideIcon;
+	icon: Icon;
 }[] = [
 	{
 		name: "ISO 27001",
@@ -26,7 +26,7 @@ const certifications: {
 	{
 		name: "GDPR",
 		description: "Data Protection",
-		icon: FileShield,
+		icon: FileLock,
 	},
 	{
 		name: "PCI DSS",
@@ -36,7 +36,7 @@ const certifications: {
 	{
 		name: "NDPR",
 		description: "Nigeria Data Protection",
-		icon: Landmark,
+		icon: Bank,
 	},
 ];
 

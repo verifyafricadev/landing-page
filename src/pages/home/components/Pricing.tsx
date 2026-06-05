@@ -1,6 +1,6 @@
 import { useScrollAnimation } from "../../../hooks/useScrollAnimation";
 import { Link } from "react-router-dom";
-import { Check, Crown, TrendingUp } from "lucide-react";
+import { Check, Crown, TrendUp } from "@phosphor-icons/react";
 import { track } from "@/lib/analytics";
 import { useDemoModal } from "@/hooks/useDemoModal";
 import { HoverUnderline } from "@/components/ui/hover-underline";
@@ -31,7 +31,7 @@ const plans = [
 		],
 		badge: null,
 		highlight: false,
-		icon: TrendingUp,
+		icon: TrendUp,
 	},
 	{
 		id: "enterprise",

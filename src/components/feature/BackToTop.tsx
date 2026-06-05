@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ArrowUp } from 'lucide-react';
+import { ArrowUp } from '@phosphor-icons/react';
 
 export default function BackToTop() {
   const [visible, setVisible] = useState(false);

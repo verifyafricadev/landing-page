@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Lock } from "lucide-react";
+import { Lock } from "@phosphor-icons/react";
 
 export default function SupportForm() {
 	const [formData, setFormData] = useState({

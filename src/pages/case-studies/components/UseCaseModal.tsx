@@ -1,13 +1,5 @@
 import { useEffect } from "react";
-import {
-	Calendar,
-	Check,
-	ChevronRight,
-	CircleCheck,
-	CircleHelp,
-	type LucideIcon,
-	X,
-} from "lucide-react";
+import type { Icon } from "@phosphor-icons/react";
 
 interface UseCaseBenefit {
 	metric: string;
@@ -17,7 +9,7 @@ interface UseCaseBenefit {
 interface UseCase {
 	id: number;
 	category: string;
-	icon: LucideIcon;
+	icon: Icon;
 	color: string;
 	description: string;
 	useCases: string[];

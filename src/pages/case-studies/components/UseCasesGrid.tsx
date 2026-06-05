@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { Building2 } from "lucide-react";
+import { Buildings } from "@phosphor-icons/react";
 import { useCaseCategories } from "../../../mocks/caseStudies";
 import UseCaseCard from "./UseCaseCard";
 import UseCaseModal from "./UseCaseModal";
@@ -38,7 +38,7 @@ export default function UseCasesGrid({ onRequestDemo }: UseCasesGridProps) {
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 flex flex-col gap-16">
 				<div className="text-center">
 					<div className="inline-flex items-center gap-2 px-4 py-2 bg-teal-50 rounded-full mb-4">
-						<Building2 className="size-4 text-teal-600" />
+						<Buildings className="size-4 text-teal-600" />
 						<span className="text-teal-600 text-sm font-medium">
 							Industry Solutions
 						</span>
@@ -92,7 +92,7 @@ export default function UseCasesGrid({ onRequestDemo }: UseCasesGridProps) {
 					</div>
 				) : (
 					<div className="text-center py-16">
-						<Building2 className="mx-auto mb-4 size-12 text-gray-300" />
+						<Buildings className="mx-auto mb-4 size-12 text-gray-300" />
 						<h3 className="text-xl font-semibold text-gray-700 mb-2">
 							No use cases found
 						</h3>

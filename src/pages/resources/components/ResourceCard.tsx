@@ -3,17 +3,17 @@ import { useNavigate } from "react-router-dom";
 import {
 	ArrowRight,
 	Check,
-	CircleCheck,
+	CheckCircle,
 	Clock,
 	Download,
 	Eye,
-	EyeOff,
+	EyeSlash,
 	FileText,
 	Flame,
 	List,
 	Lock,
 	LockOpen,
-} from "lucide-react";
+} from "@phosphor-icons/react";
 import { useScrollAnimation } from "../../../hooks/useScrollAnimation";
 import EmailGateModal from "./EmailGateModal";
 import { track } from "../../../lib/analytics";
@@ -244,7 +244,7 @@ export default function ResourceCard({
 													key={index}
 													className="flex items-start gap-2 text-sm text-gray-700"
 												>
-													<CircleCheck className="size-4 text-emerald-500 mt-0.5 shrink-0" />
+													<CheckCircle className="size-4 text-emerald-500 mt-0.5 shrink-0" />
 													<span>{item}</span>
 												</li>
 											))}
@@ -371,7 +371,7 @@ export default function ResourceCard({
 								className="w-full h-auto py-3 bg-emerald-500 text-white hover:bg-emerald-600 cursor-pointer"
 							>
 								{showGatedContent ? (
-									<EyeOff className="size-4" />
+									<EyeSlash className="size-4" />
 								) : (
 									<Eye className="size-4" />
 								)}

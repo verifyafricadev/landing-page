@@ -1,11 +1,5 @@
 import { useState, useEffect } from "react";
-import {
-	AlertTriangle,
-	Check,
-	Loader2,
-	LockOpen,
-	X,
-} from "lucide-react";
+import { LockOpen, X } from "@phosphor-icons/react";
 
 interface EmailGateModalProps {
 	isOpen: boolean;

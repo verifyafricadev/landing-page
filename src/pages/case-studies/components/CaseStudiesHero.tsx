@@ -1,4 +1,4 @@
-import { Globe } from "lucide-react";
+import { Globe } from "@phosphor-icons/react";
 
 const stats = [
 	{ value: "10", label: "Industry Categories" },

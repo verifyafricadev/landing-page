@@ -1,19 +1,19 @@
 import {
-  ArrowLeftRight,
+  ArrowsLeftRight,
   Building,
   Coins,
-  Gamepad2,
+  GameController,
   Radio,
   ShieldCheck,
   ShoppingBag,
-  Smartphone,
-  type LucideIcon,
-} from "lucide-react";
+  DeviceMobile,
+  type Icon,
+} from "@phosphor-icons/react";
 
 export const useCaseCategories: {
   id: number;
   category: string;
-  icon: LucideIcon;
+  icon: Icon;
   color: string;
   description: string;
   useCases: string[];
@@ -43,7 +43,7 @@ export const useCaseCategories: {
   {
     id: 2,
     category: "Fintechs & Payment Providers",
-    icon: Smartphone,
+    icon: DeviceMobile,
     color: "from-cyan-500 to-teal-500",
     description: "Digital payment platforms, mobile money operators, and fintech startups scaling across Africa.",
     useCases: [
@@ -63,7 +63,7 @@ export const useCaseCategories: {
   {
     id: 3,
     category: "FX Brokers",
-    icon: ArrowLeftRight,
+    icon: ArrowsLeftRight,
     color: "from-orange-500 to-amber-500",
     description: "Foreign exchange brokers and trading platforms requiring sophisticated risk management and regulatory compliance for high-volume cross-border trading operations.",
     useCases: [
@@ -147,7 +147,7 @@ export const useCaseCategories: {
   {
     id: 7,
     category: "iGaming & Sports Betting",
-    icon: Gamepad2,
+    icon: GameController,
     color: "from-emerald-500 to-teal-500",
     description: "Online casinos, sports betting operators, and lottery platforms meeting AML and responsible gambling compliance across Africa's fast-growing regulated markets.",
     useCases: [

@@ -1,4 +1,4 @@
-import { Globe, Lock, ShieldCheck } from "lucide-react";
+import { Globe, Lock, ShieldCheck } from "@phosphor-icons/react";
 import { useScrollAnimation } from "../../../hooks/useScrollAnimation";
 
 const pillars = [

@@ -1,4 +1,4 @@
-import { Mail, Phone } from "lucide-react";
+import { Envelope, Phone } from "@phosphor-icons/react";
 
 export default function ContactInfo() {
 	return (
@@ -7,7 +7,7 @@ export default function ContactInfo() {
 				<div className="grid md:grid-cols-2 gap-8">
 					<div className="bg-white p-8 rounded-xl shadow-sm">
 						<div className="w-12 h-12 flex items-center justify-center bg-teal-100 rounded-lg mb-4">
-							<Mail className="text-2xl text-teal-600" />
+							<Envelope className="text-2xl text-teal-600" />
 						</div>
 						<h3 className="text-lg font-semibold text-secondary mb-2">
 							Email Us

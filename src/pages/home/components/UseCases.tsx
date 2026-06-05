@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { CaretLeft, CaretRight } from "@phosphor-icons/react";
 import { useScrollAnimation } from "../../../hooks/useScrollAnimation";
 import { useCaseCategories } from "@/mocks/caseStudies";
 import { Button } from "@/components/ui/button";
@@ -233,14 +233,14 @@ export default function UseCases() {
 							aria-label="Previous use cases"
 							className="h-10 rounded-full cursor-pointer"
 						>
-							<ChevronLeft className="w-5 h-5" />
+							<CaretLeft className="w-5 h-5" />
 						</Button>
 						<Button
 							onClick={handleNext}
 							aria-label="Next use cases"
 							className="h-10 rounded-full cursor-pointer"
 						>
-							<ChevronRight className="w-5 h-5" />
+							<CaretRight className="w-5 h-5" />
 						</Button>
 					</div>
 				</div>

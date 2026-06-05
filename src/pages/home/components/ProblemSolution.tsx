@@ -1,4 +1,4 @@
-import { AlertTriangle, ShieldCheck } from "lucide-react";
+import { Warning, ShieldCheck } from "@phosphor-icons/react";
 import { useScrollAnimation } from "../../../hooks/useScrollAnimation";
 
 const problemParagraphs = [
@@ -71,7 +71,7 @@ export default function ProblemSolution() {
 								))}
 							</div>
 							<div className="mt-8 sm:mt-10 pt-4">
-								<AlertTriangle
+								<Warning
 									className="w-10 h-10 sm:w-12 sm:h-12 text-red-400/90 stroke-[1.25]"
 									aria-hidden
 								/>

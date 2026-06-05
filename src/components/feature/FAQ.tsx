@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Plus } from "lucide-react";
+import { Plus } from "@phosphor-icons/react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import {
 	Accordion,

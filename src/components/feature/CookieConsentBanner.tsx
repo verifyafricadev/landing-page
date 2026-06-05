@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Cookie } from "lucide-react";
+import { Cookie } from "@phosphor-icons/react";
 
 type ConsentStatus = "accepted" | "declined" | null;
 
