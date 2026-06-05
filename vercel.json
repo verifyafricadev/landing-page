@@ -1,0 +1,9 @@
+{
+  "outputDirectory": "out",
+  "rewrites": [
+    {
+      "source": "/((?!assets/|favicon.ico|robots.txt|sitemap.xml).*)",
+      "destination": "/index.html"
+    }
+  ]
+}
