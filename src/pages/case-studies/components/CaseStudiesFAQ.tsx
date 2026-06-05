@@ -1,9 +1,4 @@
-import { useState } from "react";
-
-interface FAQItem {
-	question: string;
-	answer: string;
-}
+import FAQ, { type FAQItem } from "@/components/feature/FAQ";
 
 const faqs: FAQItem[] = [
 	{
@@ -35,103 +30,10 @@ const faqs: FAQItem[] = [
 ];
 
 export default function CaseStudiesFAQ() {
-	const [openIndex, setOpenIndex] = useState<number | null>(null);
-
-	const toggle = (index: number) => {
-		setOpenIndex(openIndex === index ? null : index);
-	};
-
 	return (
-		<section className="py-16 lg:py-24 bg-white">
-			<div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-				{/* Header */}
-				<div className="text-center mb-12">
-					<div className="inline-flex items-center gap-2 px-4 py-2 bg-teal-50 rounded-full mb-4">
-						<i className="ri-question-line text-teal-600 text-sm"></i>
-						<span className="text-teal-600 text-sm font-medium">
-							Frequently Asked Questions
-						</span>
-					</div>
-					<h2 className="text-3xl sm:text-4xl font-bold text-secondary mb-4">
-						Questions About Our Platform
-					</h2>
-					<p className="text-gray-500 text-base max-w-xl mx-auto">
-						Everything you need to know before getting started with
-						VerifyAfrica's identity verification and compliance infrastructure.
-					</p>
-				</div>
-
-				{/* Accordion */}
-				<div className="space-y-3">
-					{faqs.map((faq, index) => {
-						const isOpen = openIndex === index;
-						return (
-							<div
-								key={index}
-								className={`rounded-xl border transition-all duration-200 ${
-									isOpen
-										? "border-teal-200 bg-teal-50/40"
-										: "border-gray-100 bg-white hover:border-gray-200"
-								}`}
-							>
-								<button
-									onClick={() => toggle(index)}
-									className="w-full flex items-start justify-between gap-4 px-6 py-5 text-left cursor-pointer"
-									aria-expanded={isOpen}
-								>
-									<span
-										className={`text-sm sm:text-base font-semibold leading-snug transition-colors ${
-											isOpen ? "text-teal-700" : "text-secondary"
-										}`}
-									>
-										{faq.question}
-									</span>
-									<span
-										className={`w-6 h-6 flex items-center justify-center shrink-0 rounded-full transition-all duration-200 mt-0.5 ${
-											isOpen
-												? "bg-teal-600 text-white"
-												: "bg-gray-100 text-gray-500"
-										}`}
-									>
-										<i
-											className={`text-xs transition-transform duration-200 ${
-												isOpen ? "ri-subtract-line" : "ri-add-line"
-											}`}
-										></i>
-									</span>
-								</button>
-
-								<div
-									className={`overflow-hidden transition-all duration-300 ${
-										isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-									}`}
-								>
-									<div className="px-6 pb-5">
-										<div className="w-8 h-px bg-teal-200 mb-4"></div>
-										<p className="text-gray-600 text-sm leading-relaxed">
-											{faq.answer}
-										</p>
-									</div>
-								</div>
-							</div>
-						);
-					})}
-				</div>
-
-				{/* Bottom CTA */}
-				<div className="mt-12 text-center">
-					<p className="text-gray-500 text-sm mb-4">
-						Still have questions? Our compliance experts are ready to help.
-					</p>
-					<a
-						href="/contact"
-						className="inline-flex items-center gap-2 px-6 py-3 bg-teal-600 text-white text-sm font-semibold rounded-lg hover:bg-teal-700 transition-colors cursor-pointer whitespace-nowrap"
-					>
-						<i className="ri-chat-1-line w-4 h-4 flex items-center justify-center"></i>
-						Talk to an Expert
-					</a>
-				</div>
-			</div>
-		</section>
+		<FAQ
+			faqs={faqs}
+			title="Questions About Our Platform"
+		/>
 	);
 }

@@ -3,7 +3,7 @@ import CaseStudiesHero from "./components/CaseStudiesHero";
 import AfricaMapVisualization from "./components/AfricaMapVisualization";
 import UseCasesGrid from "./components/UseCasesGrid";
 import CaseStudiesFAQ from "./components/CaseStudiesFAQ";
-import CaseStudiesCTA from "./components/CaseStudiesCTA";
+import FinalCTA from "@/pages/home/components/FinalCTA";
 import Footer from "../../components/feature/Footer";
 import SEOHead from "../../components/feature/SEOHead";
 import BackToTop from "../../components/feature/BackToTop";
@@ -258,7 +258,7 @@ export default function CaseStudiesPage() {
 			<AfricaMapVisualization />
 			<UseCasesGrid onRequestDemo={openDemo} />
 			<CaseStudiesFAQ />
-			<CaseStudiesCTA onRequestDemo={openDemo} />
+			<FinalCTA onRequestDemo={openDemo} />
 			<Footer />
 			<BackToTop />
 		</div>

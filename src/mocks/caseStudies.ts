@@ -270,6 +270,7 @@ export const industries = [
   "All Categories",
   "Banks & Financial Institutions",
   "Fintechs & Payment Providers",
+  "FX Brokers",
   "Telecommunications",
   "E-commerce & Marketplaces",
   "Insurance Companies",

@@ -17,7 +17,7 @@ interface UseCaseBenefit {
 interface UseCase {
 	id: number;
 	category: string;
-	icon: string;
+	icon: LucideIcon;
 	color: string;
 	description: string;
 	useCases: string[];
@@ -45,6 +45,8 @@ export default function UseCaseModal({
 	}, []);
 
 	if (!isOpen || !useCase) return null;
+
+	const Icon = useCase.icon;
 
 	return (
 		<div className="fixed inset-0 z-50 flex items-center justify-center p-4 overflow-y-auto">
@@ -77,7 +79,7 @@ export default function UseCaseModal({
 						<div
 							className={`w-14 h-14 flex items-center justify-center rounded-xl bg-gradient-to-br ${useCase.color} shadow-lg`}
 						>
-							<i className={`${useCase.icon} text-2xl text-white`}></i>
+							<Icon className="size-6 text-white" />
 						</div>
 						<div>
 							<h2 className="text-2xl sm:text-3xl font-bold text-white">
