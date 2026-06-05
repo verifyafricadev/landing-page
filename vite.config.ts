@@ -21,14 +21,14 @@ export default defineConfig({
     tailwindcss(),
     // Gzip compression — widest server/CDN support
     compression({
-      algorithm: 'gzip',
+      algorithms: ['gzip'],
       include: /\.(js|css|html|json|svg|xml|txt)$/,
       threshold: 1024,
       deleteOriginalAssets: false,
     }),
     // Brotli compression — better ratios, supported by all modern browsers
     compression({
-      algorithm: 'brotliCompress',
+      algorithms: ['brotliCompress'],
       include: /\.(js|css|html|json|svg|xml|txt)$/,
       threshold: 1024,
       deleteOriginalAssets: false,
@@ -100,39 +100,10 @@ export default defineConfig({
     target: ['es2020', 'chrome87', 'firefox78', 'safari14'],
     rollupOptions: {
       output: {
-        // Consistent asset naming for long-term caching
+        // Consistent asset naming for long-term caching.
         assetFileNames: 'assets/[name]-[hash][extname]',
         chunkFileNames: 'assets/[name]-[hash].js',
         entryFileNames: 'assets/[name]-[hash].js',
-        // Manual chunk splitting — vendor libs in separate long-lived cacheable chunks
-        manualChunks(id) {
-          if (id.includes('node_modules/react/') || id.includes('node_modules/react-dom/')) {
-            return 'vendor-react';
-          }
-          if (id.includes('node_modules/react-router-dom/') || id.includes('node_modules/react-router/')) {
-            return 'vendor-router';
-          }
-          if (id.includes('node_modules/react-i18next/') || id.includes('node_modules/i18next/')) {
-            return 'vendor-i18n';
-          }
-          if (id.includes('node_modules/framer-motion/') || id.includes('node_modules/motion/')) {
-            return 'vendor-motion';
-          }
-          if (id.includes('node_modules/')) {
-            return 'vendor-misc';
-          }
-          // Split heavy mock data into its own chunk — never needed at initial render
-          if (id.includes('/mocks/articleBodies')) return 'data-article-bodies';
-          if (id.includes('/mocks/')) return 'data-mocks';
-          // Split heavy page chunks so they don't inflate the main bundle
-          if (id.includes('/pages/home/')) return 'page-home';
-          if (id.includes('/pages/blog/')) return 'page-blog';
-          if (id.includes('/pages/about/')) return 'page-about';
-          if (id.includes('/pages/case-studies/')) return 'page-case-studies';
-          if (id.includes('/pages/docs/')) return 'page-docs';
-          if (id.includes('/pages/contact/')) return 'page-contact';
-          if (id.includes('/pages/support/')) return 'page-support';
-        },
       },
     },
   },

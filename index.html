@@ -44,10 +44,6 @@
 			content="nosniff"
 		/>
 		<meta
-			http-equiv="X-Frame-Options"
-			content="DENY"
-		/>
-		<meta
 			http-equiv="X-XSS-Protection"
 			content="1; mode=block"
 		/>
@@ -323,7 +319,8 @@
 
 		  window.addEventListener('error', function(e) {
 		    var msg = e.message || '';
-		    var src = (e.filename || e.target && (e.target as any).src || '');
+		    var target = e.target;
+		    var src = e.filename || (target && (target.src || target.href)) || '';
 		    var isChunkError =
 		      msg.includes('Loading chunk') ||
 		      msg.includes('Loading CSS chunk') ||
