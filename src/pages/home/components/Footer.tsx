@@ -93,7 +93,7 @@ export default function Footer() {
 										variant="secondary"
 										size="icon"
 										asChild
-										className="size-9 sm:size-10 bg-gray-800 text-gray-300 hover:bg-teal-500 hover:text-white shrink-0"
+										className="size-9 sm:size-10 bg-gray-800 text-gray-300 hover:bg-gray-800/30 hover:text-white shrink-0"
 									>
 										<a
 											href={social.href}
@@ -121,7 +121,7 @@ export default function Footer() {
 							<li>
 								<Link
 									to="/about"
-									className="text-xs sm:text-sm hover:text-teal-400 transition-colors cursor-pointer"
+									className="text-xs sm:text-sm hover:font-semibold duration-200 ease-in-out cursor-pointer"
 								>
 									About
 								</Link>
@@ -129,7 +129,7 @@ export default function Footer() {
 							<li>
 								<Link
 									to="/features"
-									className="text-xs sm:text-sm hover:text-teal-400 transition-colors cursor-pointer"
+									className="text-xs sm:text-sm hover:font-semibold duration-200 ease-in-out cursor-pointer"
 								>
 									Features
 								</Link>
@@ -138,7 +138,7 @@ export default function Footer() {
 								<a
 									href="/#pricing"
 									onClick={(e) => handleAnchorClick(e, "/#pricing")}
-									className="text-xs sm:text-sm hover:text-teal-400 transition-colors cursor-pointer"
+									className="text-xs sm:text-sm hover:font-semibold duration-200 ease-in-out cursor-pointer"
 								>
 									Pricing
 								</a>
@@ -146,7 +146,7 @@ export default function Footer() {
 							<li>
 								<Link
 									to="/docs"
-									className="text-xs sm:text-sm hover:text-teal-400 transition-colors cursor-pointer"
+									className="text-xs sm:text-sm hover:font-semibold duration-200 ease-in-out cursor-pointer"
 								>
 									API Docs
 								</Link>
@@ -162,7 +162,7 @@ export default function Footer() {
 							<li>
 								<Link
 									to="/cookie-policy"
-									className="text-xs sm:text-sm hover:text-teal-400 transition-colors cursor-pointer"
+									className="text-xs sm:text-sm hover:font-semibold duration-200 ease-in-out cursor-pointer"
 								>
 									Cookie Policy
 								</Link>
@@ -170,7 +170,7 @@ export default function Footer() {
 							<li>
 								<Link
 									to="/privacy-policy"
-									className="text-xs sm:text-sm hover:text-teal-400 transition-colors cursor-pointer"
+									className="text-xs sm:text-sm hover:font-semibold duration-200 ease-in-out cursor-pointer"
 								>
 									Privacy Policy
 								</Link>
@@ -178,7 +178,7 @@ export default function Footer() {
 							<li>
 								<Link
 									to="/terms"
-									className="text-xs sm:text-sm hover:text-teal-400 transition-colors cursor-pointer"
+									className="text-xs sm:text-sm hover:font-semibold duration-200 ease-in-out cursor-pointer"
 								>
 									Terms of Service
 								</Link>
@@ -186,7 +186,7 @@ export default function Footer() {
 							<li>
 								<Link
 									to="/data-disposal-policy"
-									className="text-xs sm:text-sm hover:text-teal-400 transition-colors cursor-pointer"
+									className="text-xs sm:text-sm hover:font-semibold duration-200 ease-in-out cursor-pointer"
 								>
 									Data Disposal Policy
 								</Link>
@@ -202,7 +202,7 @@ export default function Footer() {
 							<li>
 								<Link
 									to="/blog"
-									className="text-xs sm:text-sm hover:text-teal-400 transition-colors cursor-pointer"
+									className="text-xs sm:text-sm hover:font-semibold duration-200 ease-in-out cursor-pointer"
 								>
 									Blog
 								</Link>
@@ -210,7 +210,7 @@ export default function Footer() {
 							<li>
 								<Link
 									to="/case-studies"
-									className="text-xs sm:text-sm hover:text-teal-400 transition-colors cursor-pointer"
+									className="text-xs sm:text-sm hover:font-semibold duration-200 ease-in-out cursor-pointer"
 								>
 									Case Studies
 								</Link>
@@ -218,7 +218,7 @@ export default function Footer() {
 							<li>
 								<Link
 									to="/support"
-									className="text-xs sm:text-sm hover:text-teal-400 transition-colors cursor-pointer"
+									className="text-xs sm:text-sm hover:font-semibold duration-200 ease-in-out cursor-pointer"
 								>
 									Support
 								</Link>
