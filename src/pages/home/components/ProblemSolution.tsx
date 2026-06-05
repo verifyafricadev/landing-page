@@ -1,7 +1,4 @@
-import {
-	ShieldCheckIcon,
-	WarningIcon,
-} from "@phosphor-icons/react";
+import { ShieldCheckIcon, WarningIcon } from "@phosphor-icons/react";
 import { useScrollAnimation } from "../../../hooks/useScrollAnimation";
 
 const problemParagraphs = [
@@ -68,7 +65,7 @@ export default function ProblemSolution() {
 							<h3 className="text-base sm:text-lg font-bold text-white mb-3 sm:mb-4">
 								The Problem
 							</h3>
-							<div className="space-y-4 text-sm sm:text-[0.9375rem] text-zinc-400 leading-relaxed flex-1">
+							<div className="space-y-4 text-sm sm:text-[0.9375rem] text-zinc-400 leading-relaxed flex-1 font-medium">
 								{problemParagraphs.map((paragraph) => (
 									<p key={paragraph.slice(0, 32)}>{paragraph}</p>
 								))}
@@ -92,7 +89,7 @@ export default function ProblemSolution() {
 							<h3 className="text-base sm:text-lg font-bold text-white mb-3 sm:mb-4">
 								The VerifyAfrica Solution
 							</h3>
-							<div className="space-y-4 text-sm sm:text-[0.9375rem] text-zinc-400 leading-relaxed flex-1">
+							<div className="space-y-4 text-sm sm:text-[0.9375rem] text-zinc-400 leading-relaxed flex-1 font-medium">
 								{solutionParagraphs.map((paragraph) => (
 									<p key={paragraph.slice(0, 32)}>{paragraph}</p>
 								))}
@@ -103,7 +100,7 @@ export default function ProblemSolution() {
 										className="w-10 h-10 sm:w-12 sm:h-12 text-teal-400 stroke-[1.25] shrink-0"
 										aria-hidden
 									/>
-									<p className="text-xs sm:text-sm text-zinc-500 leading-relaxed pt-1">
+									<p className="text-xs sm:text-sm text-zinc-500 leading-relaxed pt-1 font-medium">
 										{solutionHighlight}
 									</p>
 								</div>

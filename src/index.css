@@ -1,10 +1,10 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
-@import "@fontsource/montserrat";
+@import "@fontsource-variable/montserrat";
 
 @theme {
-	--font-sans: "Montserrat";
+	--font-sans: "Montserrat Variable";
 
 	--color-border: var(--border);
 	--color-input: var(--input);
@@ -107,7 +107,7 @@
 
 	.theme {
 		--font-heading: var(--font-sans);
-		--font-sans: "Montserrat";
+		--font-sans: "Montserrat Variable";
 	}
 
 	:root {

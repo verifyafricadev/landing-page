@@ -1,6 +1,4 @@
-import {
-	CheckCircleIcon,
-} from "@phosphor-icons/react";
+import { CheckCircleIcon } from "@phosphor-icons/react";
 import { useScrollAnimation } from "../../../hooks/useScrollAnimation";
 
 export default function ComplianceSystem() {
@@ -19,7 +17,7 @@ export default function ComplianceSystem() {
 	return (
 		<section
 			ref={ref}
-			className="py-12 sm:py-16 lg:py-24 bg-gradient-to-br from-secondary to-gray-800 text-white overflow-hidden"
+			className="py-12 sm:py-16 lg:py-24 bg-linear-to-br from-secondary to-gray-800 text-white overflow-hidden"
 		>
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
 				<div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-10 lg:gap-16 items-center">
@@ -33,11 +31,11 @@ export default function ComplianceSystem() {
 						<h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-3 sm:mb-6">
 							Built as a Compliance Operating System
 						</h2>
-						<p className="text-sm sm:text-base lg:text-xl text-gray-300 leading-relaxed mb-3 sm:mb-6 lg:mb-8">
+						<p className="text-sm sm:text-base lg:text-xl text-gray-300 leading-relaxed mb-3 sm:mb-6 lg:mb-8 font-medium">
 							VerifyAfrica is not just a KYC tool. It&apos;s compliance
 							infrastructure.
 						</p>
-						<p className="text-xs sm:text-sm md:text-base text-gray-400 leading-relaxed">
+						<p className="text-xs sm:text-sm md:text-base text-gray-400 leading-relaxed font-medium">
 							Designed to keep your onboarding defensible to regulators,
 							partners, and auditors.
 						</p>

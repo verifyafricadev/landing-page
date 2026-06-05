@@ -1,5 +1,5 @@
 import SEOHead from "../../components/feature/SEOHead";
-import Footer from "../../components/feature/Footer";
+import Footer from "@/pages/home/components/Footer";
 import { useDemoModal } from "../../hooks/useDemoModal";
 import Navbar from "../home/components/Navbar";
 

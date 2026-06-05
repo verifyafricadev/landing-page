@@ -4,7 +4,7 @@ import AfricaMapVisualization from "./components/AfricaMapVisualization";
 import UseCasesGrid from "./components/UseCasesGrid";
 import CaseStudiesFAQ from "./components/CaseStudiesFAQ";
 import FinalCTA from "@/pages/home/components/FinalCTA";
-import Footer from "../../components/feature/Footer";
+import Footer from "@/pages/home/components/Footer";
 import SEOHead from "../../components/feature/SEOHead";
 import BackToTop from "../../components/feature/BackToTop";
 import { useDemoModal } from "../../hooks/useDemoModal";

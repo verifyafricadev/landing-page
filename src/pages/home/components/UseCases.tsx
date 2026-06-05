@@ -48,7 +48,7 @@ function UseCaseCard({
 					{useCase.title}
 				</h3>
 			</div>
-			<p className="text-sm text-gray-500 leading-relaxed line-clamp-3">
+			<p className="text-sm text-gray-500 leading-relaxed line-clamp-3 font-medium">
 				{useCase.description}
 			</p>
 			<div className="absolute bottom-3 right-3 w-7 h-7 flex items-center justify-center bg-secondary rounded-full opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-300 z-20">

@@ -19,7 +19,7 @@ import {
 	UserPlusIcon,
 } from "@phosphor-icons/react";
 
-const Footer = lazy(() => import("../../components/feature/Footer"));
+const Footer = lazy(() => import("@/pages/home/components/Footer"));
 
 const SITE_URL = import.meta.env.VITE_SITE_URL || "https://verifyafrica.io";
 

@@ -17,7 +17,7 @@ import {
 } from "@phosphor-icons/react";
 
 // Below-fold — lazy loaded
-const Footer = lazy(() => import("../../../components/feature/Footer"));
+const Footer = lazy(() => import("@/pages/home/components/Footer"));
 
 const SITE_URL = import.meta.env.VITE_SITE_URL || "https://verifyafrica.io";
 

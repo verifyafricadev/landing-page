@@ -112,7 +112,10 @@ export default function FinalCTA({ onRequestDemo }: FinalCTAProps) {
 	const { ref, isVisible } = useScrollAnimation({ threshold: 0.3 });
 
 	return (
-		<section ref={ref} className="py-16 sm:py-20 lg:py-28 bg-white overflow-hidden">
+		<section
+			ref={ref}
+			className="py-16 sm:py-20 lg:py-28 bg-white overflow-hidden"
+		>
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
 				<div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 					<div
@@ -148,7 +151,7 @@ export default function FinalCTA({ onRequestDemo }: FinalCTAProps) {
 									onRequestDemo();
 								}}
 							>
-								Schedule a demo
+								Schedule a Demo
 							</Button>
 							<Button
 								variant="outline"

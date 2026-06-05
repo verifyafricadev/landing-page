@@ -5,10 +5,7 @@ import { HoverUnderline } from "@/components/ui/hover-underline";
 import { Button } from "@/components/ui/button";
 import { LOGO_TEXT_COLOR, Logo } from "@/components/icons/brand/logo";
 import { cn } from "@/lib/utils";
-import {
-	ListIcon,
-	XIcon,
-} from "@phosphor-icons/react";
+import { ListIcon, XIcon } from "@phosphor-icons/react";
 
 interface NavbarProps {
 	onRequestDemo: () => void;
@@ -153,7 +150,7 @@ export default function HomeNavbar({
 										href={item.href}
 										target="_blank"
 										rel="noopener noreferrer"
-										className={`relative text-sm font-medium transition-all duration-300 hover:text-teal-500 group cursor-pointer ${
+										className={`relative text-sm font-medium transition-all duration-300 hover:text-teal-500 group cursor-pointer font-medium ${
 											useSolidText ? "text-gray-700" : "text-white/90"
 										}`}
 										style={{
@@ -171,7 +168,7 @@ export default function HomeNavbar({
 									<Link
 										key={item.href}
 										to={item.href}
-										className={`relative text-sm font-medium transition-all duration-300 hover:text-teal-500 group ${
+										className={`relative text-sm font-medium transition-all duration-300 hover:text-teal-500 group font-medium ${
 											useSolidText ? "text-gray-700" : "text-white/90"
 										}`}
 										style={{
@@ -264,9 +261,15 @@ export default function HomeNavbar({
 								}`}
 							>
 								{isMobileMenuOpen ? (
-									<XIcon className="text-xl sm:text-2xl" aria-hidden />
+									<XIcon
+										className="text-xl sm:text-2xl"
+										aria-hidden
+									/>
 								) : (
-									<ListIcon className="text-xl sm:text-2xl" aria-hidden />
+									<ListIcon
+										className="text-xl sm:text-2xl"
+										aria-hidden
+									/>
 								)}
 							</Button>
 						</div>

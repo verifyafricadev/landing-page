@@ -1,7 +1,4 @@
-import {
-	ArrowUpRightIcon,
-	type Icon,
-} from "@phosphor-icons/react";
+import { ArrowUpRightIcon, type Icon } from "@phosphor-icons/react";
 import { Link } from "react-router-dom";
 
 export interface Feature {
@@ -38,12 +35,15 @@ export default function FeatureCard({
 		>
 			<div className="relative z-10">
 				<div className=" relative w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 flex items-center justify-center bg-teal-50 rounded-lg mb-2 sm:mb-3 md:mb-4 group-hover:bg-teal-100 transition-colors duration-300">
-					<FeatureIcon className="text-lg sm:text-xl md:text-2xl text-teal-600 relative z-10" aria-hidden />
+					<FeatureIcon
+						className="text-lg sm:text-xl md:text-2xl text-teal-600 relative z-10"
+						aria-hidden
+					/>
 				</div>
 				<h3 className="text-sm sm:text-base md:text-lg font-bold text-secondary mb-1 sm:mb-2 group-hover:text-teal-700 transition-colors duration-300">
 					{feature.title}
 				</h3>
-				<p className="text-[11px] sm:text-xs md:text-sm text-gray-600 leading-relaxed">
+				<p className="text-[11px] sm:text-xs md:text-sm text-gray-600 leading-relaxed font-medium">
 					{feature.description}
 				</p>
 			</div>

@@ -7,7 +7,7 @@ import SEOHead from "../../components/feature/SEOHead";
 // Lazy-load everything below the fold — none of these are needed for FCP
 const OurStory = lazy(() => import("./components/OurStory"));
 const CoreValues = lazy(() => import("./components/CoreValues"));
-const Footer = lazy(() => import("../../components/feature/Footer"));
+const Footer = lazy(() => import("@/pages/home/components/Footer"));
 
 const SITE_URL = import.meta.env.VITE_SITE_URL || "https://verifyafrica.io";
 

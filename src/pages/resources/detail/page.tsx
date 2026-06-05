@@ -24,7 +24,7 @@ import {
 	XLogoIcon,
 } from "@phosphor-icons/react";
 
-const Footer = lazy(() => import("../../../components/feature/Footer"));
+const Footer = lazy(() => import("@/pages/home/components/Footer"));
 
 const SITE_URL = import.meta.env.VITE_SITE_URL || "https://verifyafrica.io";
 
@@ -203,7 +203,10 @@ export default function ResourceDetailPage() {
 				<div className="max-w-4xl mx-auto px-6">
 					<div className="flex items-start gap-4 mb-6">
 						<div className="w-16 h-16 bg-teal-100 rounded-2xl flex items-center justify-center shrink-0">
-							<resource.icon className="text-3xl text-teal-600" aria-hidden />
+							<resource.icon
+								className="text-3xl text-teal-600"
+								aria-hidden
+							/>
 						</div>
 						<div>
 							<div className="flex items-center gap-2 mb-2">

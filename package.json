@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "@fontsource/montserrat": "^5.2.8",
+    "@fontsource-variable/montserrat": "^5.2.8",
     "@phosphor-icons/react": "^2.1.10",
     "@stripe/react-stripe-js": "4.0.2",
     "@supabase/supabase-js": "2.57.4",

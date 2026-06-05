@@ -1,10 +1,6 @@
 import { useScrollAnimation } from "../../../hooks/useScrollAnimation";
 import { Link } from "react-router-dom";
-import {
-	CheckIcon,
-	CrownIcon,
-	TrendUpIcon,
-} from "@phosphor-icons/react";
+import { CheckIcon, CrownIcon, TrendUpIcon } from "@phosphor-icons/react";
 import { track } from "@/lib/analytics";
 import { useDemoModal } from "@/hooks/useDemoModal";
 import { HoverUnderline } from "@/components/ui/hover-underline";
@@ -135,13 +131,17 @@ export default function Pricing() {
 											{plan.name}
 										</CardTitle>
 									</div>
-									<CardDescription>{plan.description}</CardDescription>
+									<CardDescription className="font-medium">
+										{plan.description}
+									</CardDescription>
 									<div className="mt-4">
-										<span className="text-4xl font-bold text-secondary">
+										<span className="text-4xl font-bold text-secondary ">
 											{plan.platformFee}
 										</span>
-										<span className="text-muted-foreground">/month</span>
-										<p className="text-muted-foreground text-sm mt-1">
+										<span className="text-muted-foreground font-medium">
+											/month
+										</span>
+										<p className="text-muted-foreground text-sm mt-1 font-medium">
 											Platform fee
 										</p>
 									</div>
@@ -155,9 +155,9 @@ export default function Pricing() {
 										{plan.features.map((feature) => (
 											<li
 												key={feature}
-												className="flex items-center gap-3 text-sm text-gray-700"
+												className="flex items-center gap-3 text-sm text-gray-700 font-medium"
 											>
-												<CheckIcon className="h-4 w-4 text-teal-500 shrink-0" />
+												<CheckIcon className="size-4 text-teal-500 shrink-0" />
 												{feature}
 											</li>
 										))}
