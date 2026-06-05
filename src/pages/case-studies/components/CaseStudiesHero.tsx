@@ -1,5 +1,12 @@
 import { Globe } from "lucide-react";
 
+const stats = [
+	{ value: "10", label: "Industry Categories" },
+	{ value: "54", label: "Countries Covered" },
+	{ value: "50+", label: "ID Types Supported" },
+	{ value: "5", label: "African Regions" },
+];
+
 export default function CaseStudiesHero() {
 	return (
 		<section className="relative min-h-[90vh] flex flex-col justify-center overflow-hidden">
@@ -17,9 +24,7 @@ export default function CaseStudiesHero() {
 					{/* Badge */}
 					<div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-secondary/15 bg-secondary/5 backdrop-blur-sm text-secondary text-sm font-medium mb-8">
 						<Globe className="w-4 h-4" />
-						<span>
-							Use Cases &amp; Coverage
-						</span>
+						<span>Use Cases &amp; Coverage</span>
 					</div>
 
 					{/* Headline */}
@@ -39,12 +44,7 @@ export default function CaseStudiesHero() {
 
 					{/* Stats */}
 					<div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mb-12">
-						{[
-							{ value: "10", label: "Industry Categories" },
-							{ value: "54", label: "Countries Covered" },
-							{ value: "50+", label: "ID Types Supported" },
-							{ value: "5", label: "African Regions" },
-						].map((stat, index) => (
+						{stats.map((stat, index) => (
 							<div
 								key={index}
 								className="bg-secondary/5 backdrop-blur-sm border border-secondary/10 rounded-2xl p-6"
