@@ -59,7 +59,7 @@ export default function CaseStudiesHero() {
 				</div>
 			</div>
 			<div className="relative z-10 pb-10 flex flex-col items-center gap-2 text-secondary/40 text-xs uppercase tracking-widest">
-				<span>Scroll</span>
+				<p>Scroll</p>
 				<i className="ri-arrow-down-line text-lg animate-bounce" />
 			</div>
 		</section>
