@@ -57,7 +57,7 @@ export default function HeroContent({
 					Identity &amp; Compliance
 				</span>
 				<br />
-				<span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-300 via-cyan-300 to-teal-300 bg-[length:200%_auto] animate-gradient-x drop-shadow-lg">
+				<span className="text-transparent bg-clip-text bg-linear-to-r from-teal-300 via-cyan-300 to-teal-300 bg-size-[200%_auto] animate-gradient-x drop-shadow-lg">
 					Built for Africa
 				</span>
 			</h1>
@@ -180,7 +180,10 @@ function StatCounter({
 
 		if (!isLoaded || hasAnimatedRef.current) {
 			return () =>
-				document.removeEventListener("visibilitychange", handleVisibilityChange);
+				document.removeEventListener(
+					"visibilitychange",
+					handleVisibilityChange,
+				);
 		}
 
 		const timer = setTimeout(() => {

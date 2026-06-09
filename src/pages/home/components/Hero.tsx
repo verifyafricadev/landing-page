@@ -26,7 +26,7 @@ export default function Hero({
 
 			<div className="absolute inset-0 flex items-center justify-center pointer-events-none">
 				<div
-					className={`relative w-[60vmin] max-w-[800px] aspect-1000/1001 opacity-90${animate ? " animate-scale-pulse origin-center" : ""}`}
+					className={`relative sm:w-[70vmin] max-w-[800px] aspect-1000/1001 opacity-90${animate ? " animate-scale-pulse origin-center" : ""}`}
 				>
 					<AfricaMapSvg
 						fill="transparent"
