@@ -1,4 +1,7 @@
 @import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/montserrat";
@@ -940,7 +943,8 @@
 }
 
 .animate-country-sequential-pulse {
-	animation: country-sequential-pulse var(--pulse-cycle, 41.25s) ease-in-out infinite;
+	animation: country-sequential-pulse var(--pulse-cycle, 41.25s) ease-in-out
+		infinite;
 }
 
 @keyframes hub-pulse-line {
