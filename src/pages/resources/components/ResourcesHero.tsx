@@ -1,8 +1,5 @@
-import {
-	ArrowDownIcon,
-	CheckIcon,
-	LockOpenIcon,
-} from "@phosphor-icons/react";
+import { CheckIcon, LockOpenIcon } from "@phosphor-icons/react";
+import { ScrollIndicator } from "@/components/ui/scroll-indicator";
 import { useScrollAnimation } from "../../../hooks/useScrollAnimation";
 
 export default function ResourcesHero() {
@@ -51,10 +48,7 @@ export default function ResourcesHero() {
 					</span>
 				</div>
 			</div>
-			<div className="relative z-10 pb-10 flex flex-col items-center gap-2 text-secondary/40 text-xs uppercase tracking-widest">
-				<span>Scroll</span>
-				<ArrowDownIcon className="text-lg animate-bounce" />
-			</div>
+			<ScrollIndicator />
 		</section>
 	);
 }

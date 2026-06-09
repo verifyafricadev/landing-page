@@ -1,11 +1,8 @@
 import { Fragment } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import {
-	ArrowDownIcon,
-	ArrowRightIcon,
-	ShieldCheckIcon,
-} from "@phosphor-icons/react";
+import { ScrollIndicator } from "@/components/ui/scroll-indicator";
+import { ArrowRightIcon, ShieldCheckIcon } from "@phosphor-icons/react";
 
 export default function AboutHero() {
 	return (
@@ -61,10 +58,7 @@ export default function AboutHero() {
 				</Fragment>
 			</div>
 
-			<div className="relative z-10 pb-10 flex flex-col items-center gap-2 text-secondary/40 text-xs uppercase tracking-widest">
-				<span>Scroll</span>
-				<ArrowDownIcon className="text-lg animate-bounce" />
-			</div>
+			<ScrollIndicator />
 
 			<style>{`
 				@keyframes slow-zoom {

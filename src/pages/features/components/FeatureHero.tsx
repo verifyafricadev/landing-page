@@ -2,11 +2,9 @@ import { Fragment } from "react";
 import type { FeatureDetail } from "@/mocks/featureDetails";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { ScrollIndicator } from "@/components/ui/scroll-indicator";
 import { cn } from "@/lib/utils";
-import {
-	ArrowDownIcon,
-	ArrowRightIcon,
-} from "@phosphor-icons/react";
+import { ArrowRightIcon } from "@phosphor-icons/react";
 
 interface FeatureHeroProps {
 	feature: FeatureDetail;
@@ -86,10 +84,7 @@ export default function FeatureHero({ feature }: FeatureHeroProps) {
 				</Fragment>
 			</div>
 
-			<div className="relative z-10 pb-10 flex flex-col items-center gap-2 text-white/40 text-xs uppercase tracking-widest">
-				<span>Scroll</span>
-				<ArrowDownIcon className="text-lg animate-bounce" />
-			</div>
+			<ScrollIndicator className="text-white/40" />
 
 			<style>{`
 				@keyframes slow-zoom {

@@ -1,7 +1,5 @@
-import {
-	ArrowDownIcon,
-	GlobeIcon,
-} from "@phosphor-icons/react";
+import { GlobeIcon } from "@phosphor-icons/react";
+import { ScrollIndicator } from "@/components/ui/scroll-indicator";
 
 const stats = [
 	{ value: "10", label: "Industry Categories" },
@@ -59,10 +57,7 @@ export default function CaseStudiesHero() {
 					</div>
 				</div>
 			</div>
-			<div className="relative z-10 pb-10 flex flex-col items-center gap-2 text-secondary/40 text-xs uppercase tracking-widest">
-				<p>Scroll</p>
-				<ArrowDownIcon className="text-lg animate-bounce" />
-			</div>
+			<ScrollIndicator />
 		</section>
 	);
 }

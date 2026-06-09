@@ -15,9 +15,9 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { ScrollIndicator } from "@/components/ui/scroll-indicator";
 import FinalCTA from "@/pages/home/components/FinalCTA";
 import {
-	ArrowDownIcon,
 	ArrowRightIcon,
 	ArrowUpRightIcon,
 	MagnifyingGlassIcon,
@@ -1089,10 +1089,7 @@ export default function FeaturesIndexPage() {
 						</Button>
 					</div>
 				</div>
-				<div className="relative z-10 pb-10 flex flex-col items-center gap-2 text-secondary/40 text-xs uppercase tracking-widest">
-					<span>Scroll</span>
-					<ArrowDownIcon className="text-lg animate-bounce" />
-				</div>
+				<ScrollIndicator />
 			</section>
 
 			{/* Search & Filter Bar */}

@@ -1,7 +1,4 @@
-import {
-	ArrowRightIcon,
-	type Icon,
-} from "@phosphor-icons/react";
+import { ArrowRightIcon, type Icon } from "@phosphor-icons/react";
 import { Card, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -85,7 +82,9 @@ export default function UseCaseCard({
 							<div className="text-sm font-bold text-teal-300">
 								{benefit.metric}
 							</div>
-							<div className="text-[10px] text-white/50">{benefit.label}</div>
+							<div className="text-xs text-white/50 font-medium">
+								{benefit.label}
+							</div>
 						</div>
 					))}
 				</div>

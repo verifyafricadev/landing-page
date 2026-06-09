@@ -1,7 +1,7 @@
 import AfricaMapSvg from "./hero/shared/AfricaMapSvg";
 import CountryNodes from "./hero/shared/CountryNodes";
 import HeroContent from "./hero/shared/HeroContent";
-import RegionOverlays from "./hero/shared/RegionOverlays";
+import { ScrollIndicator } from "@/components/ui/scroll-indicator";
 
 interface HeroProps {
 	onRequestDemo: () => void;
@@ -17,7 +17,7 @@ export default function Hero({
 	return (
 		<section
 			id={id}
-			className="relative min-h-svh flex items-center justify-center overflow-hidden bg-slate-950"
+			className="relative flex min-h-svh flex-col justify-center overflow-hidden bg-slate-950"
 		>
 			<div className="absolute inset-0 bg-slate-950" />
 			<div className="absolute inset-0 flex items-center justify-center">
@@ -47,6 +47,8 @@ export default function Hero({
 			<div className="absolute inset-0 bg-linear-to-b from-black/50 via-black/30 to-black/70 pointer-events-none" />
 
 			<HeroContent onRequestDemo={onRequestDemo} />
+
+			<ScrollIndicator className="text-white/40" />
 		</section>
 	);
 }

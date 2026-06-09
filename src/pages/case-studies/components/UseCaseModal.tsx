@@ -1,13 +1,24 @@
-import { useEffect } from "react";
 import {
 	CalendarIcon,
-	CaretRightIcon,
 	CheckCircleIcon,
-	CheckIcon,
 	QuestionIcon,
-	XIcon,
+	ShieldStarIcon,
 	type Icon,
 } from "@phosphor-icons/react";
+import { Button } from "@/components/ui/button";
+import {
+	Dialog,
+	DialogClose,
+	DialogContent,
+	DialogDescription,
+	DialogFooter,
+	DialogHeader,
+	DialogTitle,
+} from "@/components/ui/dialog";
+import { cn } from "@/lib/utils";
+import { TagList } from "./country-detail/components";
+
+const ACCENT_COLOR = "#14b8a6";
 
 interface UseCaseBenefit {
 	metric: string;
@@ -32,157 +43,151 @@ interface UseCaseModalProps {
 	onRequestDemo: () => void;
 }
 
+const WHY_VERIFY_AFRICA = [
+	"Pan-African coverage with 35+ countries and 50+ ID types",
+	"AI-powered verification with 99.7% accuracy rate",
+	"Full regulatory compliance across all African markets",
+	"Easy API integration with comprehensive documentation",
+] as const;
+
+function EditorialBand({
+	className,
+	children,
+}: {
+	className?: string;
+	children: React.ReactNode;
+}) {
+	return (
+		<section className={cn("px-8 py-10", className)}>{children}</section>
+	);
+}
+
 export default function UseCaseModal({
 	useCase,
 	isOpen,
 	onClose,
 	onRequestDemo,
 }: UseCaseModalProps) {
-	useEffect(() => {
-		return () => {
-			document.body.style.overflow = "";
-		};
-	}, []);
+	if (!useCase) return null;
 
-	if (!isOpen || !useCase) return null;
-
-	const Icon = useCase.icon;
+	const CategoryIcon = useCase.icon;
 
 	return (
-		<div className="fixed inset-0 z-50 flex items-center justify-center p-4 overflow-y-auto">
-			{/* Backdrop */}
-			<div
-				className="fixed inset-0 bg-black/60 backdrop-blur-sm"
-				onClick={onClose}
-			></div>
-
-			{/* Modal */}
-			<div className="relative bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
-				{/* Close Button */}
-				<button
-					onClick={onClose}
-					className="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center bg-white/90 backdrop-blur-sm rounded-full shadow-lg hover:bg-gray-100 transition-colors cursor-pointer"
-				>
-					<XIcon className="text-xl text-gray-700" />
-				</button>
-
-				{/* Hero Image */}
-				<div className="relative h-56 sm:h-64">
-					<img
-						src={useCase.image}
-						alt={useCase.category}
-						className="w-full h-full object-cover object-top"
-					/>
-					<div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-
-					<div className="absolute bottom-6 left-6 right-6 flex items-end gap-4">
-						<div
-							className={`w-14 h-14 flex items-center justify-center rounded-xl bg-gradient-to-br ${useCase.color} shadow-lg`}
-						>
-							<Icon className="size-6 text-white" />
-						</div>
-						<div>
-							<h2 className="text-2xl sm:text-3xl font-bold text-white">
-								{useCase.category}
-							</h2>
-						</div>
-					</div>
-				</div>
-
-				{/* Content */}
-				<div className="p-6 sm:p-8">
-					{/* Description */}
-					<p className="text-gray-600 text-lg mb-6">{useCase.description}</p>
-
-					{/* Benefits Grid */}
-					<div className="grid grid-cols-3 gap-4 mb-8 p-5 bg-gradient-to-br from-teal-50 to-cyan-50 rounded-xl">
-						{useCase.benefits.map((benefit, index) => (
+		<Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
+			<DialogContent
+				className="max-h-[90vh] gap-0 overflow-hidden p-0 sm:max-w-2xl"
+				showCloseButton
+			>
+				<div className="max-h-[85vh] overflow-y-auto">
+					{/* Lead */}
+					<EditorialBand className="bg-background pb-6 pt-8">
+						<div className="flex items-end gap-5">
 							<div
-								key={index}
-								className="text-center"
+								className={cn(
+									"flex size-14 shrink-0 items-center justify-center rounded-xl bg-linear-to-br shadow-sm",
+									useCase.color,
+								)}
 							>
-								<div className="text-2xl sm:text-3xl font-bold text-teal-600">
-									{benefit.metric}
-								</div>
-								<div className="text-sm text-gray-600">{benefit.label}</div>
+								<CategoryIcon className="size-6 text-white" />
 							</div>
-						))}
-					</div>
-
-					{/* Use Cases */}
-					<div className="mb-8">
-						<h3 className="text-lg font-bold text-secondary mb-4 flex items-center gap-2">
-							<CheckCircleIcon className="text-teal-500" />
-							Key Use Cases
-						</h3>
-						<div className="grid sm:grid-cols-2 gap-3">
-							{useCase.useCases.map((item, index) => (
-								<div
-									key={index}
-									className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg"
+							<DialogHeader className="gap-1 text-left">
+								<p
+									className="text-xs font-semibold uppercase tracking-widest"
+									style={{ color: ACCENT_COLOR }}
 								>
-									<div className="w-8 h-8 flex items-center justify-center bg-teal-100 rounded-lg">
-										<CheckIcon className="text-teal-600" />
+									Use Case
+								</p>
+								<DialogTitle className="text-3xl font-bold leading-none tracking-tight">
+									{useCase.category}
+								</DialogTitle>
+								<DialogDescription className="text-sm">
+									{useCase.description}
+								</DialogDescription>
+							</DialogHeader>
+						</div>
+					</EditorialBand>
+
+					{/* Benefits */}
+					<EditorialBand className="bg-muted/40">
+						<div className="grid grid-cols-3 divide-x divide-border">
+							{useCase.benefits.map(({ metric, label }) => (
+								<div key={label} className="px-4 first:pl-0 last:pr-0">
+									<div
+										className="text-3xl font-bold tracking-tight sm:text-4xl"
+										style={{ color: ACCENT_COLOR }}
+									>
+										{metric}
 									</div>
-									<span className="text-gray-700 text-sm">{item}</span>
+									<div className="mt-1 text-sm text-muted-foreground">
+										{label}
+									</div>
 								</div>
 							))}
 						</div>
-					</div>
+					</EditorialBand>
+
+					{/* Key use cases */}
+					<EditorialBand className="border-t border-border bg-background">
+						<div className="mb-5 flex items-center gap-2">
+							<CheckCircleIcon
+								className="size-5"
+								style={{ color: ACCENT_COLOR }}
+							/>
+							<h3 className="text-lg font-semibold">Key Use Cases</h3>
+						</div>
+						<TagList items={useCase.useCases} />
+					</EditorialBand>
 
 					{/* Why VerifyAfrica */}
-					<div className="mb-8 p-5 bg-gray-50 rounded-xl">
-						<h3 className="text-lg font-bold text-secondary mb-3 flex items-center gap-2">
-							<QuestionIcon className="text-teal-500" />
-							Why Choose VerifyAfrica?
-						</h3>
-						<ul className="space-y-2">
-							<li className="flex items-start gap-2 text-gray-600 text-sm">
-								<CaretRightIcon className="text-teal-500 mt-0.5" />
-								<span>
-									Pan-African coverage with 35+ countries and 50+ ID types
-								</span>
-							</li>
-							<li className="flex items-start gap-2 text-gray-600 text-sm">
-								<CaretRightIcon className="text-teal-500 mt-0.5" />
-								<span>AI-powered verification with 99.7% accuracy rate</span>
-							</li>
-							<li className="flex items-start gap-2 text-gray-600 text-sm">
-								<CaretRightIcon className="text-teal-500 mt-0.5" />
-								<span>
-									Full regulatory compliance across all African markets
-								</span>
-							</li>
-							<li className="flex items-start gap-2 text-gray-600 text-sm">
-								<CaretRightIcon className="text-teal-500 mt-0.5" />
-								<span>
-									Easy API integration with comprehensive documentation
-								</span>
-							</li>
-						</ul>
-					</div>
+					<EditorialBand className="bg-muted/40">
+						<div className="mb-6 flex items-center gap-2">
+							<QuestionIcon className="size-5" style={{ color: ACCENT_COLOR }} />
+							<h3 className="text-lg font-semibold">Why Choose VerifyAfrica?</h3>
+						</div>
+						<div className="grid gap-4 sm:grid-cols-2">
+							{WHY_VERIFY_AFRICA.map((point) => (
+								<div
+									key={point}
+									className="flex items-start gap-4 border-l-2 pl-4"
+									style={{ borderColor: ACCENT_COLOR }}
+								>
+									<ShieldStarIcon className="mt-0.5 size-5 shrink-0 text-muted-foreground" />
+									<div>
+										<p className="font-medium text-foreground">{point}</p>
+									</div>
+								</div>
+							))}
+						</div>
+					</EditorialBand>
+				</div>
 
-					{/* CTA */}
-					<div className="flex flex-col sm:flex-row gap-4">
-						<button
+				<DialogFooter className="mx-0 mb-0 flex-row items-center justify-between gap-4 border-t bg-muted/20 px-5 py-4">
+					<div className="flex items-center gap-2 text-xs text-muted-foreground">
+						<CalendarIcon className="size-3.5 shrink-0" />
+						<span className="hidden sm:inline">
+							Schedule a personalized walkthrough
+						</span>
+					</div>
+					<div className="flex items-center gap-2">
+						<DialogClose asChild>
+							<Button variant="secondary" size="sm">
+								Close
+							</Button>
+						</DialogClose>
+						<Button
+							size="sm"
+							className="bg-teal-500 text-white hover:bg-teal-400"
 							onClick={() => {
 								onClose();
 								onRequestDemo();
 							}}
-							className="flex-1 px-6 py-3 bg-teal-500 text-white font-medium rounded-lg hover:bg-teal-600 transition-colors cursor-pointer whitespace-nowrap"
 						>
-							<CalendarIcon className="mr-2" />
-							Request a Demo
-						</button>
-						<button
-							onClick={onClose}
-							className="flex-1 px-6 py-3 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors cursor-pointer whitespace-nowrap"
-						>
-							Close
-						</button>
+							<CalendarIcon className="size-3.5" />
+							Request Demo
+						</Button>
 					</div>
-				</div>
-			</div>
-		</div>
+				</DialogFooter>
+			</DialogContent>
+		</Dialog>
 	);
 }

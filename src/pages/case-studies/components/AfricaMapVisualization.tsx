@@ -25,7 +25,6 @@ import AfricaMapSvg from "../../home/components/hero/shared/AfricaMapSvg";
 import {
 	countryPositions,
 	regionBounds,
-	regionBgColors,
 	regionColors,
 	regionZoomConfig,
 } from "../../home/components/hero/shared/africaMapData";
@@ -43,7 +42,6 @@ export default function AfricaMapVisualization() {
 	const [highlightedCountry, setHighlightedCountry] = useState<string | null>(
 		null,
 	);
-	const [isZooming, setIsZooming] = useState(false);
 	const [viewportPosition, setViewportPosition] = useState({ x: 50, y: 50 });
 	const searchRef = useRef<HTMLDivElement>(null);
 	const mapContainerRef = useRef<HTMLDivElement>(null);
@@ -62,15 +60,6 @@ export default function AfricaMapVisualization() {
 		document.addEventListener("mousedown", handleClickOutside);
 		return () => document.removeEventListener("mousedown", handleClickOutside);
 	}, []);
-
-	// Handle zoom animation timing
-	useEffect(() => {
-		if (selectedRegion) {
-			setIsZooming(true);
-			const timer = setTimeout(() => setIsZooming(false), 600);
-			return () => clearTimeout(timer);
-		}
-	}, [selectedRegion]);
 
 	// Track mouse position on the zoomed map to update viewport indicator
 	useEffect(() => {
@@ -159,10 +148,6 @@ export default function AfricaMapVisualization() {
 		setSearchQuery("");
 	};
 
-	const getCountryData = (code: string): CountryData | undefined => {
-		return countriesServed.find((c) => c.code === code);
-	};
-
 	const filteredCountries = selectedRegion
 		? countriesServed.filter((c) => c.region === selectedRegion)
 		: countriesServed;
@@ -206,7 +191,7 @@ export default function AfricaMapVisualization() {
 	const zoomStyle = getZoomTransform();
 
 	return (
-		<section className="py-20 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
+		<section className="py-20 bg-linear-to-b from-gray-50 to-white overflow-hidden">
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				{/* Header */}
 				<div className="text-center mb-12">
@@ -337,7 +322,7 @@ export default function AfricaMapVisualization() {
 				<div className="grid lg:grid-cols-3 gap-8 items-start">
 					{/* Region Legend */}
 					<div className="lg:col-span-1 order-2 lg:order-1">
-						<div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
+						<div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
 							<div className="flex items-center justify-between mb-4">
 								<h3 className="text-lg font-semibold text-secondary">
 									Regions
@@ -393,11 +378,11 @@ export default function AfricaMapVisualization() {
 							{/* Total Stats */}
 							<div className="mt-6 pt-6 border-t border-gray-100">
 								<div className="grid grid-cols-2 gap-4">
-									<div className="text-center p-4 bg-gradient-to-br from-teal-50 to-emerald-50 rounded-xl">
+									<div className="text-center p-4 bg-linear-to-br from-teal-50 to-emerald-50 rounded-xl">
 										<div className="text-2xl font-bold text-teal-600">54</div>
 										<div className="text-xs text-gray-600">Countries</div>
 									</div>
-									<div className="text-center p-4 bg-gradient-to-br from-cyan-50 to-teal-50 rounded-xl">
+									<div className="text-center p-4 bg-linear-to-br from-cyan-50 to-teal-50 rounded-xl">
 										<div className="text-2xl font-bold text-cyan-600">50+</div>
 										<div className="text-xs text-gray-600">ID Types</div>
 									</div>
@@ -407,7 +392,7 @@ export default function AfricaMapVisualization() {
 
 						{/* Hovered Country Info */}
 						{hoveredCountry && (
-							<div className="mt-4 bg-white rounded-2xl shadow-lg border border-gray-100 p-6 animate-fade-in">
+							<div className="mt-4 bg-white rounded-2xl shadow-sm border border-gray-100 p-6 animate-fade-in">
 								<div className="flex items-center gap-4 mb-4">
 									<img
 										src={`https://flagcdn.com/w80/${hoveredCountry.code.toLowerCase()}.png`}
@@ -446,7 +431,7 @@ export default function AfricaMapVisualization() {
 					<div className="lg:col-span-2 order-1 lg:order-2">
 						<div
 							ref={mapContainerRef}
-							className="relative bg-gradient-to-br from-secondary via-gray-800 to-secondary rounded-3xl p-6 lg:p-8 shadow-2xl overflow-hidden"
+							className="relative bg-linear-to-br from-secondary via-gray-800 to-secondary rounded-3xl p-6 lg:p-8 shadow-2xl overflow-hidden"
 						>
 							{/* Background decorations */}
 							<div className="absolute inset-0 opacity-20">
@@ -478,7 +463,7 @@ export default function AfricaMapVisualization() {
 									onClick={resetZoom}
 									title="Click to reset zoom"
 								>
-									<div className="relative w-24 aspect-[1000/1001]">
+									<div className="relative w-24 aspect-1000/1001">
 										<AfricaMapSvg
 											className="w-full h-full opacity-60"
 											fill="rgba(255,255,255,0.1)"
@@ -554,7 +539,7 @@ export default function AfricaMapVisualization() {
 							{/* Map Container with Zoom */}
 							<div
 								ref={zoomableMapRef}
-								className="relative aspect-[1000/1001] max-w-lg mx-auto transition-all duration-700 ease-out"
+								className="relative aspect-1000/1001 max-w-lg mx-auto transition-all duration-700 ease-out"
 								style={zoomStyle}
 							>
 								<AfricaMapSvg
@@ -575,6 +560,24 @@ export default function AfricaMapVisualization() {
 										const isInSelectedRegion =
 											selectedRegion === country.region;
 										const color = regionColors[country.region];
+										const zoomScale = selectedRegion
+											? (regionZoomConfig[selectedRegion]?.scale ?? 1)
+											: 1;
+
+										// Counter-scale so flags stay fixed screen px when map is zoomed
+										const flagScreenSize = isHighlighted
+											? 40
+											: isHovered
+												? 32
+												: selectedRegion
+													? 28
+													: 24;
+										const flagSize = flagScreenSize / zoomScale;
+										const pulseSize = (isHighlighted ? 48 : 32) / zoomScale;
+										const pulseOffset = (flagSize - pulseSize) / 2;
+										const highlightRingSize = 40 / zoomScale;
+										const highlightRingOffset =
+											(flagSize - highlightRingSize) / 2;
 
 										// Dim countries not in selected region
 										const isDimmed = selectedRegion && !isInSelectedRegion;
@@ -601,10 +604,10 @@ export default function AfricaMapVisualization() {
 															backgroundColor: isHighlighted
 																? "#14b8a6"
 																: color,
-															width: isHighlighted ? "48px" : "32px",
-															height: isHighlighted ? "48px" : "32px",
-															left: isHighlighted ? "-12px" : "-4px",
-															top: isHighlighted ? "-12px" : "-4px",
+															width: `${pulseSize}px`,
+															height: `${pulseSize}px`,
+															left: `${pulseOffset}px`,
+															top: `${pulseOffset}px`,
 															opacity: 0.4,
 														}}
 													></div>
@@ -615,26 +618,32 @@ export default function AfricaMapVisualization() {
 													<div
 														className="absolute rounded-full border-4 border-teal-400 animate-pulse"
 														style={{
-															width: "40px",
-															height: "40px",
-															left: "-8px",
-															top: "-8px",
+															width: `${highlightRingSize}px`,
+															height: `${highlightRingSize}px`,
+															left: `${highlightRingOffset}px`,
+															top: `${highlightRingOffset}px`,
 														}}
 													></div>
 												)}
 
 												{/* Flag marker - always visible */}
 												<div
-													className={`rounded-full overflow-hidden transition-all duration-300 border-2 ${
+													className={`overflow-hidden rounded-full border-2 transition-all duration-300 ${
 														isHighlighted
-															? "w-10 h-10 border-teal-400 shadow-xl scale-125"
+															? "border-teal-400 shadow-xl"
 															: isHovered
-																? "w-8 h-8 border-white shadow-xl scale-125"
+																? "border-white shadow-xl"
 																: selectedRegion && isInSelectedRegion
-																	? "w-7 h-7 border-white shadow-lg"
-																	: "w-6 h-6 border-white/70 shadow-lg"
+																	? "border-white shadow-lg"
+																	: "border-white/70 shadow-lg"
 													}`}
 													style={{
+														width: `${flagSize}px`,
+														height: `${flagSize}px`,
+														transform:
+															isHighlighted || isHovered
+																? "scale(1.25)"
+																: undefined,
 														boxShadow: isHighlighted
 															? "0 0 30px #14b8a6, 0 4px 12px rgba(0,0,0,0.4)"
 															: isHovered
@@ -645,16 +654,23 @@ export default function AfricaMapVisualization() {
 													<img
 														src={`https://flagcdn.com/w80/${country.code.toLowerCase()}.png`}
 														alt={country.name}
-														className="w-full h-full object-cover"
+														className="h-full w-full object-cover"
 														loading="lazy"
 													/>
 												</div>
 
 												{/* Country label on hover or highlight */}
 												{(isHovered || isHighlighted) && (
-													<div className="absolute left-1/2 -translate-x-1/2 -top-12 whitespace-nowrap">
+													<div
+														className="absolute left-1/2 whitespace-nowrap"
+														style={{
+															top: `${-(flagSize / 2 + 48 / zoomScale)}px`,
+															transform: `translateX(-50%) scale(${1 / zoomScale})`,
+															transformOrigin: "bottom center",
+														}}
+													>
 														<div
-															className={`px-3 py-1.5 rounded-full shadow-lg text-xs font-semibold flex items-center gap-2 ${
+															className={`flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold shadow-lg ${
 																isHighlighted
 																	? "bg-teal-500 text-white"
 																	: "bg-white text-secondary"
@@ -663,7 +679,7 @@ export default function AfricaMapVisualization() {
 															<span>{country.name}</span>
 															{!isHighlighted && (
 																<span
-																	className="w-2 h-2 rounded-full"
+																	className="h-2 w-2 rounded-full"
 																	style={{ backgroundColor: color }}
 																></span>
 															)}

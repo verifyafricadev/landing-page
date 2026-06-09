@@ -7,7 +7,6 @@ interface HeroContentProps {
 	onRequestDemo: () => void;
 	isLoaded?: boolean;
 	layout?: "centered" | "left";
-	showScrollIndicator?: boolean;
 	className?: string;
 }
 
@@ -15,7 +14,6 @@ export default function HeroContent({
 	onRequestDemo,
 	isLoaded: isLoadedProp,
 	layout = "centered",
-	showScrollIndicator = true,
 	className = "",
 }: HeroContentProps) {
 	const [isLoaded, setIsLoaded] = useState(isLoadedProp ?? false);
@@ -35,7 +33,7 @@ export default function HeroContent({
 
 	return (
 		<div
-			className={`relative z-10 w-full max-w-6xl px-4 sm:px-6 lg:px-12 text-white pt-24 sm:pt-24 md:pt-20 pb-12 sm:pb-12 flex flex-col ${alignClass} ${className}`}
+			className={`relative z-10 mx-auto flex w-full max-w-6xl flex-1 flex-col justify-center px-4 pb-12 pt-24 text-white sm:px-6 sm:pb-12 sm:pt-24 md:pt-20 lg:px-12 ${alignClass} ${className}`}
 		>
 			<div
 				className={`inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-3 sm:px-5 py-1 sm:py-2 mb-4 sm:mb-6 md:mb-8 transition-all duration-700 hover:bg-white/20 cursor-default ${
@@ -134,19 +132,6 @@ export default function HeroContent({
 					isLoaded={isLoaded}
 				/>
 			</div>
-
-			{showScrollIndicator && layout === "centered" && (
-				<div
-					className={`absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 transition-all duration-700 hidden md:block ${
-						isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-					}`}
-					style={{ transitionDelay: "1000ms" }}
-				>
-					<div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center pt-2 hover:border-white/50 transition-colors cursor-pointer group">
-						<div className="w-1.5 h-3 bg-white/50 rounded-full animate-scroll-bounce group-hover:bg-white/80" />
-					</div>
-				</div>
-			)}
 		</div>
 	);
 }
