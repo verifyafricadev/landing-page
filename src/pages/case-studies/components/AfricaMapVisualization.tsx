@@ -21,113 +21,14 @@ interface CountryData {
 	idTypes: string[];
 }
 
-const regionColors: Record<string, string> = {
-	"West Africa": "#14b8a6",
-	"East Africa": "#06b6d4",
-	"Southern Africa": "#10b981",
-	"North Africa": "#f59e0b",
-	"Central Africa": "#8b5cf6",
-};
-
-const regionBgColors: Record<string, string> = {
-	"West Africa": "bg-teal-500",
-	"East Africa": "bg-cyan-500",
-	"Southern Africa": "bg-emerald-500",
-	"North Africa": "bg-amber-500",
-	"Central Africa": "bg-violet-500",
-};
-
-// Approximate positions for African countries on the map (percentage-based)
-const countryPositions: Record<string, { x: number; y: number }> = {
-	// North Africa
-	MA: { x: 18, y: 12 },
-	DZ: { x: 28, y: 14 },
-	TN: { x: 36, y: 10 },
-	LY: { x: 42, y: 14 },
-	EG: { x: 55, y: 14 },
-	SD: { x: 58, y: 28 },
-	EH: { x: 12, y: 20 },
-
-	// West Africa
-	MR: { x: 14, y: 28 },
-	ML: { x: 22, y: 30 },
-	NE: { x: 34, y: 30 },
-	SN: { x: 8, y: 36 },
-	GM: { x: 8, y: 38 },
-	GW: { x: 6, y: 42 },
-	GN: { x: 10, y: 44 },
-	SL: { x: 8, y: 48 },
-	LR: { x: 10, y: 52 },
-	CI: { x: 16, y: 50 },
-	BF: { x: 22, y: 42 },
-	GH: { x: 22, y: 50 },
-	TG: { x: 26, y: 50 },
-	BJ: { x: 28, y: 48 },
-	NG: { x: 34, y: 48 },
-	CV: { x: 2, y: 36 },
-
-	// Central Africa
-	CM: { x: 38, y: 52 },
-	CF: { x: 46, y: 48 },
-	TD: { x: 44, y: 36 },
-	GQ: { x: 36, y: 58 },
-	GA: { x: 38, y: 62 },
-	CG: { x: 42, y: 64 },
-	CD: { x: 52, y: 62 },
-	ST: { x: 32, y: 58 },
-
-	// East Africa
-	ET: { x: 66, y: 40 },
-	ER: { x: 66, y: 32 },
-	DJ: { x: 72, y: 38 },
-	SO: { x: 76, y: 46 },
-	KE: { x: 68, y: 54 },
-	UG: { x: 60, y: 54 },
-	RW: { x: 58, y: 60 },
-	BI: { x: 58, y: 64 },
-	TZ: { x: 66, y: 64 },
-	SS: { x: 58, y: 46 },
-	MG: { x: 82, y: 76 },
-	MU: { x: 92, y: 74 },
-	SC: { x: 88, y: 58 },
-	KM: { x: 76, y: 70 },
-
-	// Southern Africa
-	AO: { x: 42, y: 72 },
-	ZM: { x: 56, y: 74 },
-	MW: { x: 64, y: 74 },
-	MZ: { x: 68, y: 80 },
-	ZW: { x: 58, y: 80 },
-	BW: { x: 52, y: 84 },
-	NA: { x: 44, y: 84 },
-	ZA: { x: 54, y: 92 },
-	LS: { x: 58, y: 94 },
-	SZ: { x: 62, y: 88 },
-};
-
-// Region center positions and zoom levels for the zoom feature
-const regionZoomConfig: Record<
-	string,
-	{ x: number; y: number; scale: number }
-> = {
-	"North Africa": { x: 35, y: 15, scale: 2.2 },
-	"West Africa": { x: 18, y: 42, scale: 2.0 },
-	"Central Africa": { x: 42, y: 55, scale: 2.0 },
-	"East Africa": { x: 68, y: 55, scale: 1.8 },
-	"Southern Africa": { x: 55, y: 82, scale: 2.0 },
-};
-
-// Region bounding boxes for mini map highlight (approximate percentages)
-const regionBounds: Record<
-	string,
-	{ x: number; y: number; width: number; height: number }
-> = {
-	"North Africa": { x: 10, y: 0, width: 70, height: 35 },
-	"West Africa": { x: 0, y: 25, width: 45, height: 35 },
-	"Central Africa": { x: 30, y: 35, width: 35, height: 35 },
-	"East Africa": { x: 55, y: 30, width: 45, height: 50 },
-	"Southern Africa": { x: 35, y: 65, width: 40, height: 35 },
-};
+import AfricaMapSvg from "../../home/components/hero/shared/AfricaMapSvg";
+import {
+	countryPositions,
+	regionBounds,
+	regionBgColors,
+	regionColors,
+	regionZoomConfig,
+} from "../../home/components/hero/shared/africaMapData";
 
 export default function AfricaMapVisualization() {
 	const [hoveredCountry, setHoveredCountry] = useState<CountryData | null>(
@@ -577,19 +478,14 @@ export default function AfricaMapVisualization() {
 									onClick={resetZoom}
 									title="Click to reset zoom"
 								>
-									<div className="relative w-24 h-24">
-										{/* Mini Africa Outline */}
-										<svg
-											viewBox="0 0 100 100"
+									<div className="relative w-24 aspect-[1000/1001]">
+										<AfricaMapSvg
 											className="w-full h-full opacity-60"
-										>
-											<path
-												d="M35 5 L45 3 L55 5 L65 8 L72 15 L75 25 L78 35 L80 45 L78 55 L75 65 L70 75 L65 82 L58 88 L50 95 L42 92 L35 85 L30 78 L28 70 L25 60 L22 50 L20 40 L18 30 L22 20 L28 12 L35 5 Z"
-												fill="rgba(255,255,255,0.1)"
-												stroke="rgba(255,255,255,0.3)"
-												strokeWidth="1"
-											/>
-										</svg>
+											fill="rgba(255,255,255,0.1)"
+											stroke="rgba(255,255,255,0.3)"
+											strokeWidth={1.5}
+											animatePulse={false}
+										/>
 
 										{/* Region Highlight Box */}
 										{regionBounds[selectedRegion] && (
@@ -658,23 +554,15 @@ export default function AfricaMapVisualization() {
 							{/* Map Container with Zoom */}
 							<div
 								ref={zoomableMapRef}
-								className="relative aspect-square max-w-lg mx-auto transition-all duration-700 ease-out"
+								className="relative aspect-[1000/1001] max-w-lg mx-auto transition-all duration-700 ease-out"
 								style={zoomStyle}
 							>
-								{/* Africa Outline SVG */}
-								<svg
-									viewBox="0 0 100 100"
-									className="w-full h-full"
-									style={{ filter: "drop-shadow(0 4px 20px rgba(0,0,0,0.3))" }}
-								>
-									{/* Simplified Africa continent shape */}
-									<path
-										d="M35 5 L45 3 L55 5 L65 8 L72 15 L75 25 L78 35 L80 45 L78 55 L75 65 L70 75 L65 82 L58 88 L50 95 L42 92 L35 85 L30 78 L28 70 L25 60 L22 50 L20 40 L18 30 L22 20 L28 12 L35 5 Z"
-										fill="rgba(255,255,255,0.05)"
-										stroke="rgba(255,255,255,0.1)"
-										strokeWidth="0.5"
-									/>
-								</svg>
+								<AfricaMapSvg
+									fill="rgba(255,255,255,0.05)"
+									stroke="rgba(255,255,255,0.15)"
+									strokeWidth={1}
+									animatePulse={false}
+								/>
 
 								{/* Country Markers with Flags */}
 								{(selectedRegion ? filteredCountries : countriesServed).map(
