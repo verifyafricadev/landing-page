@@ -939,27 +939,8 @@
 	animation: hub-pulse 3s ease-in-out infinite;
 }
 
-@keyframes country-sequential-pulse {
-	0%,
-	100% {
-		opacity: 0.12;
-		transform: translate(-50%, -50%) scale(1);
-		box-shadow: none;
-	}
-	1.2% {
-		opacity: 1;
-		transform: translate(-50%, -50%) scale(2.2);
-		box-shadow: 0 0 12px var(--node-color, #14b8a6);
-	}
-	2.4% {
-		opacity: 0.12;
-		transform: translate(-50%, -50%) scale(1);
-		box-shadow: none;
-	}
-}
-
 .animate-country-sequential-pulse {
-	animation: country-sequential-pulse var(--pulse-cycle, 9s) ease-out infinite;
+	animation: country-sequential-pulse var(--pulse-cycle, 41.25s) ease-in-out infinite;
 }
 
 @keyframes hub-pulse-line {

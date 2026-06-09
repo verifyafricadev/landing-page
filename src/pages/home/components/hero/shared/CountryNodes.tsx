@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { countriesServed } from "@/mocks/caseStudies";
 import { countryPositions, regionColors, HUB_CITIES } from "./africaMapData";
 
@@ -10,8 +11,11 @@ export type NodeVariant =
 	| "minimal"
 	| "sequential-pulse";
 
-/** Full cycle length for one sequential pulse pass across all countries */
-export const COUNTRY_PULSE_CYCLE_S = 9;
+/** Fade-in / fade-out duration for each country pulse (ms) */
+export const COUNTRY_PULSE_RISE_MS = 500;
+export const COUNTRY_PULSE_FALL_MS = 500;
+/** Delay between each country pulse start — creates ~2 overlapping pulses */
+export const COUNTRY_PULSE_STAGGER_MS = 750;
 
 interface CountryNodesProps {
 	variant?: NodeVariant;
@@ -51,11 +55,42 @@ export default function CountryNodes({
 		? countriesServed.filter((_, i) => i % 2 === 0)
 		: countriesServed;
 
-	const pulseSlot =
-		countries.length > 0 ? COUNTRY_PULSE_CYCLE_S / countries.length : 0.15;
+	const pulseDurationS =
+		(COUNTRY_PULSE_RISE_MS + COUNTRY_PULSE_FALL_MS) / 1000;
+	const staggerS = COUNTRY_PULSE_STAGGER_MS / 1000;
+	const cycleS = countries.length * staggerS;
+	const pulseSlot = countries.length > 0 ? staggerS : 0.15;
+
+	const pulseKeyframes = useMemo(() => {
+		if (countries.length === 0) return "";
+		const risePct = (COUNTRY_PULSE_RISE_MS / 1000 / cycleS) * 100;
+		const fallPct = (pulseDurationS / cycleS) * 100;
+		return `
+			@keyframes country-sequential-pulse {
+				0%, 100% {
+					opacity: 0.12;
+					transform: translate(-50%, -50%) scale(1);
+					box-shadow: none;
+				}
+				${risePct}% {
+					opacity: 1;
+					transform: translate(-50%, -50%) scale(2.2);
+					box-shadow: 0 0 12px var(--node-color, #14b8a6);
+				}
+				${fallPct}% {
+					opacity: 0.12;
+					transform: translate(-50%, -50%) scale(1);
+					box-shadow: none;
+				}
+			}
+		`;
+	}, [countries.length, cycleS, pulseDurationS]);
 
 	return (
 		<>
+			{variant === "sequential-pulse" && animate && pulseKeyframes ? (
+				<style>{pulseKeyframes}</style>
+			) : null}
 			{countries.map((country, index) => {
 				const position = countryPositions[country.code];
 				if (!position) return null;
@@ -101,7 +136,7 @@ export default function CountryNodes({
 										? 0.12
 										: 0.85,
 							...(variant === "sequential-pulse" && animate
-								? { ["--pulse-cycle" as string]: `${COUNTRY_PULSE_CYCLE_S}s` }
+								? { ["--pulse-cycle" as string]: `${cycleS}s` }
 								: {}),
 							animationDelay:
 								variant === "sequential-pulse"

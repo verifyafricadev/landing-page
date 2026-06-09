@@ -25,12 +25,15 @@ export default function Hero({
 			</div>
 
 			<div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-				<div className="relative w-[60vmin] max-w-[640px] aspect-1000/1001 opacity-90">
+				<div
+					className={`relative w-[60vmin] max-w-[800px] aspect-1000/1001 opacity-90${animate ? " animate-scale-pulse origin-center" : ""}`}
+				>
 					<AfricaMapSvg
 						fill="transparent"
 						stroke="rgba(45,212,191,0.7)"
 						strokeWidth={1.2}
 						animateDrawLoop={animate}
+						animatePulse={false}
 					/>
 					{animate && (
 						<CountryNodes
@@ -43,7 +46,7 @@ export default function Hero({
 
 			<div className="absolute inset-0 bg-linear-to-b from-black/50 via-black/30 to-black/70 pointer-events-none" />
 
-			{/* <HeroContent onRequestDemo={onRequestDemo} /> */}
+			<HeroContent onRequestDemo={onRequestDemo} />
 		</section>
 	);
 }
