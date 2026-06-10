@@ -27,7 +27,7 @@ export default function ProblemSolution() {
 	return (
 		<section
 			ref={headerRef}
-			className="py-12 sm:py-16 lg:py-24 bg-black text-white overflow-hidden"
+			className="py-12 sm:py-16 lg:py-24 bg-gray-900 text-white overflow-hidden"
 		>
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
 				<div
