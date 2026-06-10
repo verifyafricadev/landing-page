@@ -144,12 +144,12 @@ export default function Footer() {
 								</a>
 							</li>
 							<li>
-								<Link
-									to="/docs"
+								<a
+									href="/docs"
 									className="text-xs sm:text-sm hover:font-semibold duration-200 ease-in-out cursor-pointer"
 								>
 									API Docs
-								</Link>
+								</a>
 							</li>
 						</ul>
 					</div>

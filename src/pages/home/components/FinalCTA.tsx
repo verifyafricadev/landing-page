@@ -1,5 +1,4 @@
 import { useScrollAnimation } from "../../../hooks/useScrollAnimation";
-import { Link } from "react-router-dom";
 import { track } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
 
@@ -159,7 +158,7 @@ export default function FinalCTA({ onRequestDemo }: FinalCTAProps) {
 								asChild
 								className="h-11 px-6 rounded-lg cursor-pointer"
 							>
-								<Link to="/docs">Start Integration</Link>
+								<a href="/docs">Start Integration</a>
 							</Button>
 						</div>
 					</div>

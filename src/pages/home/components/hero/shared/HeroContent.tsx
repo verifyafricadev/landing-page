@@ -1,5 +1,4 @@
 import { useEffect, useState, useRef } from "react";
-import { Link } from "react-router-dom";
 import { track } from "@/lib/analytics";
 import { ArrowRightIcon, CodeIcon } from "@phosphor-icons/react";
 
@@ -92,14 +91,14 @@ export default function HeroContent({
 						<ArrowRightIcon className="text-lg transition-transform group-hover:translate-x-2" />
 					</span>
 				</button>
-				<Link
-					to="/docs"
+				<a
+					href="/docs"
 					className="group px-6 sm:px-8 py-3.5 sm:py-4 bg-white/10 backdrop-blur-sm text-white text-sm sm:text-base font-semibold rounded-lg border border-white/30 hover:bg-white/20 hover:border-white/50 transition-all whitespace-nowrap flex items-center justify-center space-x-2"
 					style={{ textShadow: "0 1px 3px rgba(0, 0, 0, 0.4)" }}
 				>
 					<span>View API Docs</span>
 					<CodeIcon className="text-lg transition-transform group-hover:rotate-12 group-hover:scale-110" />
-				</Link>
+				</a>
 			</div>
 
 			<div

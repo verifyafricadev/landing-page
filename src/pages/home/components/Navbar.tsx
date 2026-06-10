@@ -15,7 +15,7 @@ interface NavbarProps {
 
 const navItems = [
 	{ href: "/features", label: "Features", isLink: true },
-	{ href: "/docs", label: "API Docs", isLink: true },
+	{ href: "/docs", label: "API Docs", isAnchor: true },
 	{ href: "/resources", label: "Resources", isLink: true },
 	{ href: "#pricing", label: "Pricing" },
 	{ href: "/about", label: "About", isLink: true },
@@ -151,6 +151,24 @@ export default function HomeNavbar({
 										target="_blank"
 										rel="noopener noreferrer"
 										className={`relative text-sm font-medium transition-all duration-300 hover:text-teal-500 group cursor-pointer font-medium ${
+											useSolidText ? "text-gray-700" : "text-white/90"
+										}`}
+										style={{
+											opacity: isVisible ? 1 : 0,
+											transform: isVisible
+												? "translateY(0)"
+												: "translateY(-10px)",
+											transition: `all 0.4s ease-out ${200 + index * 50}ms`,
+										}}
+									>
+										{item.label}
+										<HoverUnderline />
+									</a>
+								) : "isAnchor" in item && item.isAnchor ? (
+									<a
+										key={item.href}
+										href={item.href}
+										className={`relative text-sm font-medium transition-all duration-300 hover:text-teal-500 group font-medium ${
 											useSolidText ? "text-gray-700" : "text-white/90"
 										}`}
 										style={{
@@ -303,6 +321,15 @@ export default function HomeNavbar({
 								href={item.href}
 								target="_blank"
 								rel="noopener noreferrer"
+								onClick={() => setIsMobileMenuOpen(false)}
+								className="block px-4 py-4 text-lg font-medium text-gray-800 hover:bg-teal-50 hover:text-teal-600 rounded-xl transition-all cursor-pointer"
+							>
+								{item.label}
+							</a>
+						) : "isAnchor" in item && item.isAnchor ? (
+							<a
+								key={item.href}
+								href={item.href}
 								onClick={() => setIsMobileMenuOpen(false)}
 								className="block px-4 py-4 text-lg font-medium text-gray-800 hover:bg-teal-50 hover:text-teal-600 rounded-xl transition-all cursor-pointer"
 							>

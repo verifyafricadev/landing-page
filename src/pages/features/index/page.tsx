@@ -1079,7 +1079,7 @@ export default function FeaturesIndexPage() {
 							asChild
 							className="h-auto px-7 py-3.5 border-secondary/30 bg-transparent text-secondary font-semibold hover:border-secondary/60 hover:bg-secondary/10 hover:text-secondary cursor-pointer"
 						>
-							<Link to="/docs">Read API Docs</Link>
+							<a href="/docs">Read API Docs</a>
 						</Button>
 					</div>
 				</div>
