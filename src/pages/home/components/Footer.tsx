@@ -201,6 +201,14 @@ export default function Footer() {
 						<ul className="space-y-2 sm:space-y-3">
 							<li>
 								<Link
+									to="/resources"
+									className="text-xs sm:text-sm hover:font-semibold duration-200 ease-in-out cursor-pointer"
+								>
+									Resources
+								</Link>
+							</li>
+							<li>
+								<Link
 									to="/blog"
 									className="text-xs sm:text-sm hover:font-semibold duration-200 ease-in-out cursor-pointer"
 								>
