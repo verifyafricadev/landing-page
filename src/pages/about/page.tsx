@@ -222,6 +222,7 @@ export default function AboutPage() {
 				keywords="about VerifyAfrica, KYC Africa team, compliance infrastructure Africa, identity verification mission"
 				canonical="/about"
 				image="https://readdy.ai/api/search-image?query=corporate%20mission%20and%20values%20concept%20abstract%20illustration%20teal%20and%20warm%20white%20tones%20professional%20company%20culture%20diverse%20team%20silhouettes%20modern%20Africa%20technology%20company%20clean%20minimalist%20background%20geometric%20shapes&width=1200&height=630&seq=og-about-v1&orientation=landscape"
+				imageAlt="About VerifyAfrica – Our Mission, Team & Values"
 				twitterCard="summary_large_image"
 				schema={aboutSchema}
 			/>

@@ -50,6 +50,7 @@ export default function PrivacyPolicyPage() {
 				canonical="/privacy-policy"
 				noIndex
 				image="https://readdy.ai/api/search-image?query=professional%20data%20privacy%20protection%20concept%20abstract%20shield%20lock%20icon%20teal%20and%20white%20clean%20minimal%20corporate%20illustration%20GDPR%20compliance%20document%20secure%20data%20handling%20modern%20background&width=1200&height=630&seq=og-privacy-v1&orientation=landscape"
+				imageAlt="VerifyAfrica Privacy Policy"
 				twitterCard="summary_large_image"
 				schema={privacySchema}
 			/>

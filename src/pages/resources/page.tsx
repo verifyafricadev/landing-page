@@ -535,6 +535,7 @@ export default function ResourcesPage() {
 				keywords="KYC checklist Africa, AML template, PEP screening guide, compliance playbook, African fintech compliance"
 				canonical="/resources"
 				image="https://readdy.ai/api/search-image?query=professional%20compliance%20resources%20and%20guides%20concept%20abstract%20documents%20checklists%20templates%20teal%20emerald%20color%20scheme%20clean%20modern%20corporate%20illustration%20minimal%20background&width=1200&height=630&seq=og-resources-v1&orientation=landscape"
+				imageAlt="VerifyAfrica Free Compliance Resources & Guides"
 				twitterCard="summary_large_image"
 				schema={resourcesSchema}
 			/>

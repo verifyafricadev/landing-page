@@ -244,6 +244,7 @@ export default function CaseStudiesPage() {
 				keywords="KYC case studies Africa, AML use cases, identity verification Africa fintech, FX broker compliance Africa"
 				canonical="/case-studies"
 				image="https://readdy.ai/api/search-image?query=African%20fintech%20banking%20compliance%20industry%20sectors%20use%20cases%20mosaic%20grid%20teal%20emerald%20gradient%20professional%20corporate%20abstract%20illustration%20business%20identity%20verification%20KYC%20AML%20clean%20modern%20background&width=1200&height=630&seq=og-casestudies-v1&orientation=landscape"
+				imageAlt="VerifyAfrica Case Studies & Use Cases – KYC & AML Across Africa"
 				twitterCard="summary_large_image"
 				schema={caseStudiesSchema}
 				geoRegion="AF"

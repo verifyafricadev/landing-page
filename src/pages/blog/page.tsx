@@ -110,6 +110,7 @@ export default function BlogPage() {
 				keywords="KYC blog Africa, AML compliance articles, identity verification insights, African fintech compliance news"
 				canonical="/blog"
 				image="https://readdy.ai/api/search-image?query=editorial%20compliance%20insights%20blog%20KYC%20AML%20Africa%20abstract%20concept%20open%20book%20with%20digital%20data%20streams%20teal%20and%20dark%20green%20tones%20professional%20journalism%20regulatory%20knowledge%20clean%20minimalist%20background&width=1200&height=630&seq=og-blog-v1&orientation=landscape"
+				imageAlt="VerifyAfrica Blog – KYC, AML & Compliance Insights for Africa"
 				twitterCard="summary_large_image"
 				schema={blogSchema}
 			/>

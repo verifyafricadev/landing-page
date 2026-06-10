@@ -143,6 +143,8 @@ export default function SupportPage() {
 				description="Find answers, submit support tickets, and access documentation for VerifyAfrica's KYC, AML, and identity verification platform. Our team is ready to help."
 				keywords="VerifyAfrica support, KYC platform help, AML compliance support, identity verification documentation"
 				canonical="/support"
+				imageAlt="VerifyAfrica Support – Help Center & Resources"
+				twitterCard="summary_large_image"
 				schema={supportSchema}
 			/>
 			<Navbar

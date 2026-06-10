@@ -50,6 +50,7 @@ export default function DataDisposalPolicyPage() {
 				canonical="/data-disposal-policy"
 				noIndex
 				image="https://readdy.ai/api/search-image?query=professional%20data%20destruction%20secure%20deletion%20concept%20abstract%20shredder%20document%20with%20digital%20binary%20elements%20teal%20and%20white%20clean%20minimal%20corporate%20illustration%20certified%20data%20disposal%20modern%20background&width=1200&height=630&seq=og-datadisposal-v1&orientation=landscape"
+				imageAlt="VerifyAfrica Data Disposal & Destruction Policy"
 				twitterCard="summary_large_image"
 				schema={dataDisposalSchema}
 			/>

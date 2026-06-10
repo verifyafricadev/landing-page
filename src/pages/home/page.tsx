@@ -3,6 +3,12 @@ import Hero from "./components/Hero";
 import TrustStrip from "./components/TrustStrip";
 import Navbar from "./components/Navbar";
 import SEOHead from "../../components/feature/SEOHead";
+import {
+	BRAND_LOGO_HEIGHT,
+	BRAND_LOGO_PATH,
+	BRAND_LOGO_WIDTH,
+	SITE_URL,
+} from "@/constants/seo";
 import { useDemoModal } from "../../hooks/useDemoModal";
 
 // Below-fold sections — lazy loaded so they don't block the initial paint
@@ -16,8 +22,6 @@ const Security = lazy(() => import("./components/Security"));
 const FAQ = lazy(() => import("./components/FAQ"));
 const FinalCTA = lazy(() => import("./components/FinalCTA"));
 const Footer = lazy(() => import("./components/Footer"));
-
-const SITE_URL = import.meta.env.VITE_SITE_URL || "https://verifyafrica.io";
 
 const homeSchema = [
 	// ── WebSite — canonical anchor, shared across all pages via @id ──────────
@@ -52,9 +56,9 @@ const homeSchema = [
 		logo: {
 			"@type": "ImageObject",
 			"@id": `${SITE_URL}/#logo`,
-			url: `${SITE_URL}/logo.png`,
-			width: 200,
-			height: 60,
+			url: `${SITE_URL}${BRAND_LOGO_PATH}`,
+			width: BRAND_LOGO_WIDTH,
+			height: BRAND_LOGO_HEIGHT,
 			caption: "VerifyAfrica",
 		},
 		image: { "@id": `${SITE_URL}/#logo` },
@@ -263,11 +267,22 @@ export default function HomePage() {
 	return (
 		<div className="min-h-screen bg-white">
 			<SEOHead
-				title="KYC, AML, Biometrics & KYB Verification in Africa"
+				title="KYC, AML, Biometrics & KYB Verification in Africa | VerifyAfrica"
 				description="Onboard and monitor users across all 54 African countries through one platform. Verify identities, businesses, and risk profiles using AI-driven KYC, AML screening, biometrics, ongoing monitoring and audit-ready compliance controls for Banks, Fintech, FX Brokers, iGaming, and Marketplaces."
-				keywords="KYC Africa, AML screening Africa, identity verification Africa, VerifyAfrica, compliance platform Africa"
+				keywords={[
+					"KYC Africa",
+					"AML screening Africa",
+					"identity verification Africa",
+					"KYB verification Africa",
+					"biometrics Africa",
+					"compliance platform Africa",
+					"VerifyAfrica",
+				]}
 				canonical="/"
-				image="https://readdy.ai/api/search-image?query=professional%20digital%20compliance%20platform%20Africa%20continent%20map%20silhouette%20overlay%20teal%20emerald%20color%20scheme%20clean%20abstract%20technology%20dashboard%20identity%20verification%20corporate%20background%20minimal%20geometric%20design&width=1200&height=630&seq=og-home-v1&orientation=landscape"
+				image={BRAND_LOGO_PATH}
+				imageAlt="VerifyAfrica – KYC, AML, Biometrics & KYB Verification in Africa"
+				imageWidth={BRAND_LOGO_WIDTH}
+				imageHeight={BRAND_LOGO_HEIGHT}
 				twitterCard="summary_large_image"
 				schema={homeSchema}
 			/>

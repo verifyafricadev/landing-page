@@ -10,6 +10,7 @@ export default function NotFound() {
         title="404 – Page Not Found | VerifyAfrica"
         description="The page you are looking for does not exist."
         noIndex
+        imageAlt="VerifyAfrica – Page Not Found"
       />
       <h1 className="absolute bottom-0 text-9xl md:text-[12rem] font-black text-gray-50 select-none pointer-events-none z-0">
         404

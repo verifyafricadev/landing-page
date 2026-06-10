@@ -50,6 +50,7 @@ export default function TermsOfServicePage() {
 				canonical="/terms"
 				noIndex
 				image="https://readdy.ai/api/search-image?query=professional%20legal%20terms%20of%20service%20contract%20document%20concept%20abstract%20teal%20and%20white%20clean%20minimal%20corporate%20illustration%20compliance%20agreement%20handshake%20modern%20background&width=1200&height=630&seq=og-terms-v1&orientation=landscape"
+				imageAlt="VerifyAfrica Terms of Service"
 				twitterCard="summary_large_image"
 				schema={termsSchema}
 			/>

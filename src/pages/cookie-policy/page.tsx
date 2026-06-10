@@ -50,6 +50,7 @@ export default function CookiePolicyPage() {
 				canonical="/cookie-policy"
 				noIndex
 				image="https://readdy.ai/api/search-image?query=professional%20cookie%20consent%20privacy%20settings%20concept%20abstract%20browser%20window%20with%20toggle%20switches%20teal%20and%20white%20clean%20minimal%20corporate%20illustration%20GDPR%20cookie%20management%20modern%20background&width=1200&height=630&seq=og-cookie-v1&orientation=landscape"
+				imageAlt="VerifyAfrica Cookie Policy"
 				twitterCard="summary_large_image"
 				schema={cookieSchema}
 			/>

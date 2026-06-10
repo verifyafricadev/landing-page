@@ -93,6 +93,7 @@ export default function ContactPage() {
 				keywords="contact VerifyAfrica, request demo KYC Africa, compliance platform support, identity verification Africa contact"
 				canonical="/contact"
 				image="https://readdy.ai/api/search-image?query=professional%20business%20contact%20communication%20concept%20abstract%20teal%20and%20white%20clean%20minimal%20corporate%20handshake%20or%20message%20icon%20illustration%20Africa%20compliance%20technology%20partnership%20enterprise&width=1200&height=630&seq=og-contact-v1&orientation=landscape"
+				imageAlt="Contact VerifyAfrica – Request a Demo or Get Support"
 				twitterCard="summary_large_image"
 				schema={contactSchema}
 			/>

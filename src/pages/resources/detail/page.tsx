@@ -190,6 +190,7 @@ export default function ResourceDetailPage() {
 				keywords={`${resource.title.toLowerCase()}, compliance resource africa, ${resource.category.toLowerCase()}, african fintech compliance, verifyafrica`}
 				canonical={`/resources/${resource.id}`}
 				image="https://readdy.ai/api/search-image?query=professional%20compliance%20resource%20document%20guide%20teal%20emerald%20color%20scheme%20clean%20modern%20corporate%20illustration%20minimal%20background&width=1200&height=630&seq=og-resource-detail&orientation=landscape"
+				imageAlt={`${resource.title} – VerifyAfrica Resources`}
 				twitterCard="summary_large_image"
 				schema={schema}
 			/>

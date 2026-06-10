@@ -1033,6 +1033,7 @@ export default function FeaturesIndexPage() {
 				keywords="KYC features Africa, AML screening platform, identity verification API, biometrics Africa, KYB business verification, fraud detection Africa"
 				canonical="/features"
 				image="https://readdy.ai/api/search-image?query=compliance%20platform%20features%20overview%20grid%20teal%20emerald%20abstract%20technology%20icons%20identity%20verification%20AML%20biometrics%20fraud%20detection%20professional%20corporate%20clean%20minimal%20background%20Africa%20fintech&width=1200&height=630&seq=og-features-index-v1&orientation=landscape"
+				imageAlt="VerifyAfrica Platform Features – KYC, AML, Biometrics & KYB for Africa"
 				twitterCard="summary_large_image"
 				schema={featuresIndexSchema}
 			/>

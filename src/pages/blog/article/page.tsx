@@ -292,6 +292,7 @@ export default function ArticlePage() {
 				canonical={`/blog/${article.id}`}
 				ogType="article"
 				image={article.heroImage || article.image}
+				imageAlt={article.title}
 				twitterCard="summary_large_image"
 				schema={articleSchema}
 				geoRegion={geoData?.region}

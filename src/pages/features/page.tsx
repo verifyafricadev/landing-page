@@ -83,6 +83,7 @@ export default function FeaturePage() {
 				keywords={`${feature.title.toLowerCase()}, KYC Africa, compliance Africa, VerifyAfrica`}
 				canonical={`/features/${feature.slug}`}
 				image={feature.heroImage}
+				imageAlt={`${feature.title} – VerifyAfrica`}
 				twitterCard="summary_large_image"
 				schema={schema}
 			/>
