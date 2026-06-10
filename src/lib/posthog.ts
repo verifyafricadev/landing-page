@@ -10,7 +10,7 @@
  */
 import posthog from 'posthog-js';
 
-const POSTHOG_KEY = 'phc_2Z8aPiFePRBEvuu9djJSerItQwXfXydAqW5zEdLsgju';
+const POSTHOG_KEY = import.meta.env.VITE_PUBLIC_POSTHOG_KEY;
 const POSTHOG_HOST = 'https://us.i.posthog.com';
 
 /**
@@ -35,11 +35,6 @@ export function initPostHog(): void {
     respect_dnt: true,
     cross_subdomain_cookie: false,
     secure_cookie: true,
-
-    // ── Performance ─────────────────────────────────────────────────────────
-    // Batch events and flush every 30 s or when the tab goes hidden
-    batch_flush_interval_ms: 30_000,
-    compression: 'gzip-js' as never,
 
     // Defer the loaded callback so it doesn't run during first render
     loaded: (ph) => {
