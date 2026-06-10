@@ -91,7 +91,7 @@ const supportSchema = [
 				name: "Where can I find the VerifyAfrica API documentation?",
 				acceptedAnswer: {
 					"@type": "Answer",
-					text: "Full API documentation, including endpoint references, authentication guides, and code examples in multiple languages, is available at verifyafrica.io/docs.",
+					text: "Full API documentation, including endpoint references, authentication guides, and code examples in multiple languages, is available at docs.verifyafrica.io.",
 				},
 			},
 			{

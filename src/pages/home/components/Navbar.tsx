@@ -15,7 +15,7 @@ interface NavbarProps {
 
 const navItems = [
 	{ href: "/features", label: "Features", isLink: true },
-	{ href: "/docs", label: "API Docs", isAnchor: true },
+	{ href: "https://docs.verifyafrica.io", label: "API Docs" },
 	{ href: "#pricing", label: "Pricing" },
 	{ href: "/about", label: "About", isLink: true },
 ];

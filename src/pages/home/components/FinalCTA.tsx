@@ -158,7 +158,13 @@ export default function FinalCTA({ onRequestDemo }: FinalCTAProps) {
 								asChild
 								className="h-11 px-6 rounded-lg cursor-pointer"
 							>
-								<a href="/docs">Start Integration</a>
+								<a
+									href="https://docs.verifyafrica.io"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									Start Integration
+								</a>
 							</Button>
 						</div>
 					</div>

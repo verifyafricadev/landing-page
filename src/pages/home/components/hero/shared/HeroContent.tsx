@@ -92,7 +92,9 @@ export default function HeroContent({
 					</span>
 				</button>
 				<a
-					href="/docs"
+					href="https://docs.verifyafrica.io"
+					target="_blank"
+					rel="noopener noreferrer"
 					className="group px-6 sm:px-8 py-3.5 sm:py-4 bg-white/10 backdrop-blur-sm text-white text-sm sm:text-base font-semibold rounded-lg border border-white/30 hover:bg-white/20 hover:border-white/50 transition-all whitespace-nowrap flex items-center justify-center space-x-2"
 					style={{ textShadow: "0 1px 3px rgba(0, 0, 0, 0.4)" }}
 				>

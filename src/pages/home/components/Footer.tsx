@@ -145,7 +145,9 @@ export default function Footer() {
 							</li>
 							<li>
 								<a
-									href="/docs"
+									href="https://docs.verifyafrica.io"
+									target="_blank"
+									rel="noopener noreferrer"
 									className="text-xs sm:text-sm hover:font-semibold duration-200 ease-in-out cursor-pointer"
 								>
 									API Docs

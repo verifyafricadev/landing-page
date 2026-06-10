@@ -7,7 +7,6 @@ const AboutPage = lazy(() => import('../pages/about/page'));
 const BlogPage = lazy(() => import('../pages/blog/page'));
 const ContactPage = lazy(() => import('../pages/contact/page'));
 const SupportPage = lazy(() => import('../pages/support/page'));
-const DocsPage = lazy(() => import('../pages/docs/page'));
 const CookiePolicyPage = lazy(() => import('../pages/cookie-policy/page'));
 const TermsOfServicePage = lazy(() => import('../pages/terms/page'));
 const PrivacyPolicyPage = lazy(() => import('../pages/privacy-policy/page'));
@@ -93,14 +92,6 @@ const routes: RouteObject[] = [
     element: (
       <Suspense fallback={null}>
         <SupportPage />
-      </Suspense>
-    ),
-  },
-  {
-    path: '/docs',
-    element: (
-      <Suspense fallback={null}>
-        <DocsPage />
       </Suspense>
     ),
   },

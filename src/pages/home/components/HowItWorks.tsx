@@ -22,7 +22,7 @@ const options = [
 		title: "Integrate via API",
 		description:
 			"Embed identity and compliance checks directly into your onboarding flow or CRM. Flexible, modular, and built for scale.",
-		href: "/docs",
+		href: "https://docs.verifyafrica.io",
 		linkLabel: "View API Docs",
 	},
 ];
