@@ -15,13 +15,13 @@
   <!-- ── 1. Core pages sitemap ── -->
   <sitemap>
     <loc>https://example.com/sitemap.xml</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-06-11</lastmod>
   </sitemap>
 
   <!-- ── 2. Blog articles sitemap ── -->
   <sitemap>
     <loc>https://example.com/sitemap-blog.xml</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-06-11</lastmod>
   </sitemap>
 
 </sitemapindex>

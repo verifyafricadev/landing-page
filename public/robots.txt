@@ -41,6 +41,7 @@ Allow: /blog/igaming-compliance-east-africa
 Allow: /blog/building-risk-based-approach-customer-due-diligence
 Allow: /blog/case-study-fx-broker-compliance-automation
 Allow: /blog/gdpr-vs-ndpr-comparison-guide
+Allow: /blog/scaling-africa-1-trillion-digital-economy-trust-tax
 Allow: /resources
 Allow: /resources/
 Allow: /resources/verifyafrica-kyc-ghana-guide-2026
@@ -54,6 +55,10 @@ Allow: /resources/pep-screening-guide-africa
 Allow: /resources/biometric-verification-playbook
 Allow: /resources/cross-border-data-protection-checklist
 Allow: /resources/fintech-onboarding-compliance-playbook
+Allow: /resources/verifyafrica-correspondent-banking-2026
+Allow: /resources/verifyafrica-synthetic-identity-fraud-2026
+Allow: /resources/verifyafrica-onboarding-revenue-gap-2026
+Allow: /resources/verifyafrica-series-a-due-diligence-2026
 Allow: /docs
 Allow: /contact
 Allow: /support

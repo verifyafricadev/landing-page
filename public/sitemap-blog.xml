@@ -6,6 +6,16 @@
        BLOG ARTICLES — sorted newest to oldest
   ═══════════════════════════════════════════════════ -->
 
+  <!-- scaling-africa-1-trillion-digital-economy-trust-tax (Jun 10, 2026) -->
+  <url>
+    <loc>https://example.com/blog/scaling-africa-1-trillion-digital-economy-trust-tax</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/blog/scaling-africa-1-trillion-digital-economy-trust-tax"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://example.com/blog/scaling-africa-1-trillion-digital-economy-trust-tax"/>
+  </url>
+
   <!-- iGaming Compliance East Africa (Mar 28, 2025) -->
   <url>
     <loc>https://example.com/blog/igaming-compliance-east-africa</loc>
