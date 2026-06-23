@@ -42,6 +42,7 @@ Allow: /blog/building-risk-based-approach-customer-due-diligence
 Allow: /blog/case-study-fx-broker-compliance-automation
 Allow: /blog/gdpr-vs-ndpr-comparison-guide
 Allow: /blog/scaling-africa-1-trillion-digital-economy-trust-tax
+Allow: /blog/unmasking-ubo-live-registry-verification-vs-scraped-databases
 Allow: /resources
 Allow: /resources/
 Allow: /resources/verifyafrica-kyc-ghana-guide-2026

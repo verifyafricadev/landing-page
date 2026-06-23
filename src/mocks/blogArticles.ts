@@ -164,6 +164,22 @@ export const blogArticles = [
     featured: false,
   },
   {
+    id: 'unmasking-ubo-live-registry-verification-vs-scraped-databases',
+    title: 'Unmasking the UBO: Why Live Registry Verification (CAC, CIPC) Beats Scraped Databases',
+    excerpt:
+      'Discover why scaling B2B platforms in Africa requires Live Government Registry Verification (CAC, CIPC) over outdated, scraped KYC data. Build truly secure, audit-ready compliance infrastructure.',
+    category: 'Best Practices',
+    author: 'Adaeze Okonkwo',
+    authorRole: 'Head of Compliance',
+    date: 'Jun 15, 2026',
+    readTime: '8 min read',
+    image:
+      'https://readdy.ai/api/search-image?query=Abstract%20conceptual%20illustration%20of%20unmasking%20corporate%20ownership%20layers%20a%20magnifying%20glass%20peeling%20back%20translucent%20business%20suit%20layers%20to%20reveal%20a%20single%20silhouetted%20person%20at%20the%20center%20representing%20the%20Ultimate%20Beneficial%20Owner%20split%20composition%20left%20side%20shows%20faded%20ghostly%20cached%20database%20screens%20with%20stale%20data%20right%20side%20shows%20a%20glowing%20live%20government%20registry%20document%20with%20official%20seal%20dark%20teal%20emerald%20green%20gradient%20background%20clean%20professional%20corporate%20art%20modern%20minimalist%20style%20high%20contrast&width=800&height=450&seq=ubo-unmasking-hero-v2&orientation=landscape',
+    heroImage:
+      'https://readdy.ai/api/search-image?query=Wide%20panoramic%20abstract%20live%20government%20registry%20verification%20concept%20for%20Africa%20CAC%20CIPC%20official%20corporate%20documents%20shield%20with%20beneficial%20ownership%20tree%20dark%20teal%20emerald%20green%20gradient%20geometric%20network%20nodes%20clean%20professional%20corporate%20illustration%20modern%20minimal&width=896&height=384&seq=ubo-hero-896&orientation=landscape',
+    featured: true,
+  },
+  {
     id: 'scaling-africa-1-trillion-digital-economy-trust-tax',
     title: "Scaling Africa's $1 Trillion Digital Economy",
     excerpt:
@@ -177,7 +193,7 @@ export const blogArticles = [
       'https://readdy.ai/api/search-image?query=abstract%20African%20digital%20economy%20concept%20geometric%20data%20streams%20flowing%20across%20a%20stylized%20map%20of%20Africa%20dark%20teal%20emerald%20green%20gradient%20gold%20accent%20nodes%20fintech%20infrastructure%20clean%20professional%20corporate%20illustration%20minimal%20card%20size&width=400&height=225&seq=blog-trust-tax-card&orientation=landscape',
     heroImage:
       'https://readdy.ai/api/search-image?query=wide%20panoramic%20abstract%20African%20digital%20economy%20trillion%20dollar%20infrastructure%20concept%20glowing%20network%20nodes%20connecting%20across%20a%20stylized%20African%20continent%20map%20dark%20teal%20emerald%20green%20gradient%20with%20gold%20highlights%20fintech%20compliance%20technology%20clean%20professional%20corporate%20illustration%20ultra%20modern&width=896&height=384&seq=blog-trust-tax-hero&orientation=landscape',
-    featured: true,
+    featured: false,
   },
 ];
 

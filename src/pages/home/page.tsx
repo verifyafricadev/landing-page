@@ -124,9 +124,9 @@ const homeSchema = [
 		"@type": "WebPage",
 		"@id": `${SITE_URL}/#webpage`,
 		url: SITE_URL,
-		name: "KYC, AML, Biometrics & KYB Verification in Africa | VerifyAfrica",
+		name: "VerifyAfrica: KYC, AML & KYB Compliance for Africa",
 		description:
-			"Onboard and monitor users across all 54 African countries through one platform. AI-driven KYC, AML screening, biometrics, and audit-ready compliance controls.",
+			"VerifyAfrica powers KYC, AML screening, KYB, and biometric identity verification across all 54 African countries. Built for fintechs, FX brokers, igaming, banks, and marketplaces. Start verifying in minutes.",
 		inLanguage: "en",
 		isPartOf: { "@id": `${SITE_URL}/#website` },
 		about: { "@id": `${SITE_URL}/#organization` },
@@ -277,10 +277,12 @@ export default function HomePage() {
 					"KYC Africa",
 					"AML screening Africa",
 					"identity verification Africa",
-					"KYB verification Africa",
-					"biometrics Africa",
-					"compliance platform Africa",
-					"VerifyAfrica",
+					"KYB Africa",
+					"biometric verification",
+					"AML compliance software",
+					"fintech KYC API",
+					"sanctions screening Africa",
+					"African identity verification",
 				]}
 				canonical="/"
 				imageAlt={HOME_SEO.imageAlt}

@@ -35,14 +35,14 @@ export function resolveImageUrl(image?: string): string | undefined {
 
 /** Homepage SEO copy — tuned per channel character limits */
 export const HOME_SEO = {
-	title: "KYC, AML, Biometrics & KYB for Africa | VerifyAfrica",
+	title: "VerifyAfrica: KYC, AML & KYB Compliance for Africa",
 	description:
-		"VerifyAfrica delivers AI-powered KYC, AML, KYB and biometrics in all 54 African countries. One platform for banks, fintech and marketplaces.",
+		"VerifyAfrica powers KYC, AML screening, KYB, and biometric identity verification across 54 African countries. Built for fintechs, FX brokers, igaming, banks, and marketplaces. Start verifying in minutes.",
 	ogDescription:
-		"AI-powered KYC, AML, KYB and biometrics across 54 African countries. One platform for banks, fintech and marketplaces.",
+		"VerifyAfrica powers KYC, AML screening, KYB, and biometric identity verification across 54 African countries. Built for fintechs, FX brokers, igaming, banks, and marketplaces.",
 	twitterDescription:
-		"Onboard and monitor users across all 54 African countries. AI-driven KYC, AML screening, biometrics, and audit-ready compliance for banks, fintech, FX brokers, iGaming, and marketplaces.",
-	imageAlt: "VerifyAfrica – KYC, AML, Biometrics & KYB for Africa",
+		"VerifyAfrica powers KYC, AML screening, KYB, and biometric identity verification across all 54 African countries. Built for fintechs, FX brokers, igaming, banks, and marketplaces. Start verifying in minutes.",
+	imageAlt: "VerifyAfrica – KYC, AML & KYB Compliance for Africa",
 } as const;
 
 /** Shared Open Graph / Twitter image props — brand logo on every page */
