@@ -1,4 +1,5 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import {
 	BuildingsIcon,
 } from "@phosphor-icons/react";
@@ -14,11 +15,21 @@ interface UseCasesGridProps {
 const ALL_CATEGORIES = "All Categories";
 
 export default function UseCasesGrid({ onRequestDemo }: UseCasesGridProps) {
+	const [searchParams, setSearchParams] = useSearchParams();
 	const [selectedCategory, setSelectedCategory] = useState(ALL_CATEGORIES);
 	const [selectedUseCase, setSelectedUseCase] = useState<
 		(typeof useCaseCategories)[0] | null
 	>(null);
 	const [isModalOpen, setIsModalOpen] = useState(false);
+
+	useEffect(() => {
+		const openId = searchParams.get("open");
+		if (!openId) return;
+		const match = useCaseCategories.find((uc) => uc.id === Number(openId));
+		if (!match) return;
+		setSelectedUseCase(match);
+		setIsModalOpen(true);
+	}, [searchParams]);
 
 	const industryFilters = useMemo(
 		() => [ALL_CATEGORIES, ...useCaseCategories.map((uc) => uc.category)],
@@ -33,6 +44,20 @@ export default function UseCasesGrid({ onRequestDemo }: UseCasesGridProps) {
 	const handleCardClick = (useCase: (typeof useCaseCategories)[0]) => {
 		setSelectedUseCase(useCase);
 		setIsModalOpen(true);
+	};
+
+	const handleClose = () => {
+		setIsModalOpen(false);
+		if (searchParams.has("open")) {
+			setSearchParams(
+				(prev) => {
+					const next = new URLSearchParams(prev);
+					next.delete("open");
+					return next;
+				},
+				{ replace: true },
+			);
+		}
 	};
 
 	return (
@@ -115,7 +140,7 @@ export default function UseCasesGrid({ onRequestDemo }: UseCasesGridProps) {
 			<UseCaseModal
 				useCase={selectedUseCase}
 				isOpen={isModalOpen}
-				onClose={() => setIsModalOpen(false)}
+				onClose={handleClose}
 				onRequestDemo={onRequestDemo}
 			/>
 		</section>

@@ -4,7 +4,7 @@ const faqs: FAQItem[] = [
 	{
 		question: "What industries does VerifyAfrica serve?",
 		answer:
-			"VerifyAfrica serves a wide range of regulated industries including Fintech, FX Brokers, iGaming & sports betting operators, Payment Service Providers, Banks & Microfinance Institutions, Telecoms, E-commerce marketplaces, Insurance, and Crypto & Web3 platforms. Our compliance infrastructure is purpose-built for the nuances of each vertical.",
+			"VerifyAfrica serves a wide range of regulated industries including Fintech, FX Brokers, iGaming & sports betting operators, Payment Service Providers, Banks & Microfinance Institutions, Telecoms, E-commerce marketplaces, Insurance, Crypto & Web3 platforms, Human Resources & Global Hiring, and Education & Tertiary Institutions. Our compliance infrastructure is purpose-built for the nuances of each vertical.",
 	},
 	{
 		question: "How quickly can we integrate the VerifyAfrica API?",

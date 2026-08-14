@@ -1,25 +1,32 @@
 import {
 	ArrowsLeftRightIcon,
+	BriefcaseIcon,
 	BuildingIcon,
 	CoinsIcon,
 	DeviceMobileIcon,
 	GameControllerIcon,
+	GraduationCapIcon,
 	RadioIcon,
 	ShieldCheckIcon,
 	ShoppingBagIcon,
 	type Icon,
 } from "@phosphor-icons/react";
 
-export const useCaseCategories: {
+export type UseCaseBenefit = { metric: string; label: string };
+
+export type UseCaseCategory = {
   id: number;
   category: string;
   icon: Icon;
   color: string;
   description: string;
   useCases: string[];
-  benefits: { metric: string; label: string }[];
+  benefits: UseCaseBenefit[];
   image: string;
-}[] = [
+  whyChoose?: string[];
+};
+
+export const useCaseCategories: UseCaseCategory[] = [
   {
     id: 1,
     category: "Banks & Financial Institutions",
@@ -186,6 +193,60 @@ export const useCaseCategories: {
       { metric: "Global", label: "Coverage" }
     ],
     image: "https://readdy.ai/api/search-image?query=Young%20African%20tech%20professional%20working%20on%20cryptocurrency%20trading%20platform%20multiple%20monitors%20showing%20charts%20modern%20home%20office%20setup%20ambient%20lighting%20fintech%20workspace&width=600&height=400&seq=uc8&orientation=landscape"
+  },
+  {
+    id: 10,
+    category: "Human Resources & Global Hiring",
+    icon: BriefcaseIcon,
+    color: "from-sky-500 to-blue-600",
+    description: "HR teams, payroll platforms, and global employers verifying remote and cross-border talent across Africa. Backed by the same deep-tier screening infrastructure built for financial-grade compliance.",
+    useCases: [
+      "Cross-border employee & contractor onboarding",
+      "AML/PEP screening and close-associate (RCA) mapping",
+      "Remote-worker identity confirmation",
+      "Bias-resistant African name matching",
+      "Employment data compliance support (NDPA, POPIA, and other local frameworks)"
+    ],
+    benefits: [
+      { metric: "54", label: "African Countries Supported" },
+      { metric: "80%", label: "Faster Screening Turnaround" },
+      { metric: "68%", label: "Reduced Cross-Border Complexity" },
+      { metric: "99.7%", label: "Reduction in False Positives on African Names" }
+    ],
+    image: "https://storage.helloreaddy.io/project_files/e867a79c-6ad4-431f-b9b4-472c3bcdc336/dfcac3f9-3e03-4285-b336-0eb925ad0d28_compressed_use-cases-hr.webp",
+    whyChoose: [
+      "Eliminates Western Data Bias",
+      "Seamless Integration",
+      "Local Regulatory Awareness",
+      "One Engine, Not Two Vendors"
+    ]
+  },
+  {
+    id: 11,
+    category: "Education & Tertiary Institutions",
+    icon: GraduationCapIcon,
+    color: "from-blue-500 to-indigo-600",
+    description: "Universities and educational bodies managing student data pipelines, campus banking partnerships, and vendor relationships with the due diligence infrastructure to know exactly what they're routing personal data into.",
+    useCases: [
+      "Campus banking partner due diligence (KYB & AML)",
+      "Student and staff identity verification",
+      "Institutional vendor and financial-partner screening",
+      "Data-sharing agreement risk assessment",
+      "Cross-border and international student enrollment"
+    ],
+    benefits: [
+      { metric: "54", label: "African Countries Supported" },
+      { metric: "100%", label: "Data Pipeline Visibility" },
+      { metric: "50+", label: "ID Types Supported" },
+      { metric: "<2 mins", label: "Average Partner KYB Processing Time" }
+    ],
+    image: "https://storage.helloreaddy.io/project_files/e867a79c-6ad4-431f-b9b4-472c3bcdc336/3d2b8c01-9b4d-422a-80e3-f4c1bb765f45_compressed_use-cases-university.webp",
+    whyChoose: [
+      "Defensible Data Partnerships",
+      "Shared Regulatory Exposure, Addressed Upfront",
+      "Pan-African Coverage",
+      "Straightforward Integration"
+    ]
   }
 ];
 
@@ -275,7 +336,9 @@ export const industries = [
   "E-commerce & Marketplaces",
   "Insurance Companies",
   "iGaming & Sports Betting",
-  "Crypto & Web3"
+  "Crypto & Web3",
+  "Human Resources & Global Hiring",
+  "Education & Tertiary Institutions"
 ];
 
 // Map useCaseCategories to caseStudies format with proper structure

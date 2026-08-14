@@ -114,11 +114,11 @@ export const CONTACT_SEO = {
 export const CASE_STUDIES_SEO = {
 	title: "Case Studies & Use Cases – KYC & AML Across Africa | VerifyAfrica",
 	description:
-		"See how VerifyAfrica's compliance platform serves Fintech, FX Brokers, iGaming, Payment Providers, and Marketplaces across all 54 African countries with AI-powered KYC and AML.",
+		"See how VerifyAfrica's compliance platform serves Fintech, FX Brokers, iGaming, HR, Education, Payment Providers, and Marketplaces across all 54 African countries with AI-powered KYC and AML.",
 	ogDescription:
-		"How Fintech, FX Brokers, iGaming, and marketplaces use VerifyAfrica for KYC and AML across 54 African countries.",
+		"How Fintech, FX Brokers, iGaming, HR, Education, and marketplaces use VerifyAfrica for KYC and AML across 54 African countries.",
 	twitterDescription:
-		"Real-world KYC and AML use cases for Fintech, FX Brokers, iGaming, and marketplaces powered by VerifyAfrica across Africa.",
+		"Real-world KYC and AML use cases for Fintech, FX Brokers, iGaming, HR, Education, and marketplaces powered by VerifyAfrica across Africa.",
 	image: OG_IMAGE_CASE_STUDIES,
 	imageWidth: DEFAULT_OG_IMAGE_WIDTH,
 	imageHeight: DEFAULT_OG_IMAGE_HEIGHT,

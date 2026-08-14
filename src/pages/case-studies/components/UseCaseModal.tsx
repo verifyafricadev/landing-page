@@ -3,7 +3,6 @@ import {
 	CheckCircleIcon,
 	QuestionIcon,
 	ShieldStarIcon,
-	type Icon,
 } from "@phosphor-icons/react";
 import { Button } from "@/components/ui/button";
 import {
@@ -16,39 +15,24 @@ import {
 	DialogTitle,
 } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
+import type { UseCaseCategory } from "@/mocks/caseStudies";
 import { TagList } from "./country-detail/components";
 
 const ACCENT_COLOR = "#14b8a6";
 
-interface UseCaseBenefit {
-	metric: string;
-	label: string;
-}
-
-interface UseCase {
-	id: number;
-	category: string;
-	icon: Icon;
-	color: string;
-	description: string;
-	useCases: string[];
-	benefits: UseCaseBenefit[];
-	image: string;
-}
-
-interface UseCaseModalProps {
-	useCase: UseCase | null;
-	isOpen: boolean;
-	onClose: () => void;
-	onRequestDemo: () => void;
-}
-
-const WHY_VERIFY_AFRICA = [
+const DEFAULT_WHY_VERIFY_AFRICA = [
 	"Pan-African coverage with 35+ countries and 50+ ID types",
 	"AI-powered verification with 99.7% accuracy rate",
 	"Full regulatory compliance across all African markets",
 	"Easy API integration with comprehensive documentation",
 ] as const;
+
+interface UseCaseModalProps {
+	useCase: UseCaseCategory | null;
+	isOpen: boolean;
+	onClose: () => void;
+	onRequestDemo: () => void;
+}
 
 function EditorialBand({
 	className,
@@ -70,7 +54,11 @@ export default function UseCaseModal({
 }: UseCaseModalProps) {
 	if (!useCase) return null;
 
-	const CategoryIcon = useCase.icon;
+	const whyChoose = useCase.whyChoose ?? DEFAULT_WHY_VERIFY_AFRICA;
+	const metricCols =
+		useCase.benefits.length >= 4
+			? "grid-cols-2 sm:grid-cols-4"
+			: "grid-cols-3";
 
 	return (
 		<Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
@@ -79,46 +67,45 @@ export default function UseCaseModal({
 				showCloseButton
 			>
 				<div className="max-h-[85vh] overflow-y-auto">
+					<div className="relative h-44 sm:h-52 overflow-hidden">
+						<img
+							src={useCase.image}
+							alt={useCase.category}
+							className="h-full w-full object-cover object-top outline outline-1 outline-black/10"
+						/>
+						<div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
+					</div>
+
 					{/* Lead */}
-					<EditorialBand className="bg-background pb-6 pt-8">
-						<div className="flex items-end gap-5">
-							<div
-								className={cn(
-									"flex size-14 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br shadow-sm",
-									useCase.color,
-								)}
+					<EditorialBand className="bg-background pb-6 pt-4">
+						<DialogHeader className="gap-1 text-left">
+							<p
+								className="text-xs font-semibold uppercase tracking-widest"
+								style={{ color: ACCENT_COLOR }}
 							>
-								<CategoryIcon className="size-6 text-white" />
-							</div>
-							<DialogHeader className="gap-1 text-left">
-								<p
-									className="text-xs font-semibold uppercase tracking-widest"
-									style={{ color: ACCENT_COLOR }}
-								>
-									Use Case
-								</p>
-								<DialogTitle className="text-3xl font-bold leading-none tracking-tight">
-									{useCase.category}
-								</DialogTitle>
-								<DialogDescription className="text-sm">
-									{useCase.description}
-								</DialogDescription>
-							</DialogHeader>
-						</div>
+								Use Case
+							</p>
+							<DialogTitle className="text-2xl font-bold leading-tight tracking-tight text-balance sm:text-3xl">
+								{useCase.category}
+							</DialogTitle>
+							<DialogDescription className="text-sm text-pretty">
+								{useCase.description}
+							</DialogDescription>
+						</DialogHeader>
 					</EditorialBand>
 
 					{/* Benefits */}
 					<EditorialBand className="bg-muted/40">
-						<div className="grid grid-cols-3 divide-x divide-border">
+						<div className={cn("grid gap-6", metricCols)}>
 							{useCase.benefits.map(({ metric, label }) => (
-								<div key={label} className="px-4 first:pl-0 last:pr-0">
+								<div key={label}>
 									<div
-										className="text-3xl font-bold tracking-tight sm:text-4xl"
+										className="text-2xl font-bold tracking-tight tabular-nums sm:text-3xl"
 										style={{ color: ACCENT_COLOR }}
 									>
 										{metric}
 									</div>
-									<div className="mt-1 text-sm text-muted-foreground">
+									<div className="mt-1 text-sm text-muted-foreground text-pretty">
 										{label}
 									</div>
 								</div>
@@ -145,16 +132,16 @@ export default function UseCaseModal({
 							<h3 className="text-lg font-semibold">Why Choose VerifyAfrica?</h3>
 						</div>
 						<div className="grid gap-4 sm:grid-cols-2">
-							{WHY_VERIFY_AFRICA.map((point) => (
+							{whyChoose.map((point) => (
 								<div
 									key={point}
 									className="flex items-start gap-4 border-l-2 pl-4"
 									style={{ borderColor: ACCENT_COLOR }}
 								>
 									<ShieldStarIcon className="mt-0.5 size-5 shrink-0 text-muted-foreground" />
-									<div>
-										<p className="font-medium text-foreground">{point}</p>
-									</div>
+									<p className="font-medium text-foreground text-pretty">
+										{point}
+									</p>
 								</div>
 							))}
 						</div>

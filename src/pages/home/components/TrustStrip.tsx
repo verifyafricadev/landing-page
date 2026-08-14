@@ -10,6 +10,8 @@ export default function TrustStrip() {
     'FX Brokers',
     'iGaming',
     'Banks',
+    'HR',
+    'Education',
     'Digital Platforms',
   ];
 

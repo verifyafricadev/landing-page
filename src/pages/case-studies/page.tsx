@@ -33,7 +33,7 @@ const caseStudiesSchema = [
 		name: "Industries Served by VerifyAfrica",
 		description:
 			"Regulated industries across Africa that use VerifyAfrica for KYC, AML, and identity verification compliance.",
-		numberOfItems: 8,
+		numberOfItems: 10,
 		itemListElement: [
 			{
 				"@type": "ListItem",
@@ -99,6 +99,22 @@ const caseStudiesSchema = [
 				description:
 					"Cryptocurrency exchanges and DeFi platforms meeting FATF travel rule and global compliance standards.",
 			},
+			{
+				"@type": "ListItem",
+				position: 9,
+				name: "Human Resources & Global Hiring",
+				url: caseStudiesUrl,
+				description:
+					"HR teams, payroll platforms, and global employers verifying remote and cross-border talent across Africa.",
+			},
+			{
+				"@type": "ListItem",
+				position: 10,
+				name: "Education & Tertiary Institutions",
+				url: caseStudiesUrl,
+				description:
+					"Universities and educational bodies managing student data pipelines, campus banking partnerships, and vendor due diligence.",
+			},
 		],
 	},
 	createBreadcrumbList(caseStudiesPath, [
@@ -114,7 +130,7 @@ const caseStudiesSchema = [
 				name: "What industries does VerifyAfrica serve?",
 				acceptedAnswer: {
 					"@type": "Answer",
-					text: "VerifyAfrica serves a wide range of regulated industries including Fintech, FX Brokers, iGaming & sports betting operators, Payment Service Providers, Banks & Microfinance Institutions, Telecoms, E-commerce marketplaces, Insurance, and Crypto & Web3 platforms. Our compliance infrastructure is purpose-built for the nuances of each vertical.",
+					text: "VerifyAfrica serves a wide range of regulated industries including Fintech, FX Brokers, iGaming & sports betting operators, Payment Service Providers, Banks & Microfinance Institutions, Telecoms, E-commerce marketplaces, Insurance, Crypto & Web3 platforms, Human Resources & Global Hiring, and Education & Tertiary Institutions. Our compliance infrastructure is purpose-built for the nuances of each vertical.",
 				},
 			},
 			{
