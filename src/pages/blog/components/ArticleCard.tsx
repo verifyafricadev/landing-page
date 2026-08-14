@@ -1,3 +1,4 @@
+import SafeImage from "@/components/base/SafeImage";
 import {
 	ClockIcon,
 } from "@phosphor-icons/react";
@@ -41,10 +42,6 @@ export default function ArticleCard({
 				.join("")
 		: "??";
 
-	const imageUrl =
-		image ||
-		"https://readdy.ai/api/search-image?query=abstract%20compliance%20technology%20concept%20teal%20and%20dark%20green%20professional%20corporate%20clean%20minimalist%20background&width=400&height=225&seq=fallback-card&orientation=landscape";
-
 	return (
 		<Link
 			to={`/blog/${id}`}
@@ -55,8 +52,8 @@ export default function ArticleCard({
 		>
 			{/* Explicit width/height prevents CLS; bg-gray-100 is the placeholder colour */}
 			<div className="relative w-full h-48 overflow-hidden bg-gray-100">
-				<img
-					src={imageUrl}
+				<SafeImage
+					src={image}
 					alt={title}
 					title={title}
 					width={400}

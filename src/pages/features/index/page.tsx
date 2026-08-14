@@ -5,7 +5,7 @@ import Navbar from "@/pages/home/components/Navbar";
 import Footer from "@/pages/home/components/Footer";
 import { useDemoModal } from "@/hooks/useDemoModal";
 import SEOHead from "@/components/feature/SEOHead";
-import { DEFAULT_OG_IMAGE, FEATURES_INDEX_SEO } from "@/constants/seo";
+import { FEATURES_INDEX_SEO } from "@/constants/seo";
 import {
 	createBreadcrumbList,
 	createWebPageSchema,
@@ -1025,9 +1025,11 @@ export default function FeaturesIndexPage() {
 				twitterDescription={FEATURES_INDEX_SEO.twitterDescription}
 				keywords={FEATURES_INDEX_SEO.keywords}
 				canonical={FEATURES_INDEX_SEO.canonical}
+				image={FEATURES_INDEX_SEO.image}
+				imageWidth={FEATURES_INDEX_SEO.imageWidth}
+				imageHeight={FEATURES_INDEX_SEO.imageHeight}
 				imageAlt={FEATURES_INDEX_SEO.imageAlt}
 				schema={featuresIndexSchema}
-				{...DEFAULT_OG_IMAGE}
 			/>
 			<Navbar
 				onRequestDemo={openDemo}

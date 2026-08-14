@@ -8,7 +8,7 @@ import Footer from "@/pages/home/components/Footer";
 import SEOHead from "../../components/feature/SEOHead";
 import BackToTop from "../../components/feature/BackToTop";
 import { useDemoModal } from "../../hooks/useDemoModal";
-import { CASE_STUDIES_SEO, DEFAULT_OG_IMAGE } from "@/constants/seo";
+import { CASE_STUDIES_SEO } from "@/constants/seo";
 import {
 	createBreadcrumbList,
 	createWebPageSchema,
@@ -197,12 +197,14 @@ export default function CaseStudiesPage() {
 				twitterDescription={CASE_STUDIES_SEO.twitterDescription}
 				keywords={CASE_STUDIES_SEO.keywords}
 				canonical={CASE_STUDIES_SEO.canonical}
+				image={CASE_STUDIES_SEO.image}
+				imageWidth={CASE_STUDIES_SEO.imageWidth}
+				imageHeight={CASE_STUDIES_SEO.imageHeight}
 				imageAlt={CASE_STUDIES_SEO.imageAlt}
 				schema={caseStudiesSchema}
 				geoRegion="AF"
 				geoPosition="8.7832;34.5085"
 				geoPlacename="Africa"
-				{...DEFAULT_OG_IMAGE}
 			/>
 			<Navbar
 				onRequestDemo={openDemo}

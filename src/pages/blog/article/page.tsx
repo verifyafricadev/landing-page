@@ -1,5 +1,6 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { useEffect, useMemo, useState, lazy, Suspense, memo } from "react";
+import SafeImage from "@/components/base/SafeImage";
 import Navbar from "@/pages/home/components/Navbar";
 import SEOHead from "../../../components/feature/SEOHead";
 import ArticleHero from "../components/ArticleHero";
@@ -8,6 +9,7 @@ import { useDemoModal } from "../../../hooks/useDemoModal";
 import { detectCountryFromText } from "@/utils/countryGeo";
 import { track } from "@/lib/analytics";
 import {
+	ArrowRightIcon,
 	CheckIcon,
 	ClockIcon,
 	LightbulbIcon,
@@ -50,8 +52,8 @@ function formatLastUpdated(isoDate: string): string {
 async function getArticleBody(
 	category: string,
 	id?: string,
-): Promise<{ paragraphs: string[]; takeaways: string[] }> {
-	const { articleBodyById, articleBodyByCategory, articleTakeawaysById } =
+): Promise<{ paragraphs: string[]; takeaways: string[]; faqs: { question: string; answer: string }[] }> {
+	const { articleBodyById, articleBodyByCategory, articleTakeawaysById, articleFAQsById } =
 		await import("../../../mocks/articleBodies");
 	const paragraphs =
 		id && articleBodyById[id]
@@ -67,7 +69,11 @@ async function getArticleBody(
 					"Technology and human expertise must work together for optimal outcomes.",
 					"Documentation and audit trails are as important as the decisions themselves.",
 				];
-	return { paragraphs, takeaways };
+	const faqs =
+		id && articleFAQsById?.[id]
+			? articleFAQsById[id]
+			: [];
+	return { paragraphs, takeaways, faqs };
 }
 
 // Memoized share button bar — never needs to re-render
@@ -131,6 +137,7 @@ export default function ArticlePage() {
 	const { openDemo } = useDemoModal();
 	const [bodyParagraphs, setBodyParagraphs] = useState<string[]>([]);
 	const [takeaways, setTakeaways] = useState<string[]>([]);
+	const [faqs, setFaqs] = useState<{ question: string; answer: string }[]>([]);
 	const [bodyLoading, setBodyLoading] = useState(true);
 
 	const article = useMemo(() => blogArticles.find((a) => a.id === id), [id]);
@@ -161,10 +168,11 @@ export default function ArticlePage() {
 		let cancelled = false;
 		setBodyLoading(true);
 		getArticleBody(article.category, article.id).then(
-			({ paragraphs, takeaways: t }) => {
+			({ paragraphs, takeaways: t, faqs: f }) => {
 				if (!cancelled) {
 					setBodyParagraphs(paragraphs);
 					setTakeaways(t);
+					setFaqs(f);
 					setBodyLoading(false);
 				}
 			},
@@ -272,8 +280,23 @@ export default function ArticlePage() {
 			},
 		];
 
+		if (faqs.length > 0) {
+			schema.push({
+				"@context": "https://schema.org",
+				"@type": "FAQPage",
+				mainEntity: faqs.map((faq) => ({
+					"@type": "Question",
+					name: faq.question,
+					acceptedAnswer: {
+						"@type": "Answer",
+						text: faq.answer,
+					},
+				})),
+			});
+		}
+
 		return { isoDate: iso, articleSchema: schema, geoData };
-	}, [article, bodyParagraphs]);
+	}, [article, bodyParagraphs, faqs]);
 
 	useEffect(() => {
 		if (!article) navigate("/blog", { replace: true });
@@ -360,6 +383,25 @@ export default function ArticlePage() {
 					)}
 				</div>
 
+				{/* Further Reading — inline internal links */}
+				{!bodyLoading && (article as typeof article & { relatedLinks?: { id: string; label: string; text: string; note: string }[] }).relatedLinks?.map((link) => (
+					<Link
+						key={link.id}
+						to={`/blog/${link.id}`}
+						className="mt-8 flex items-start gap-4 p-5 bg-teal-50 border border-teal-100 rounded-xl hover:bg-teal-100 hover:border-teal-200 transition-colors cursor-pointer group block"
+					>
+						<div className="w-1 self-stretch rounded-full bg-teal-500 shrink-0" />
+						<div className="flex-1 min-w-0">
+							<span className="text-xs font-semibold text-teal-600 uppercase tracking-wider">{link.label}</span>
+							<p className="text-sm font-bold text-secondary mt-0.5 group-hover:text-teal-700 transition-colors leading-snug">{link.text}</p>
+							{link.note && <p className="text-xs text-gray-500 mt-1 leading-relaxed">{link.note}</p>}
+						</div>
+						<div className="w-7 h-7 flex items-center justify-center rounded-full bg-teal-100 group-hover:bg-teal-200 transition-colors shrink-0 mt-0.5">
+							<ArrowRightIcon className="w-3.5 h-3.5 text-teal-600" />
+						</div>
+					</Link>
+				))}
+
 				{/* Key takeaways */}
 				<div className="mt-10 p-6 bg-teal-50 rounded-xl border border-teal-100">
 					<h2 className="text-base font-bold text-teal-800 mb-3 flex items-center gap-2">
@@ -378,6 +420,30 @@ export default function ArticlePage() {
 						))}
 					</ul>
 				</div>
+
+				{/* AEO FAQ Section */}
+				{faqs.length > 0 && (
+					<div className="mt-10">
+						<h2 className="text-xl font-bold text-secondary mb-6">
+							Frequently Asked Questions
+						</h2>
+						<div className="space-y-4">
+							{faqs.map((faq, i) => (
+								<div
+									key={i}
+									className="p-5 bg-gray-50 rounded-xl border border-gray-100"
+								>
+									<h3 className="text-sm font-bold text-secondary mb-2">
+										{faq.question}
+									</h3>
+									<p className="text-sm text-gray-600 leading-relaxed">
+										{faq.answer}
+									</p>
+								</div>
+							))}
+						</div>
+					</div>
+				)}
 
 				{/* Author card */}
 				<div className="mt-10 p-6 bg-gray-50 rounded-xl border border-gray-100 flex items-start gap-4">
@@ -412,10 +478,7 @@ export default function ArticlePage() {
 
 			{/* Related articles — deferred until near viewport */}
 			{displayRelated.length > 0 && (
-				<section
-					className="bg-gray-50 py-16"
-					style={{ contentVisibility: "auto", containIntrinsicSize: "0 400px" }}
-				>
+				<section className="bg-gray-50 py-16">
 					<div className="max-w-4xl mx-auto px-6 lg:px-8">
 						<h2 className="text-xl font-bold text-secondary mb-8">
 							Related Articles
@@ -428,14 +491,13 @@ export default function ArticlePage() {
 									className="group bg-white rounded-xl overflow-hidden border border-gray-100 hover:shadow-md transition-all duration-300 cursor-pointer"
 								>
 									<div className="w-full h-36 overflow-hidden bg-gray-100">
-										<img
+										<SafeImage
 											src={rel.image}
 											alt={rel.title}
 											title={rel.title}
 											width={400}
 											height={225}
-											loading="lazy"
-											fetchPriority="low"
+											loading="eager"
 											decoding="async"
 											className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
 										/>

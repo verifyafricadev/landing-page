@@ -1,9 +1,9 @@
 import { memo } from "react";
-import { Link } from "react-router-dom";
 import {
 	CalendarIcon,
 	ClockIcon,
 } from "@phosphor-icons/react";
+import SafeImage from "@/components/base/SafeImage";
 
 interface ArticleHeroProps {
 	category: string;
@@ -89,7 +89,7 @@ const ArticleHero = memo(function ArticleHero({
 			{/* Cover image — LCP element: eager + high priority + explicit dimensions */}
 			<div className="max-w-4xl mx-auto px-6 lg:px-8 mt-8">
 				<div className="w-full h-72 lg:h-96 rounded-2xl overflow-hidden bg-gray-100">
-					<img
+					<SafeImage
 						src={displayImage}
 						alt={title}
 						title={title}

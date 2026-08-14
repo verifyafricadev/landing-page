@@ -3,7 +3,7 @@ import { useDemoModal } from "../../hooks/useDemoModal";
 import Navbar from "@/pages/home/components/Navbar";
 import SupportHero from "./components/SupportHero";
 import SEOHead from "../../components/feature/SEOHead";
-import { DEFAULT_OG_IMAGE, SUPPORT_SEO } from "@/constants/seo";
+import { SUPPORT_SEO } from "@/constants/seo";
 import {
 	createBreadcrumbList,
 	createFaqSchema,
@@ -76,9 +76,11 @@ export default function SupportPage() {
 				twitterDescription={SUPPORT_SEO.twitterDescription}
 				keywords={SUPPORT_SEO.keywords}
 				canonical={SUPPORT_SEO.canonical}
+				image={SUPPORT_SEO.image}
+				imageWidth={SUPPORT_SEO.imageWidth}
+				imageHeight={SUPPORT_SEO.imageHeight}
 				imageAlt={SUPPORT_SEO.imageAlt}
 				schema={supportSchema}
-				{...DEFAULT_OG_IMAGE}
 			/>
 			<Navbar
 				onRequestDemo={openDemo}

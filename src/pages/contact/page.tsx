@@ -5,7 +5,7 @@ import ContactForm from "./components/ContactForm";
 import ContactInfo from "./components/ContactInfo";
 import Footer from "@/pages/home/components/Footer";
 import SEOHead from "../../components/feature/SEOHead";
-import { CONTACT_SEO, DEFAULT_OG_IMAGE } from "@/constants/seo";
+import { CONTACT_SEO } from "@/constants/seo";
 import {
 	createBreadcrumbList,
 	createWebPageSchema,
@@ -36,9 +36,11 @@ export default function ContactPage() {
 				twitterDescription={CONTACT_SEO.twitterDescription}
 				keywords={CONTACT_SEO.keywords}
 				canonical={CONTACT_SEO.canonical}
+				image={CONTACT_SEO.image}
+				imageWidth={CONTACT_SEO.imageWidth}
+				imageHeight={CONTACT_SEO.imageHeight}
 				imageAlt={CONTACT_SEO.imageAlt}
 				schema={contactSchema}
-				{...DEFAULT_OG_IMAGE}
 			/>
 			<Navbar
 				onRequestDemo={openDemo}

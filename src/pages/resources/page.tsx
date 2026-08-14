@@ -3,7 +3,7 @@ import { useDemoModal } from "../../hooks/useDemoModal";
 import Navbar from "@/pages/home/components/Navbar";
 import SEOHead from "../../components/feature/SEOHead";
 import BackToTop from "../../components/feature/BackToTop";
-import { DEFAULT_OG_IMAGE, RESOURCES_SEO } from "@/constants/seo";
+import { RESOURCES_SEO } from "@/constants/seo";
 import {
 	createBreadcrumbList,
 	createWebPageSchema,
@@ -520,9 +520,11 @@ export default function ResourcesPage() {
 				twitterDescription={RESOURCES_SEO.twitterDescription}
 				keywords={RESOURCES_SEO.keywords}
 				canonical={RESOURCES_SEO.canonical}
+				image={RESOURCES_SEO.image}
+				imageWidth={RESOURCES_SEO.imageWidth}
+				imageHeight={RESOURCES_SEO.imageHeight}
 				imageAlt={RESOURCES_SEO.imageAlt}
 				schema={resourcesSchema}
-				{...DEFAULT_OG_IMAGE}
 			/>
 			<Navbar
 				onRequestDemo={openDemo}

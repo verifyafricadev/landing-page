@@ -7,6 +7,30 @@ export const TWITTER_SITE = "@VerifyAfrica";
 
 export const BRAND_LOGO_PATH = "/assets/brand/meta-logo.svg";
 
+export const OG_IMAGE_URL =
+	"https://readdy.ai/api/search-image?query=Wide%20landscape%20social%20media%20card%20with%20dark%20navy%20teal%20gradient%20background%2C%20subtle%20abstract%20Africa%20continent%20silhouette%20in%20soft%20gold%20glow%20on%20the%20right%20side%2C%20minimal%20geometric%20tech%20patterns%20and%20glowing%20connection%20nodes%20scattered%20across%2C%20clean%20corporate%20fintech%20aesthetic%2C%20professional%20premium%20feel%2C%20no%20text%20no%20words%20no%20logos%20no%20letters&width=1200&height=630&seq=og-social-card-v5&orientation=landscape";
+
+export const OG_IMAGE_CASE_STUDIES =
+	"https://readdy.ai/api/search-image?query=Wide%20landscape%20social%20media%20card%20with%20dark%20navy%20teal%20gradient%20background%2C%20subtle%20abstract%20Africa%20continent%20silhouette%20in%20soft%20gold%20glow%20on%20the%20right%20side%2C%20minimal%20geometric%20tech%20patterns%20and%20glowing%20connection%20nodes%20scattered%20across%2C%20clean%20corporate%20fintech%20aesthetic%2C%20professional%20premium%20feel%2C%20no%20text%20no%20words%20no%20logos%20no%20letters&width=1200&height=630&seq=og-social-card-v5&orientation=landscape";
+
+export const OG_IMAGE_FEATURES =
+	"https://readdy.ai/api/search-image?query=Wide%20landscape%20social%20media%20card%20with%20dark%20navy%20teal%20gradient%20background%2C%20subtle%20abstract%20Africa%20continent%20silhouette%20in%20soft%20gold%20glow%20on%20the%20right%20side%2C%20minimal%20geometric%20tech%20patterns%20and%20glowing%20connection%20nodes%20scattered%20across%2C%20clean%20corporate%20fintech%20aesthetic%2C%20professional%20premium%20feel%2C%20no%20text%20no%20words%20no%20logos%20no%20letters&width=1200&height=630&seq=og-social-card-v5&orientation=landscape";
+
+export const OG_IMAGE_ABOUT =
+	"https://readdy.ai/api/search-image?query=Wide%20landscape%20social%20media%20card%20with%20dark%20navy%20teal%20gradient%20background%2C%20subtle%20abstract%20Africa%20continent%20silhouette%20in%20soft%20gold%20glow%20on%20the%20right%20side%2C%20minimal%20geometric%20tech%20patterns%20and%20glowing%20connection%20nodes%20scattered%20across%2C%20clean%20corporate%20fintech%20aesthetic%2C%20professional%20premium%20feel%2C%20no%20text%20no%20words%20no%20logos%20no%20letters&width=1200&height=630&seq=og-social-card-v5&orientation=landscape";
+
+export const OG_IMAGE_BLOG =
+	"https://readdy.ai/api/search-image?query=Wide%20landscape%20social%20media%20card%20with%20dark%20navy%20teal%20gradient%20background%2C%20subtle%20abstract%20Africa%20continent%20silhouette%20in%20soft%20gold%20glow%20on%20the%20right%20side%2C%20minimal%20geometric%20tech%20patterns%20and%20glowing%20connection%20nodes%20scattered%20across%2C%20clean%20corporate%20fintech%20aesthetic%2C%20professional%20premium%20feel%2C%20no%20text%20no%20words%20no%20logos%20no%20letters&width=1200&height=630&seq=og-social-card-v5&orientation=landscape";
+
+export const OG_IMAGE_RESOURCES =
+	"https://readdy.ai/api/search-image?query=Wide%20landscape%20social%20media%20card%20with%20dark%20navy%20teal%20gradient%20background%2C%20subtle%20abstract%20Africa%20continent%20silhouette%20in%20soft%20gold%20glow%20on%20the%20right%20side%2C%20minimal%20geometric%20tech%20patterns%20and%20glowing%20connection%20nodes%20scattered%20across%2C%20clean%20corporate%20fintech%20aesthetic%2C%20professional%20premium%20feel%2C%20no%20text%20no%20words%20no%20logos%20no%20letters&width=1200&height=630&seq=og-social-card-v5&orientation=landscape";
+
+export const OG_IMAGE_CONTACT =
+	"https://readdy.ai/api/search-image?query=Wide%20landscape%20social%20media%20card%20with%20dark%20navy%20teal%20gradient%20background%2C%20subtle%20abstract%20Africa%20continent%20silhouette%20in%20soft%20gold%20glow%20on%20the%20right%20side%2C%20minimal%20geometric%20tech%20patterns%20and%20glowing%20connection%20nodes%20scattered%20across%2C%20clean%20corporate%20fintech%20aesthetic%2C%20professional%20premium%20feel%2C%20no%20text%20no%20words%20no%20logos%20no%20letters&width=1200&height=630&seq=og-social-card-v5&orientation=landscape";
+
+export const OG_IMAGE_SUPPORT =
+	"https://readdy.ai/api/search-image?query=Wide%20landscape%20social%20media%20card%20with%20dark%20navy%20teal%20gradient%20background%2C%20subtle%20abstract%20Africa%20continent%20silhouette%20in%20soft%20gold%20glow%20on%20the%20right%20side%2C%20minimal%20geometric%20tech%20patterns%20and%20glowing%20connection%20nodes%20scattered%20across%2C%20clean%20corporate%20fintech%20aesthetic%2C%20professional%20premium%20feel%2C%20no%20text%20no%20words%20no%20logos%20no%20letters&width=1200&height=630&seq=og-social-card-v5&orientation=landscape";
+
 export const BRAND_LOGO_URL = `${SITE_URL}${BRAND_LOGO_PATH}`;
 
 export const BRAND_LOGO_WIDTH = 439;
@@ -47,9 +71,9 @@ export const HOME_SEO = {
 
 /** Shared Open Graph / Twitter image props — brand logo on every page */
 export const DEFAULT_OG_IMAGE = {
-	image: BRAND_LOGO_PATH,
-	imageWidth: BRAND_LOGO_WIDTH,
-	imageHeight: BRAND_LOGO_HEIGHT,
+	image: OG_IMAGE_URL,
+	imageWidth: DEFAULT_OG_IMAGE_WIDTH,
+	imageHeight: DEFAULT_OG_IMAGE_HEIGHT,
 	twitterCard: "summary_large_image" as const,
 };
 
@@ -61,6 +85,9 @@ export const ABOUT_SEO = {
 		"Meet the team building Africa's most trusted KYC, AML, and identity verification infrastructure across 54 countries.",
 	twitterDescription:
 		"VerifyAfrica is building Africa's most trusted compliance infrastructure — AI-powered KYC, AML, and identity verification across all 54 countries.",
+	image: OG_IMAGE_ABOUT,
+	imageWidth: DEFAULT_OG_IMAGE_WIDTH,
+	imageHeight: DEFAULT_OG_IMAGE_HEIGHT,
 	imageAlt: "About VerifyAfrica – Our Mission, Team & Values",
 	keywords:
 		"about VerifyAfrica, KYC Africa team, compliance infrastructure Africa, identity verification mission",
@@ -75,6 +102,9 @@ export const CONTACT_SEO = {
 		"Request a demo or get support for VerifyAfrica's KYC and AML platform. Enterprise integration across all 54 African countries.",
 	twitterDescription:
 		"Get in touch with VerifyAfrica — request a demo, discuss enterprise KYC/AML integration, or reach our support team across Africa.",
+	image: OG_IMAGE_CONTACT,
+	imageWidth: DEFAULT_OG_IMAGE_WIDTH,
+	imageHeight: DEFAULT_OG_IMAGE_HEIGHT,
 	imageAlt: "Contact VerifyAfrica – Request a Demo or Get Support",
 	keywords:
 		"contact VerifyAfrica, request demo KYC Africa, compliance platform support, identity verification Africa contact",
@@ -89,6 +119,9 @@ export const CASE_STUDIES_SEO = {
 		"How Fintech, FX Brokers, iGaming, and marketplaces use VerifyAfrica for KYC and AML across 54 African countries.",
 	twitterDescription:
 		"Real-world KYC and AML use cases for Fintech, FX Brokers, iGaming, and marketplaces powered by VerifyAfrica across Africa.",
+	image: OG_IMAGE_CASE_STUDIES,
+	imageWidth: DEFAULT_OG_IMAGE_WIDTH,
+	imageHeight: DEFAULT_OG_IMAGE_HEIGHT,
 	imageAlt: "VerifyAfrica Case Studies & Use Cases – KYC & AML Across Africa",
 	keywords:
 		"KYC case studies Africa, AML use cases, identity verification Africa fintech, FX broker compliance Africa",
@@ -103,6 +136,9 @@ export const FEATURES_INDEX_SEO = {
 		"Identity verification, KYB, AML screening, biometrics, fraud detection, and ongoing monitoring — all in one platform for Africa.",
 	twitterDescription:
 		"Explore VerifyAfrica's full platform: KYC, KYB, AML screening, biometrics, fraud detection, and monitoring across 54 African countries.",
+	image: OG_IMAGE_FEATURES,
+	imageWidth: DEFAULT_OG_IMAGE_WIDTH,
+	imageHeight: DEFAULT_OG_IMAGE_HEIGHT,
 	imageAlt: "VerifyAfrica Platform Features – KYC, AML, Biometrics & KYB for Africa",
 	keywords:
 		"KYC features Africa, AML screening platform, identity verification API, biometrics Africa, KYB business verification, fraud detection Africa",
@@ -117,6 +153,9 @@ export const SUPPORT_SEO = {
 		"Submit support tickets and find documentation for VerifyAfrica's KYC and AML compliance platform.",
 	twitterDescription:
 		"VerifyAfrica support — help center, documentation, and ticket submission for KYC, AML, and identity verification.",
+	image: OG_IMAGE_SUPPORT,
+	imageWidth: DEFAULT_OG_IMAGE_WIDTH,
+	imageHeight: DEFAULT_OG_IMAGE_HEIGHT,
 	imageAlt: "VerifyAfrica Support – Help Center & Resources",
 	keywords:
 		"VerifyAfrica support, KYC platform help, AML compliance support, identity verification documentation",
@@ -131,6 +170,9 @@ export const RESOURCES_SEO = {
 		"Free KYC checklists, AML templates, and compliance playbooks for African fintech and financial services teams.",
 	twitterDescription:
 		"Free compliance resources for Africa — KYC checklists, AML templates, PEP guides, and playbooks from VerifyAfrica.",
+	image: OG_IMAGE_RESOURCES,
+	imageWidth: DEFAULT_OG_IMAGE_WIDTH,
+	imageHeight: DEFAULT_OG_IMAGE_HEIGHT,
 	imageAlt: "VerifyAfrica Free Compliance Resources & Guides",
 	keywords:
 		"KYC checklist Africa, AML template, PEP screening guide, compliance playbook, African fintech compliance",

@@ -8,6 +8,11 @@ import {
 	XIcon,
 } from "@phosphor-icons/react";
 
+const FORM_URL = "https://readdy.ai/api/form/d8t71i8b9jno5e72bi30";
+const SUPABASE_URL = import.meta.env.VITE_PUBLIC_SUPABASE_URL as string;
+const SUPABASE_ANON_KEY = import.meta.env.VITE_PUBLIC_SUPABASE_ANON_KEY as string;
+const NOTIFY_URL = `${SUPABASE_URL}/functions/v1/demo-request-email`;
+
 interface DemoRequestFormProps {
 	isOpen: boolean;
 	onClose: () => void;
@@ -19,9 +24,9 @@ export default function DemoRequestForm({
 }: DemoRequestFormProps) {
 	const [isSubmitting, setIsSubmitting] = useState(false);
 	const [isSubmitted, setIsSubmitted] = useState(false);
+	const [submitError, setSubmitError] = useState(false);
 	const [errors, setErrors] = useState<Record<string, string>>({});
 
-	// Fire once when the modal opens
 	useEffect(() => {
 		if (isOpen) {
 			document.body.style.overflow = "hidden";
@@ -109,61 +114,81 @@ export default function DemoRequestForm({
 		if (Object.keys(validationErrors).length > 0) return;
 
 		setIsSubmitting(true);
+		setSubmitError(false);
+
 		const formData = new FormData(form);
 
-		// Build email content
-		const firstName = formData.get("first_name") as string;
-		const lastName = formData.get("last_name") as string;
-		const email = formData.get("email") as string;
-		const company = formData.get("company") as string;
-		const companySize = formData.get("company_size") as string;
-		const industry = formData.get("industry") as string;
-		const phone = formData.get("phone") as string;
-		const message = formData.get("message") as string;
-
-		// Track successful submission before opening email client
-		track("demo_form_submitted", {
-			company_size: companySize,
-			industry: industry || "Not specified",
-			has_phone: Boolean(phone),
-		});
-
-		const subject = encodeURIComponent(
-			`Demo Request from ${firstName} ${lastName} - ${company}`,
-		);
-		const body = encodeURIComponent(
-			`New Demo Request
-
-Contact Information:
-- Name: ${firstName} ${lastName}
-- Email: ${email}
-- Phone: ${phone || "Not provided"}
-
-Company Details:
-- Company: ${company}
-- Company Size: ${companySize}
-- Industry: ${industry || "Not specified"}
-
-Message:
-${message || "No additional message provided"}
-
----
-This demo request was submitted via the VerifyAfrica website.`,
-		);
-
-		// Open email client
-		window.location.href = `mailto:sales@verifyafrica.io?subject=${subject}&body=${body}`;
-
-		setTimeout(() => {
+		// Honeypot check — if filled, pretend success but don't actually submit
+		const honeypotVal = (formData.get("website_alt") as string || "").trim();
+		if (honeypotVal) {
 			setIsSubmitting(false);
 			setIsSubmitted(true);
-		}, 500);
+			return;
+		}
+
+		// Build URL-encoded body
+		const params = new URLSearchParams();
+		formData.forEach((value, key) => {
+			if (key !== "website_alt") {
+				params.append(key, value as string);
+			}
+		});
+
+		try {
+			const response = await fetch(FORM_URL, {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/x-www-form-urlencoded",
+				},
+				body: params.toString(),
+			});
+
+			if (response.ok) {
+				const companySize = formData.get("company_size") as string;
+				const industry = formData.get("industry") as string;
+				track("demo_form_submitted", {
+					company_size: companySize,
+					industry: industry || "Not specified",
+				});
+
+				// Fire-and-forget: send email notification via Resend
+				fetch(NOTIFY_URL, {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+						"apikey": SUPABASE_ANON_KEY,
+						"Authorization": `Bearer ${SUPABASE_ANON_KEY}`,
+					},
+					body: JSON.stringify({
+						first_name: formData.get("first_name"),
+						last_name: formData.get("last_name"),
+						email: formData.get("email"),
+						company: formData.get("company"),
+						company_size: companySize,
+						industry: industry,
+						phone: formData.get("phone"),
+						message: formData.get("message"),
+					}),
+				}).catch(() => {
+					// Silently ignore — email notification failure shouldn't block the user flow
+				});
+
+				setIsSubmitted(true);
+			} else {
+				setSubmitError(true);
+			}
+		} catch {
+			setSubmitError(true);
+		} finally {
+			setIsSubmitting(false);
+		}
 	};
 
 	const handleClose = () => {
 		onClose();
 		setTimeout(() => {
 			setIsSubmitted(false);
+			setSubmitError(false);
 			setErrors({});
 		}, 300);
 	};
@@ -236,6 +261,16 @@ This demo request was submitted via the VerifyAfrica website.`,
 								onSubmit={handleSubmit}
 								className="space-y-4"
 							>
+								{/* Honeypot — hidden from users, catches bots */}
+								<input
+									type="text"
+									name="website_alt"
+									tabIndex={-1}
+									autoComplete="off"
+									aria-hidden="true"
+									className="demo-hp-field"
+								/>
+
 								{/* Name Row */}
 								<div className="grid grid-cols-2 gap-4">
 									<div>
@@ -425,6 +460,15 @@ This demo request was submitted via the VerifyAfrica website.`,
 									)}
 								</div>
 
+								{/* Submit Error */}
+								{submitError && (
+									<div className="p-3 bg-red-50 border border-red-200 rounded-lg">
+										<p className="text-sm text-red-700">
+											Something went wrong. Please try again or email us directly at sales@verifyafrica.io.
+										</p>
+									</div>
+								)}
+
 								{/* Submit */}
 								<button
 									type="submit"
@@ -479,6 +523,14 @@ This demo request was submitted via the VerifyAfrica website.`,
         }
         .animate-fadeIn {
           animation: fadeIn 0.3s ease-out forwards;
+        }
+        .demo-hp-field {
+          position: absolute;
+          left: -9999px;
+          opacity: 0;
+          height: 0;
+          width: 0;
+          overflow: hidden;
         }
       `}</style>
 		</div>

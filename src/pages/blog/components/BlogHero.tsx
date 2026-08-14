@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useScrollAnimation } from "../../../hooks/useScrollAnimation";
 import { blogArticles } from "../../../mocks/blogArticles";
+import SafeImage from "@/components/base/SafeImage";
 import {
 	ClockIcon,
 } from "@phosphor-icons/react";
@@ -60,8 +61,8 @@ export default function BlogHero() {
 						>
 							<div className="grid lg:grid-cols-2">
 								{/* bg-gray-100 = placeholder colour while image loads */}
-								<div className="relative w-full h-64 lg:h-80 overflow-hidden bg-gray-100">
-									<img
+								<div className="relative w-full h-full overflow-hidden bg-gray-100">
+									<SafeImage
 										src={featured.image}
 										alt={featured.title}
 										title={featured.title}

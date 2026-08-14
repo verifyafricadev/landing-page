@@ -3,7 +3,7 @@ import { useDemoModal } from "../../hooks/useDemoModal";
 import Navbar from "@/pages/home/components/Navbar";
 import AboutHero from "./components/AboutHero";
 import SEOHead from "../../components/feature/SEOHead";
-import { ABOUT_SEO, DEFAULT_OG_IMAGE } from "@/constants/seo";
+import { ABOUT_SEO } from "@/constants/seo";
 import {
 	createBreadcrumbList,
 	createWebPageSchema,
@@ -40,9 +40,11 @@ export default function AboutPage() {
 				twitterDescription={ABOUT_SEO.twitterDescription}
 				keywords={ABOUT_SEO.keywords}
 				canonical={ABOUT_SEO.canonical}
+				image={ABOUT_SEO.image}
+				imageWidth={ABOUT_SEO.imageWidth}
+				imageHeight={ABOUT_SEO.imageHeight}
 				imageAlt={ABOUT_SEO.imageAlt}
 				schema={aboutSchema}
-				{...DEFAULT_OG_IMAGE}
 			/>
 			<Navbar
 				onRequestDemo={openDemo}
