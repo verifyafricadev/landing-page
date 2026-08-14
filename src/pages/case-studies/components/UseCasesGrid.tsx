@@ -102,19 +102,23 @@ export default function UseCasesGrid({ onRequestDemo }: UseCasesGridProps) {
 				</div> */}
 
 				{filteredUseCases.length > 0 ? (
-					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+					<div className="flex flex-wrap justify-center gap-6">
 						{filteredUseCases.map((useCase) => (
-							<UseCaseCard
+							<div
 								key={useCase.id}
-								category={useCase.category}
-								icon={useCase.icon}
-								color={useCase.color}
-								description={useCase.description}
-								useCases={useCase.useCases}
-								benefits={useCase.benefits}
-								image={useCase.image}
-								onClick={() => handleCardClick(useCase)}
-							/>
+								className="w-full md:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-4.5rem)/4)]"
+							>
+								<UseCaseCard
+									category={useCase.category}
+									icon={useCase.icon}
+									color={useCase.color}
+									description={useCase.description}
+									useCases={useCase.useCases}
+									benefits={useCase.benefits}
+									image={useCase.image}
+									onClick={() => handleCardClick(useCase)}
+								/>
+							</div>
 						))}
 					</div>
 				) : (
